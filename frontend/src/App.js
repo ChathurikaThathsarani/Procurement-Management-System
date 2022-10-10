@@ -5,7 +5,9 @@ import React from "react";
 const App = () => {
   return (
     <BrowserRouter>
-      <main></main>
+      <main>
+        <Route></Route>
+      </main>
     </BrowserRouter>
   );
 };
