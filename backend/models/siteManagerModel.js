@@ -1,11 +1,10 @@
 const mongoose = require("mongoose");
-import { nanoid } from 'nanoid';
 
 const siteManagerSchema = mongoose.Schema(
 	{
         siteManagerId: {
 			type: String,
-            default: () => nanoid(),
+			required: true,
 		},
 		name: {
 			type: String,
@@ -20,15 +19,16 @@ const siteManagerSchema = mongoose.Schema(
 			type: String,
 			required: true,
 		},
-        gender: {
-			type: String,
-			required: true,
-		},
 		nic: {
 			type: String,
 			required: true,
 			unique: true,
 		},
+        gender: {
+			type: String,
+			required: true,
+		},
+		
 		telephone: {
 			type: String,
 			required: true,
