@@ -1,11 +1,10 @@
 const mongoose = require("mongoose");
-import { nanoid } from 'nanoid';
 
 const staffSchema = mongoose.Schema(
 	{
-        staffId: {
+		staffId: {
 			type: String,
-            default: () => nanoid(),
+			required: true,
 		},
 		name: {
 			type: String,
@@ -46,11 +45,11 @@ const staffSchema = mongoose.Schema(
 			required: true,
 			default: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
 		},
-        qualifications: {
+		qualifications: {
 			type: String,
 			required: true,
 		},
-        experience: {
+		experience: {
 			type: String,
 			required: true,
 		},
