@@ -16,7 +16,7 @@ const registerStaff = asyncHandler(async (req, res) => {
 	}
 
 	const staff = new Staff({
-        staffId,
+		staffId,
 		name,
 		dob,
 		nic,
@@ -25,8 +25,8 @@ const registerStaff = asyncHandler(async (req, res) => {
 		email,
 		password,
 		pic,
-        qualifications, 
-        experience
+		qualifications,
+		experience,
 	});
 
 	const salt = await bcrypt.genSalt(10);
@@ -38,7 +38,7 @@ const registerStaff = asyncHandler(async (req, res) => {
 	if (staff) {
 		res.status(201).json({
 			_id: staff._id,
-            staffId: staff.staffId,
+			staffId: staff.staffId,
 			name: staff.name,
 			isAdmin: staff.isAdmin,
 			dob: staff.dob,
@@ -47,8 +47,8 @@ const registerStaff = asyncHandler(async (req, res) => {
 			address: staff.address,
 			email: staff.email,
 			pic: staff.pic,
-            qualifications : staff.qualifications, 
-            experience: staff.qualifications,
+			qualifications: staff.qualifications,
+			experience: staff.qualifications,
 			token: generateToken(staff._id),
 		});
 	} else {
@@ -75,7 +75,7 @@ const authStaff = asyncHandler(async (req, res) => {
 	} else {
 		res.status(201).json({
 			_id: staff._id,
-            staffId: staff.staffId,
+			staffId: staff.staffId,
 			name: staff.name,
 			isAdmin: staff.isAdmin,
 			dob: staff.dob,
@@ -84,8 +84,8 @@ const authStaff = asyncHandler(async (req, res) => {
 			address: staff.address,
 			email: staff.email,
 			pic: staff.pic,
-            qualifications : staff.qualifications, 
-            experience: staff.qualifications,
+			qualifications: staff.qualifications,
+			experience: staff.qualifications,
 			token: generateToken(staff._id),
 		});
 	}
@@ -106,7 +106,7 @@ const updateStaffProfile = asyncHandler(async (req, res) => {
 	const staff = await Staff.findById(req.staff._id);
 
 	if (staff) {
-        staff.staffId = req.body.staffId || staff.staffId;
+		staff.staffId = req.body.staffId || staff.staffId;
 		staff.name = req.body.name || staff.name;
 		staff.dob = req.body.dob || staff.dob;
 		staff.nic = req.body.nic || staff.nic;
@@ -114,8 +114,8 @@ const updateStaffProfile = asyncHandler(async (req, res) => {
 		staff.address = req.body.address || staff.address;
 		staff.email = req.body.email || staff.email;
 		staff.pic = req.body.pic || staff.pic;
-        staff.qualifications = req.body.qualifications || staff.qualifications; 
-        staff.experience = req.body.experience || staff.qualifications;
+		staff.qualifications = req.body.qualifications || staff.qualifications;
+		staff.experience = req.body.experience || staff.qualifications;
 		if (req.body.password) {
 			const salt = await bcrypt.genSalt(10);
 			staff.password = await bcrypt.hash(req.body.password, salt);
@@ -124,7 +124,7 @@ const updateStaffProfile = asyncHandler(async (req, res) => {
 
 		res.json({
 			_id: updatedStaff._id,
-			staffId:updatedStaff.staffId,
+			staffId: updatedStaff.staffId,
 			name: updatedStaff.name,
 			isStaff: updatedStaff.isStaff,
 			dob: updatedStaff.dob,

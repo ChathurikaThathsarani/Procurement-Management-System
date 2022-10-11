@@ -14,7 +14,7 @@ const registerSiteManager = asyncHandler(async (req, res) => {
 	}
 
 	const siteManager = new SiteManager({
-        siteManagerId,
+		siteManagerId,
 		name,
 		dob,
 		nic,
@@ -36,7 +36,7 @@ const registerSiteManager = asyncHandler(async (req, res) => {
 	if (siteManager) {
 		res.status(201).json({
 			_id: siteManager._id,
-            siteManagerId: siteManager.siteManagerId,
+			siteManagerId: siteManager.siteManagerId,
 			name: siteManager.name,
 			dob: siteManager.dob,
 			nic: siteManager.nic,
@@ -72,7 +72,7 @@ const authSiteManager = asyncHandler(async (req, res) => {
 	} else {
 		res.status(201).json({
 			_id: siteManager._id,
-            siteManagerId: siteManager.siteManagerId,
+			siteManagerId: siteManager.siteManagerId,
 			name: siteManager.name,
 			dob: siteManager.dob,
 			nic: siteManager.nic,
@@ -220,7 +220,9 @@ const deleteSiteManagerProfileById = asyncHandler(async (req, res) => {
 
 module.exports = {
 	registerSiteManager,
-	authSiteManager,getSiteManagers,getSiteManagerProfile,
+	authSiteManager,
+	getSiteManagers,
+	getSiteManagerProfile,
 	getSiteManagerProfileById,
 	updateSiteManagerProfile,
 	updateSiteManagerProfileById,

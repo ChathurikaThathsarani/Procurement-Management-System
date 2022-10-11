@@ -1,5 +1,11 @@
 const express = require("express");
-const { registerSiteManager, authSiteManager, getSiteManagerProfile, updateSiteManagerProfile, deleteSiteManagerProfile } = require("../controllers/siteManagerController");
+const {
+	registerSiteManager,
+	authSiteManager,
+	getSiteManagerProfile,
+	updateSiteManagerProfile,
+	deleteSiteManagerProfile,
+} = require("../controllers/siteManagerController");
 const { protect } = require("../middleware/authSiteManagerMiddleware");
 const router = express.Router();
 

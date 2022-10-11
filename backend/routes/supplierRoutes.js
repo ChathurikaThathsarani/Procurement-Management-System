@@ -1,5 +1,11 @@
 const express = require("express");
-const { registerSupplier, authSupplier, getSupplierProfile, updateSupplierProfile, deleteSupplierProfile } = require("../controllers/supplierController");
+const {
+	registerSupplier,
+	authSupplier,
+	getSupplierProfile,
+	updateSupplierProfile,
+	deleteSupplierProfile,
+} = require("../controllers/supplierController");
 const { protect } = require("../middleware/authSupplierMiddleware");
 const router = express.Router();
 

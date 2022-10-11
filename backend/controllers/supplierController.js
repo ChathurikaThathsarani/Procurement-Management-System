@@ -6,7 +6,20 @@ const generateToken = require("../utils/generateToken");
 const bcrypt = require("bcryptjs");
 
 const registerSupplier = asyncHandler(async (req, res) => {
-	const { supplierId, ownerName, dob, nic, gender, telephone, companyName, companyAddress, email, password, pic, suppliyingMaterials } = req.body;
+	const {
+		supplierId,
+		ownerName,
+		dob,
+		nic,
+		gender,
+		telephone,
+		companyName,
+		companyAddress,
+		email,
+		password,
+		pic,
+		suppliyingMaterials,
+	} = req.body;
 
 	const supplierExists = await Supplier.findOne({ nic });
 	if (supplierExists) {
@@ -15,13 +28,13 @@ const registerSupplier = asyncHandler(async (req, res) => {
 	}
 
 	const supplier = new Supplier({
-        supplierId,
+		supplierId,
 		ownerName,
 		dob,
 		nic,
 		gender,
 		telephone,
-        companyName,
+		companyName,
 		companyAddress,
 		email,
 		password,
@@ -43,7 +56,7 @@ const registerSupplier = asyncHandler(async (req, res) => {
 			nic: supplier.nic,
 			gender: supplier.gender,
 			telephone: supplier.telephone,
-            companyName: supplier.companyName,
+			companyName: supplier.companyName,
 			companyAddress: supplier.companyAddress,
 			email: supplier.email,
 			pic: supplier.pic,
@@ -74,13 +87,13 @@ const authSupplier = asyncHandler(async (req, res) => {
 	} else {
 		res.status(201).json({
 			_id: supplier._id,
-            supplierId: supplier.supplierId,
+			supplierId: supplier.supplierId,
 			ownerName: supplier.ownerName,
 			dob: supplier.dob,
 			nic: supplier.nic,
 			gender: supplier.gender,
 			telephone: supplier.telephone,
-            companyName: supplier.companyName,
+			companyName: supplier.companyName,
 			companyAddress: supplier.companyAddress,
 			email: supplier.email,
 			pic: supplier.pic,
@@ -121,13 +134,13 @@ const updateSupplierProfile = asyncHandler(async (req, res) => {
 	const supplier = await Supplier.findById(req.supplier._id);
 
 	if (supplier) {
-        supplier.supplierId = req.body.supplierId || supplier.supplierId;
+		supplier.supplierId = req.body.supplierId || supplier.supplierId;
 		supplier.ownerName = req.body.ownerName || supplier.ownerName;
 		supplier.dob = req.body.dob || supplier.dob;
 		supplier.nic = req.body.nic || supplier.nic;
 		supplier.gender = req.body.gender || supplier.gender;
 		supplier.telephone = req.body.telephone || supplier.telephone;
-        supplier.companyName = req.body.companyName || supplier.companyName;
+		supplier.companyName = req.body.companyName || supplier.companyName;
 		supplier.companyAddress = req.body.companyAddress || supplier.companyAddress;
 		supplier.email = req.body.email || supplier.email;
 		supplier.pic = req.body.pic || supplier.pic;
@@ -140,13 +153,13 @@ const updateSupplierProfile = asyncHandler(async (req, res) => {
 
 		res.json({
 			_id: updatedSupplier._id,
-            supplierId: updatedSupplier.supplierId,
+			supplierId: updatedSupplier.supplierId,
 			ownerName: updatedSupplier.ownerName,
 			dob: updatedSupplier.dob,
 			nic: updatedSupplier.nic,
 			gender: updatedSupplier.gender,
 			telephone: updatedSupplier.telephone,
-            companyName: updatedSupplier.companyName,
+			companyName: updatedSupplier.companyName,
 			companyAddress: updatedSupplier.companyAddress,
 			email: updatedSupplier.email,
 			pic: updatedSupplier.pic,
@@ -163,13 +176,13 @@ const updateSupplierProfileById = asyncHandler(async (req, res) => {
 	const supplier = await Supplier.findById(req.params._id);
 
 	if (supplier) {
-        supplier.supplierId = req.body.supplierId || supplier.supplierId;
+		supplier.supplierId = req.body.supplierId || supplier.supplierId;
 		supplier.ownerName = req.body.ownerName || supplier.ownerName;
 		supplier.dob = req.body.dob || supplier.dob;
 		supplier.nic = req.body.nic || supplier.nic;
 		supplier.gender = req.body.gender || supplier.gender;
 		supplier.telephone = req.body.telephone || supplier.telephone;
-        supplier.companyName = req.body.companyName || supplier.companyName;
+		supplier.companyName = req.body.companyName || supplier.companyName;
 		supplier.companyAddress = req.body.companyAddress || supplier.companyAddress;
 		supplier.email = req.body.email || supplier.email;
 		supplier.pic = req.body.pic || supplier.pic;
@@ -182,13 +195,13 @@ const updateSupplierProfileById = asyncHandler(async (req, res) => {
 
 		res.json({
 			_id: updatedSupplier._id,
-            supplierId: updatedSupplier.supplierId,
+			supplierId: updatedSupplier.supplierId,
 			ownerName: updatedSupplier.ownerName,
 			dob: updatedSupplier.dob,
 			nic: updatedSupplier.nic,
 			gender: updatedSupplier.gender,
 			telephone: updatedSupplier.telephone,
-            companyName: updatedSupplier.companyName,
+			companyName: updatedSupplier.companyName,
 			companyAddress: updatedSupplier.companyAddress,
 			email: updatedSupplier.email,
 			pic: updatedSupplier.pic,

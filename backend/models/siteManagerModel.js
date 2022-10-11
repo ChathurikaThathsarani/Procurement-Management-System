@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const siteManagerSchema = mongoose.Schema(
 	{
-        siteManagerId: {
+		siteManagerId: {
 			type: String,
 			required: true,
 		},
@@ -24,11 +24,11 @@ const siteManagerSchema = mongoose.Schema(
 			required: true,
 			unique: true,
 		},
-        gender: {
+		gender: {
 			type: String,
 			required: true,
 		},
-		
+
 		telephone: {
 			type: String,
 			required: true,
@@ -50,7 +50,7 @@ const siteManagerSchema = mongoose.Schema(
 			required: true,
 			default: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
 		},
-        experience: {
+		experience: {
 			type: String,
 			required: true,
 		},
