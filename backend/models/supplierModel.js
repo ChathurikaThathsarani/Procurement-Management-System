@@ -1,11 +1,10 @@
 const mongoose = require("mongoose");
-import { nanoid } from 'nanoid';
 
 const supplierSchema = mongoose.Schema(
 	{
-        supplierId: {
+		supplierId: {
 			type: String,
-            default: () => nanoid(),
+			required: true,
 		},
 		ownerName: {
 			type: String,
@@ -20,20 +19,20 @@ const supplierSchema = mongoose.Schema(
 			type: String,
 			required: true,
 		},
-        gender: {
-			type: String,
-			required: true,
-		},
 		nic: {
 			type: String,
 			required: true,
 			unique: true,
 		},
+		gender: {
+			type: String,
+			required: true,
+		},
 		telephone: {
 			type: String,
 			required: true,
 		},
-        companyName: {
+		companyName: {
 			type: String,
 			required: true,
 		},
@@ -54,7 +53,7 @@ const supplierSchema = mongoose.Schema(
 			required: true,
 			default: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
 		},
-        suppliyingMaterials: {
+		suppliyingMaterials: {
 			type: String,
 			required: true,
 		},
