@@ -12,7 +12,7 @@ router.route("/login").post(authStaff);
 router.route("/view").get(protect, getStaffProfile);
 router.route("/edit").put(protect, updateStaffProfile);
 
-router.route("/site/create").post(createSite);
+router.route("/site/create").post(protect, createSite);
 
 router.route("/good-receipt/create").post(protect, createGoodReceipt);
 router.route("/good-receipts").get(protect, getReceipts);
@@ -20,7 +20,7 @@ router.route("/good-receipts").get(protect, getReceipts);
 router.route("/invoice/create").post(protect, createInvoice);
 router.route("/invoices").get(protect, getInvoices);
 
-router.route("/placed-orders").get(receiptForOrders);
-router.route("/order/:id").get(getOneOrder);
+router.route("/placed-orders").get(protect, receiptForOrders);
+router.route("/order/:id").get(protect, getOneOrder);
 
 module.exports = router;
