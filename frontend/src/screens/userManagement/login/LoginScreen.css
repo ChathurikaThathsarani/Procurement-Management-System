@@ -1,0 +1,23 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+.siteManagerLoginBg {
+  background: url("https://getwallpapers.com/wallpaper/full/f/3/0/745633-download-free-construction-wallpapers-1920x1080-for-samsung-galaxy.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.supplierLoginBg {
+  background: url("https://libreshot.com/wp-content/uploads/2015/07/worker.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.staffLoginBg {
+  background: url("http://www.luxuryhousingtrends.com/wp-content/uploads/2018/03/COnstruction-Site.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
