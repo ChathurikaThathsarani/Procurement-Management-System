@@ -22,9 +22,9 @@ function Footer() {
                   <br></br>
                   <a href="/aboutus">ABOUT US</a>
                   <br></br>
-                  <a href="/">Projects</a>
+                  <a href="/">PROJECTS</a>
                   <br></br>
-                  <a href="/bmi-calculator">Join Our Team</a>
+                  <a href="/bmi-calculator">JOIN OUR TEAM</a>
                 </li>
               </div>
               {/* Column3 */}
