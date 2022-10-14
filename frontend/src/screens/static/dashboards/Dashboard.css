@@ -1,0 +1,60 @@
+.siteManagerBackground {
+  background: url("https://miro.medium.com/max/2508/1*bmpAh27oDMWSYh_WNCHhag.jpeg");
+  background-position: center;
+  background-size: cover;
+}
+.supplierBackground {
+  background: url("https://sbskills.co.uk/wp-content/uploads/2020/02/l6-construction-site-management-2048x1174.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.staffBackground {
+  background: url("https://www.kiwiconstruction.com/userFiles/gallery/Slide-StructuralSteel02.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.title {
+  font-size: 95px;
+}
+.subtitle {
+  font-size: 25px;
+  padding-top: 10px;
+}
+.intro-text {
+  width: 100%;
+  text-align: center;
+}
+.main {
+  min-height: 93vh;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+}
+
+.buttonContainer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.landingbutton {
+  width: 350px;
+  height: 75px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .buttonContainer {
+    padding: 0 200px;
+  }
+  .title {
+    padding: 0 100px;
+  }
+}
+.denied {
+  background: url("https://res.cloudinary.com/bytesquad202202/image/upload/v1660761809/images/accessDenied_zhvugi.jpg");
+  background-position: center;
+  background-size: cover;
+}
