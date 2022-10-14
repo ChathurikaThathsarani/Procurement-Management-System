@@ -1,0 +1,96 @@
+header.masthead {
+  padding-top: 40rem;
+  padding-bottom: 12.5rem;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("https://www.offdutyofficers.com/wp-content/uploads/2021/07/constructionSite.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}
+
+header.masthead .masthead-subheading {
+  font-size: 3rem;
+  font-style: italic;
+  line-height: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 4rem;
+  margin-top: 1rem;
+}
+
+header.masthead .masthead-heading {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 4.5rem;
+  margin-bottom: 4rem;
+}
+
+#services {
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+
+#services .text-center h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+#services .text-center h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.green-color {
+  color: #4ee44e;
+}
+
+.my-3 {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+.text-muted {
+  font-size: 1.25rem;
+}
+
+#workout .workout-item .workout-caption .workout-caption-heading {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0;
+  margin-left: 130px;
+}
+
+.page-section h2.section-heading,
+.page-section .section-heading.h2 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.page-section h3.section-subheading,
+.page-section .section-subheading.h3 {
+  margin-bottom: 4rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: italic;
+}
+.img-fluid {
+  border-radius: 20px;
+}
+
+#workout {
+  background-color: #f9f9f9;
+  margin-bottom: 4rem;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+#team {
+  position: center;
+  margin-left: 180px;
+  margin-bottom: 4rem;
+}
