@@ -1,10 +1,67 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { siteMangerLoginReducer } from "./reducers/siteManagerReducer";
+import { supplierLoginReducer } from "./reducers/supplierReducer";
+import { staffLoginReducer } from "./reducers/staffReducer";
+import {
+  draftOrderCreateReducer,
+  draftOrderListReducer,
+  draftOrderDeleteReducer,
+  draftOrderToPendingOrderReducer,
+  OrderListReducer,
+  orderToApproveReducer,
+  supplierOrderListReducer,
+  orderToPlacedReducer,
+  placedOrderListReducer,
+} from "./reducers/orderReducer";
 
-const reducer = combineReducers({});
+import {
+  goodReceiptListReducer,
+  goodReceiptCreateReducer,
+} from "./reducers/goodReceiptReducer";
 
-const initialState = {};
+import {
+  invoiceListReducer,
+  invoiceCreateReducer,
+} from "./reducers/invoiceReducer";
+
+const reducer = combineReducers({
+  siteManager_Login: siteMangerLoginReducer,
+  supplier_Login: supplierLoginReducer,
+  staff_Login: staffLoginReducer,
+  draftOrderCreate: draftOrderCreateReducer,
+  draftOrderList: draftOrderListReducer,
+  draftOrderDelete: draftOrderDeleteReducer,
+  draftOrderToPending: draftOrderToPendingOrderReducer,
+  orderList: OrderListReducer,
+  orderToApprove: orderToApproveReducer,
+  supplier_Orders: supplierOrderListReducer,
+  orderToPlaced: orderToPlacedReducer,
+  placedOrderList: placedOrderListReducer,
+  goodReceiptCreate: goodReceiptCreateReducer,
+  goodReceiptList: goodReceiptListReducer,
+  invoiceCreate: invoiceCreateReducer,
+  invoiceList: invoiceListReducer,
+});
+
+const siteManagerInfoFromStorage = localStorage.getItem("siteManagerInfo")
+  ? JSON.parse(localStorage.getItem("siteManagerInfo"))
+  : null;
+
+const supplierInfoFromStorage = localStorage.getItem("supplierInfo")
+  ? JSON.parse(localStorage.getItem("supplierInfo"))
+  : null;
+
+const staffInfoFromStorage = localStorage.getItem("staffInfo")
+  ? JSON.parse(localStorage.getItem("staffInfo"))
+  : null;
+
+const initialState = {
+  siteManager_Login: { siteManagerInfo: siteManagerInfoFromStorage },
+  supplier_Login: { supplierInfo: supplierInfoFromStorage },
+  staff_Login: { staffInfo: staffInfoFromStorage },
+};
 
 const middleware = [thunk];
 
