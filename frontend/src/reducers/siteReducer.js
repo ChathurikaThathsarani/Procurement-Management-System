@@ -14,15 +14,15 @@ import {
 } from "../constants/siteConstants";
 
 export const SiteListReducer = (
-  state = { workoutSchedules: [] },
+  state = { sites: [] },
   action
 ) => {
   switch (action.type) {
-    case WORKOUT_SCHEDULE_LIST_REQUEST:
+    case SITE_LIST_REQUEST:
       return { loading: true };
-    case WORKOUT_SCHEDULE_LIST_SUCCESS:
-      return { loading: false, workoutSchedules: action.payload };
-    case WORKOUT_SCHEDULE_LIST_FAIL:
+    case SITE_LIST_SUCCESS:
+      return { loading: false, sites: action.payload };
+    case SITE_LIST_FAIL:
       return { loading: false, error: action.payload };
 
     default:
@@ -46,9 +46,9 @@ export const SiteUpdateReducer = (state = {}, action) => {
   switch (action.type) {
     case SITE_UPDATE_REQUEST:
       return { loading: true };
-    case WORKOUT_SCHEDULE_UPDATE_SUCCESS:
+    case SITE_UPDATE_SUCCESS:
       return { loading: false, success: true };
-    case WORKOUT_SCHEDULE_UPDATE_FAIL:
+    case SITE_UPDATE_FAIL:
       return { loading: false, error: action.payload, success: false };
 
     default:
