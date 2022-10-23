@@ -172,6 +172,37 @@ const receiptForOrders = asyncHandler(async (req, res) => {
 	res.json(orders);
 });
 
+
+// list view more than 100 000 staff view
+
+// const OrderToPending = asyncHandler(async (req, res) => {
+// 	const { productName, productQty } = req.body;
+
+// 	const order = await Order.findById(req.params.id);
+// 	const orderNo = "ref" + order._id;
+// 	const product = await Product.findOne({ productName: productName });
+// 	const price = product.productPrice;
+// 	const totalPrice = price * productQty;
+
+// 	if (order) {
+// 		order.orderNo = orderNo;
+// 		order.productName = productName;
+// 		order.productQty = productQty;
+// 		order.status = "Pending";
+// 		order.totalPrice = totalPrice;
+
+// 		const pendingOrder = await order.save();
+// 		res.json(pendingOrder);
+// 	} else {
+// 		res.status(404);
+// 		throw new Error("Draft Order not found");
+// 	}
+// });
+
+
+
+//edit for approve staff
+//also view
 module.exports = {
 	createOrder,
 	getSuppliers,

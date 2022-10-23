@@ -1,1 +1,6 @@
 Put the actions
+
+
+siteManager = 123
+supplier = 456
+staff = 789
