@@ -21,26 +21,25 @@ export default function SiteUpdate({ match, history }) {
   const staff_Login = useSelector((state) => state.staff_Login);
   const { staffInfo } = staff_Login;
 
-  const Site_Management_Update = useSelector(
-    (state) => state.Site_Management_Update
+  const site_Management_Update = useSelector(
+    (state) => state.site_Management_Update
   );
-  const { loading, error } = Site_Management_Update;
+  const { loading, error } = site_Management_Update;
 
   useEffect(() => {
     const fetching = async () => {
       const { data } = await axios.get(
-        `/user/staff/order/${match.params.id}`,
+        `/user/staff/site/get/${match.params.id}`,
         {
           headers: authHeader(),
-        }
-      );
+        });
       console.log(data);
       setSiteId(data.siteId);
       setSiteName(data.siteName);
-     setSiteAddress(data.siteAddress);
-     setSiteContactNumber(data.siteContactNumber);
-    setBudget(data.budget);
-    setSiteManager(data.siteManager);
+      setSiteAddress(data.siteAddress);
+      setSiteContactNumber(data.siteContactNumber);
+      setBudget(data.budget);
+      setSiteManager(data.siteManager);
     };
 
    	fetching();
@@ -81,9 +80,7 @@ export default function SiteUpdate({ match, history }) {
               border: "1px solid white",
               height: 40,
             }}
-            href="/"
-          >
-            {" "}
+            href="/site-management-view">
             Back to Site List
           </Button>
           <br></br>
@@ -106,112 +103,55 @@ export default function SiteUpdate({ match, history }) {
                 {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
 
                 <Form.Group controlId="siteId">
-                  <Form.Label
-                    style={{
-                      fontSize: 20,
-                    }}
-                  >
-                    siteId
-                  </Form.Label>
+                  <Form.Label>Site ID</Form.Label>
                   <Form.Control
-                    style={{
-                      height: 40,
-                      fontSize: 18,
-                    }}
                     type="siteId"
                     value={siteId}
+                    onChange={(e) => setSiteId(e.target.value)}
                   />
                 </Form.Group>
 
                 <Form.Group controlId="sitename">
-                  <Form.Label
-                    style={{
-                      fontSize: 20,
-                    }}
-                  >
-                    Site Name
-                  </Form.Label>
+                  <Form.Label> Site Name</Form.Label>
                   <Form.Control
-                    style={{
-                      height: 40,
-                      fontSize: 18,
-                    }}
                     type="sitename"
                     value={siteName}
+                    onChange={(e) => setSiteName(e.target.value)}
                   />
                 </Form.Group>
 
                 <Form.Group controlId="SiteAddress">
-                  <Form.Label
-                    style={{
-                      fontSize: 20,
-                    }}
-                  >
-                    SiteAddress
-                  </Form.Label>
+                  <Form.Label>Site Address</Form.Label>
                   <Form.Control
-                    style={{
-                      height: 40,
-                      fontSize: 18,
-                    }}
-                    required
+                    type="sitename"
                     value={siteAddress}
+                    onChange={(e) => setSiteAddress(e.target.value)}
                   />
                 </Form.Group>
 
-                <Form.Group controlId="placedDate">
-                  <Form.Label
-                    style={{
-                      fontSize: 20,
-                    }}
-                  >
-                    siteContactNumber
-                  </Form.Label>
+                <Form.Group controlId="siteContactNumber">
+                  <Form.Label>Site Contact Number</Form.Label>
                   <Form.Control
-                    style={{
-                      height: 40,
-                      fontSize: 18,
-                    }}
                     type="siteContactNumber"
-                    required
                     value={siteContactNumber}
+                    onChange={(e) => setSiteContactNumber(e.target.value)}
                   />
                 </Form.Group>
-                <Form.Group controlId="requiredDate">
-                  <Form.Label
-                    style={{
-                      fontSize: 20,
-                    }}
-                  >
-                    Budget
-                  </Form.Label>
+                <Form.Group controlId="budget">
+                  <Form.Label>Budget</Form.Label>
                   <Form.Control
-                    style={{
-                      height: 40,
-                      fontSize: 18,
-                    }}
                     type="budget"
-                    required
                     value={budget}
+                    onChange={(e) => setBudget(e.target.value)}
                   />
                 </Form.Group>
 
                 <Form.Group controlId="siteManager">
-                  <Form.Label
-                    style={{
-                      fontSize: 20,
-                    }}
-                  >
-                    siteManager
-                  </Form.Label>
+                  <Form.Label>Site Manager</Form.Label>
                   <Form.Control
-                    style={{
-                      height: 40,
-                      fontSize: 18,
-                    }}
                     type="siteManager"
-                    required
                     value={siteManager}
+                    onChange={(e) => setSiteManager(e.target.value)}
                   />
                 </Form.Group>
 

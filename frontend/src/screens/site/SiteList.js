@@ -210,22 +210,21 @@ export default function SiteList() {
                         >
                           {siteManagements.siteManager}
                         </td>
-                        <td
-                          style={{
-                            fontSize: 20,
-                          }}
-                        >
-                          {siteManagements.status}
-                        </td>
+
                         <td>
                           &emsp;
                           <span
                             onClick={() => deleteHandler(siteManagements._id)}
+                          ></span>
+                        </td>
+
+                        <td>
+                          &emsp;
+                          <span
+                            style={{ marginTop: 20, fontSize: 15 }}
+                            href={`/site-management/${siteManagements._id}`}
                           >
-                            <i
-                              class="fa-solid fa-trash"
-                              onClick={() => deleteHandler(siteManagements._id)}
-                            ></i>
+                            Edit
                           </span>
                         </td>
                       </tr>

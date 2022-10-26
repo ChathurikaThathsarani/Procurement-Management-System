@@ -15,6 +15,38 @@ import {
 import axios from "axios";
 import swal from "sweetalert";
 
+export const listsiteAction = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: SITE_LIST_REQUEST,
+    });
+
+    const {
+      staff_Login: { staffInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${staffInfo.token}`,
+      },
+    };
+    const { data } = await axios.get(`/user/staff/site/get`, config);
+
+    dispatch({
+      type: SITE_LIST_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({
+      type: SITE_LIST_FAIL,
+      payload: message,
+    });
+  }
+};
 
 export const createSiteAction = ( siteId,siteName,siteAddress,siteContactNumber,budget,siteManager) => async (dispatch, getState) => {
   try {
@@ -71,38 +103,7 @@ export const createSiteAction = ( siteId,siteName,siteAddress,siteContactNumber,
     });
   }
 };
-export const listsiteAction = () => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: SITE_LIST_REQUEST,
-    });
 
-    const {
-      staff_Login: { staffInfo },
-    } = getState();
-
-    const config = {
-      headers: {
-        Authorization: `Bearer ${staffInfo.token}`,
-      },
-    };
-    const { data } = await axios.get(`/user/staff/site/get`, config);
-
-    dispatch({
-      type: SITE_LIST_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    const message =
-      error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message;
-    dispatch({
-      type: SITE_LIST_FAIL,
-      payload: message,
-    });
-  }
-};
 export const updateSiteAction =
   (id,siteId, siteName, siteAddress, siteContactNumber, budget, siteManager) =>
   async (dispatch, getState) => {
