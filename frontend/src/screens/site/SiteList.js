@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteSiteAction, listsiteAction } from "../../actions/workoutActions";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
-import "./workoutHandling.css";
+import "./siteMangement.css";
 import swal from "sweetalert";
 
 export default function SiteList() {
