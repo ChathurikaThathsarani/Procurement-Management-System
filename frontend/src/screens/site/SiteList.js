@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 import {Button,Row,Col,ButtonGroup,Form,} from "react-bootstrap";
-import Table from "react-bootstrap/Table";
+import Table from "react-bootstrap/Table"; 
 import MainScreen from "../../components/MainScreen";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,7 +10,7 @@ import ErrorMessage from "../../components/ErrorMessage";
 import "./workoutHandling.css";
 import swal from "sweetalert";
 
-export default function WorkoutHandlingView() {
+export default function SiteList() {
   const dispatch = useDispatch();
   const trainer_Login = useSelector((state) => state.trainer_Login);
 
