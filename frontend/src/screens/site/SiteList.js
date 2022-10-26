@@ -18,18 +18,12 @@ export default function SiteList() {
   const site_list = useSelector((state) => state.site_list);
   const { loading, SiteManagementList, error } = site_list;
 
-  
-    const Site_Management_Update = useSelector(
-      (state) => state.Site_Management_Update
-    );
-    const { success: successUpdate } = Site_Management_Update;
+
+  const Site_Management_Update = useSelector((state) => state.Site_Management_Update);
+  const { success: successUpdate } = Site_Management_Update;
 
   const site_delete = useSelector((state) => state.site_delete);
-  const {
-    loading: loadingDelete,
-    error: errorDelete,
-    success: successDelete,
-  } = site_delete;
+  const {loading: loadingDelete,error: errorDelete,success: successDelete, } = site_delete;
   console.log(SiteManagementList);
 
   const [search, setSearch] = useState("");
@@ -61,7 +55,7 @@ export default function SiteList() {
       .catch((err) => {
         swal({
           title: "Error!",
-          text: "Couldn't Delete workout",
+          text: "Couldn't Delete Site",
           type: "error",
         });
       });

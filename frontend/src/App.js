@@ -26,6 +26,11 @@ import CreateGoodReceipt from "./screens/goodReceipt/CreateGoodReceipt";
 import InvoiceOrderList from "./screens/invoice/InvoiceOrderList";
 import InvoiceList from "./screens/invoice/InvoiceList";
 import CreateInvoice from "./screens/invoice/CreateInvoice";
+import CreateSite from "./screens/site/CreateSite";
+import SiteList from "./screens/site/SiteList";
+import SiteUpdate from "./screens/site/SiteUpdate";
+
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -78,6 +83,10 @@ const App = () => {
         />
         <Route path="/invoices" component={InvoiceList} exact />
         <Route path="/invoice/:id" component={CreateInvoice} exact />
+
+        <Route path="/site-management-create" component={CreateSite} exact />
+        <Route path="/site-management-view" component={SiteList} exact />
+        <Route path="/site-management/:id" component={SiteUpdate} exact />
       </main>
       <Footer />
     </BrowserRouter>
