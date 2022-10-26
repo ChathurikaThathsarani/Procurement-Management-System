@@ -3,8 +3,18 @@ const asyncHandler = require("express-async-handler");
 
 
 const getSite = asyncHandler(async (req, res) => {
-	const site = await site.find();
+	const site = await Site.find();
 	res.json(site);
+});
+
+const getSiteId = asyncHandler(async (req, res) => {
+	const site = await Site.findById(req.params.id);
+
+	if (site) {
+		res.json(site);
+	} else {
+		res.status(404).json({ message: "Site not found" });
+	}
 });
 
 const createSite = asyncHandler(async (req, res) => {
@@ -33,15 +43,7 @@ const createSite = asyncHandler(async (req, res) => {
 
 
 
-const getSiteId = asyncHandler(async (req, res) => {
-	const site = await Site.findById(req.params.id);
 
-	if (site) {
-		res.json(site);
-	} else {
-		res.status(404).json({ message: "Site not found" });
-	}
-});
 
 const updateSite = asyncHandler(async (req, res) => {
 	const { siteId, siteName, siteAddress, siteContactNumber, budget, siteManager } = req.body;
