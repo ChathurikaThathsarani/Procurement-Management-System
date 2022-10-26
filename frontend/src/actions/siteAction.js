@@ -146,7 +146,7 @@ export const updateSiteAction =
         button: false,
       });
       setTimeout(function () {
-        window.location.href = "/staff-site-view";
+        window.location.href = "/site-management-view";
       }, 2000);
     } catch (error) {
       const message =

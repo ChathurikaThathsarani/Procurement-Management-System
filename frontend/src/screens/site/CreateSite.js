@@ -52,12 +52,12 @@ export default function CreateSite({ history }) {
   };
   const demoHandler = async (e) => {
     e.preventDefault();
-    setSiteId("");
-    setSiteName("");
-    setSiteAddress("");
-    setSiteContactNumber( "");
-    setBudget("");
-    setSiteManager("");
+    setSiteId("ST003");
+    setSiteName("dfbndfnf");
+    setSiteAddress("dsfhbdfbndfndf");
+    setSiteContactNumber("4386937869");
+    setBudget("100000");
+    setSiteManager("63459dc7ebca0f8af497c164");
   };
   useEffect(() => {}, []);
   if (staffInfo) {

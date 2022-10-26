@@ -112,6 +112,28 @@ export default function SiteList() {
               </Row>
             </div>
 
+            <div>
+              <Row>
+                <Col>
+                  <Link to="/staff">
+                    <Button
+                      variant="success"
+                      style={{
+                        marginBottom: 6,
+                        fontSize: 15,
+                        backgroundColor: "black",
+                        borderRadius: 0,
+                        border: "1px solid white",
+                      }}
+                      size="lg"
+                    >
+                      Back to dashboard
+                    </Button>
+                  </Link>
+                </Col>
+              </Row>
+            </div>
+
             <br />
             {errorDelete && (
               <ErrorMessage variant="danger">{errorDelete}</ErrorMessage>
@@ -130,7 +152,15 @@ export default function SiteList() {
                   >
                     <th
                       style={{
-                        width: 30,
+                        width: 200,
+                        fontSize: 20,
+                      }}
+                    >
+                      Site ID
+                    </th>
+                    <th
+                      style={{
+                        width: 200,
                         fontSize: 20,
                       }}
                     >
@@ -138,7 +168,7 @@ export default function SiteList() {
                     </th>
                     <th
                       style={{
-                        width: 50,
+                        width: 200,
                         fontSize: 20,
                       }}
                     >
@@ -146,7 +176,7 @@ export default function SiteList() {
                     </th>
                     <th
                       style={{
-                        width: 50,
+                        width: 200,
                         fontSize: 20,
                       }}
                     >
@@ -154,19 +184,11 @@ export default function SiteList() {
                     </th>
                     <th
                       style={{
-                        width: 10,
+                        width: 200,
                         fontSize: 20,
                       }}
                     >
                       Budget
-                    </th>
-                    <th
-                      style={{
-                        width: 10,
-                        fontSize: 20,
-                      }}
-                    >
-                      Site Manager
                     </th>
                   </tr>
                 </thead>
@@ -187,7 +209,21 @@ export default function SiteList() {
                             fontSize: 20,
                           }}
                         >
+                          {siteManagements.siteId}
+                        </td>
+                        <td
+                          style={{
+                            fontSize: 20,
+                          }}
+                        >
                           {siteManagements.siteName}
+                        </td>
+                        <td
+                          style={{
+                            fontSize: 20,
+                          }}
+                        >
+                          {siteManagements.siteAddress}
                         </td>
                         <td
                           style={{
@@ -203,29 +239,36 @@ export default function SiteList() {
                         >
                           {siteManagements.budget}
                         </td>
-                        <td
-                          style={{
-                            fontSize: 20,
-                          }}
-                        >
-                          {siteManagements.siteManager}
-                        </td>
 
                         <td>
                           &emsp;
-                          <span
-                            onClick={() => deleteHandler(siteManagements._id)}
-                          ></span>
-                        </td>
-
-                        <td>
-                          &emsp;
-                          <span
-                            style={{ marginTop: 20, fontSize: 15 }}
+                          <Button
+                            variant="success"
+                            style={{
+                              fontSize: 10,
+                              backgroundColor: "black",
+                              borderRadius: 0,
+                              border: "1px solid white",
+                            }}
                             href={`/site-management/${siteManagements._id}`}
                           >
                             Edit
-                          </span>
+                          </Button>
+                          <Button
+                            variant="success"
+                            style={{
+                              marginTop: -52,
+                              marginLeft: 80,
+                              width: 60,
+                              fontSize: 10,
+                              backgroundColor: "black",
+                              borderRadius: 0,
+                              border: "1px solid white",
+                            }}
+                            onClick={() => deleteHandler(siteManagements._id)}
+                          >
+                            Delete
+                          </Button>
                         </td>
                       </tr>
                     ))}
@@ -246,3 +289,6 @@ export default function SiteList() {
     );
   }
 }
+
+
+          // href={`/site-management/${siteManagements._id}`}

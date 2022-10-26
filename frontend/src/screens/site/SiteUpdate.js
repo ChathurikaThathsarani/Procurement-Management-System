@@ -62,6 +62,7 @@ export default function SiteUpdate({ match, history }) {
     );
     if (!siteId || !siteName || !siteAddress || !siteContactNumber || !budget || !siteManager)
       return;
+   
   };
   if (staffInfo) {
     return (
