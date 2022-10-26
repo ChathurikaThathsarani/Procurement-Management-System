@@ -1,5 +1,5 @@
 import {Link, useHistory } from "react-router-dom";
-import {Button,Row,Col,ButtonGroup,Form,} from "react-bootstrap";
+import {Button,Row,Col,Form} from "react-bootstrap";
 import Table from "react-bootstrap/Table"; 
 import MainScreen from "../../components/MainScreen";
 import React, { useEffect, useState } from "react";
@@ -12,24 +12,26 @@ import swal from "sweetalert";
 
 export default function SiteList() {
   const dispatch = useDispatch();
+
   const staff_Login = useSelector((state) => state.staff_Login);
-
   const { staffInfo } = staff_Login;
-  const site_list = useSelector((state) => state.site_list);
-  const { loading, SiteManagementList, error } = site_list;
+
+  const site_view_list = useSelector((state) => state.site_view_list);
+  const { loading, sites, error } = site_view_list;
 
 
-  const Site_Management_Update = useSelector((state) => state.Site_Management_Update);
-  const { success: successUpdate } = Site_Management_Update;
+  const site_Management_Update = useSelector((state) => state.site_Management_Update);
+  const { success: successUpdate } = site_Management_Update;
 
-  const site_delete = useSelector((state) => state.site_delete);
-  const {loading: loadingDelete,error: errorDelete,success: successDelete, } = site_delete;
-  console.log(SiteManagementList);
+  const site_Management_delete = useSelector((state) => state.site_Management_delete);
+  const {loading: loadingDelete,error: errorDelete,success: successDelete,} = site_Management_delete;
+  console.log(sites);
 
   const [search, setSearch] = useState("");
 
   const searchHandler = (e) => {
-    setSearch(e.target.value.toLowerCase());
+    var lowerCase = e.target.value.toLowerCase();
+    setSearch(lowerCase);
   };
   const deleteHandler = (id) => {
     swal({
@@ -49,7 +51,7 @@ export default function SiteList() {
             timer: 2000,
             button: false,
           });
-          history.push("/");
+          history.push("/site-management-view");
         }
       })
       .catch((err) => {
@@ -91,7 +93,7 @@ export default function SiteList() {
             <div>
               <Row>
                 <Col>
-                  <Link to="/">
+                  <Link to="/site-management-create">
                     <Button
                       variant="success"
                       style={{
@@ -103,7 +105,7 @@ export default function SiteList() {
                       }}
                       size="lg"
                     >
-                      + New Draft Order
+                      + Add New Site
                     </Button>
                   </Link>
                 </Col>
@@ -140,11 +142,19 @@ export default function SiteList() {
                         fontSize: 20,
                       }}
                     >
-                      siteContactNumber
+                      Site Address
                     </th>
                     <th
                       style={{
                         width: 50,
+                        fontSize: 20,
+                      }}
+                    >
+                      Site Contact Number
+                    </th>
+                    <th
+                      style={{
+                        width: 10,
                         fontSize: 20,
                       }}
                     >
@@ -156,13 +166,14 @@ export default function SiteList() {
                         fontSize: 20,
                       }}
                     >
-                      site Manager
+                      Site Manager
                     </th>
                   </tr>
                 </thead>
 
                 <tbody>
-                  {SiteManagementList?.reverse()
+                  {sites
+                    ?.reverse()
                     .filter((filteredB) => filteredB.siteName.includes(search))
                     .map((siteManagements) => (
                       <tr

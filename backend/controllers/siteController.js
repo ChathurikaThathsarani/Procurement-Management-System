@@ -1,5 +1,12 @@
 const Site = require("../models/siteModel");
 const asyncHandler = require("express-async-handler");
+
+
+const getSite = asyncHandler(async (req, res) => {
+	const site = await site.find();
+	res.json(site);
+});
+
 const createSite = asyncHandler(async (req, res) => {
 	const { siteId, siteName, siteAddress, siteContactNumber, budget, siteManager } = req.body;
 
@@ -23,10 +30,7 @@ const createSite = asyncHandler(async (req, res) => {
 });
 
 // edit delete view and single
-const getSite = asyncHandler(async (req, res) => {
-	const site = await site.find();
-	res.json(site);
-});
+
 
 
 const getSiteId = asyncHandler(async (req, res) => {

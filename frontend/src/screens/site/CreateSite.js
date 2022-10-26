@@ -36,7 +36,6 @@ export default function CreateSite({ history }) {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log("hello");
-    // if (!workoutID || !name || !workoutCategory || !instructions || !repetitions || !tips) return;
     dispatch(
       createSiteAction(
         siteId,
@@ -49,18 +48,16 @@ export default function CreateSite({ history }) {
     );
 
     resetHandler();
-    history.push("/workout-handling-view");
+    history.push("/site-management-view");
   };
   const demoHandler = async (e) => {
     e.preventDefault();
-    setSiteId("06");
-    setSiteName("Side Planks");
-    setSiteAddress("Legs");
-    setSiteContactNumber(
-      "Lie on your side with your knees bent,and prop your upper body up on your elbow then raise your hips off the floor, and hold for 6 seconds"
-    );
-    setBudget("10");
-    setSiteManager("Switch to your other side and repeat steps 1 through 5");
+    setSiteId("");
+    setSiteName("");
+    setSiteAddress("");
+    setSiteContactNumber( "");
+    setBudget("");
+    setSiteManager("");
   };
   useEffect(() => {}, []);
   if (staffInfo) {
@@ -68,7 +65,7 @@ export default function CreateSite({ history }) {
       <div className="SiteBackgroundCreate">
         <MainScreen title="CREATE A SITE">
           <Button
-            variant="success"
+            variant="info"
             style={{
               marginLeft: 10,
               marginBottom: 6,
@@ -76,7 +73,7 @@ export default function CreateSite({ history }) {
               fontSize: 15,
             }}
             size="lg"
-            href="/"
+            href="/site-management-view"
           >
             Back to Site List
           </Button>
@@ -101,29 +98,28 @@ export default function CreateSite({ history }) {
                 {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
 
                 <Form.Group controlId="siteId">
-                  <Form.Label>siteId</Form.Label>
+                  <Form.Label>Site ID</Form.Label>
                   <Form.Control
                     type="siteId"
                     value={siteId}
-                    placeholder="Enter the Site Id"
+                    placeholder="Enter the Site ID"
                     onChange={(e) => setSiteId(e.target.value)}
                     required
                   />
                 </Form.Group>
 
                 <Form.Group controlId="Name">
-                  <Form.Label>siteName</Form.Label>
+                  <Form.Label>Site Name</Form.Label>
                   <Form.Control
                     value={siteName}
-                    placeholder="Enter the siteName"
-                    // rows={4}
+                    placeholder="Enter the Site Name"
                     onChange={(e) => setSiteName(e.target.value)}
                     required
                   />
                 </Form.Group>
 
                 <Form.Group controlId="SiteAddress">
-                  <Form.Label>SiteAddress</Form.Label>
+                  <Form.Label>Site Address</Form.Label>
                   <Form.Control
                     as="textarea"
                     type="SiteAddress"
@@ -135,34 +131,33 @@ export default function CreateSite({ history }) {
                 </Form.Group>
 
                 <Form.Group controlId="siteContactNumber">
-                  <Form.Label>siteContactNumber</Form.Label>
+                  <Form.Label>Site Contact Number</Form.Label>
                   <Form.Control
-                    type="number"
+                    type="text"
                     value={siteContactNumber}
-                    min="1"
-                    max="20"
+                    placeholder="Enter the Site Contact Number "
                     onChange={(e) => setSiteContactNumber(e.target.value)}
                     required
                   />
                 </Form.Group>
 
-                <Form.Group controlId="tips">
+                <Form.Group controlId="Budget">
                   <Form.Label>Budget</Form.Label>
                   <Form.Control
-                    type="tips"
+                    type="budget"
                     value={budget}
-                    placeholder="Enter the tips"
+                    placeholder="Enter the Budget"
                     onChange={(e) => setBudget(e.target.value)}
                     required
                   />
                 </Form.Group>
 
                 <Form.Group controlId="siteManager">
-                  <Form.Label>site Manager</Form.Label>
+                  <Form.Label>Site Manager</Form.Label>
                   <Form.Control
-                    type="tips"
+                    type="siteManager"
                     value={siteManager}
-                    placeholder="Enter the site Manager"
+                    placeholder="Enter the Site Manager"
                     onChange={(e) => setSiteManager(e.target.value)}
                     required
                   />

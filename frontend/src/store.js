@@ -50,11 +50,11 @@ const reducer = combineReducers({
   goodReceiptList: goodReceiptListReducer,
   invoiceCreate: invoiceCreateReducer,
   invoiceList: invoiceListReducer,
-  
-  SiteManagementList: SiteListReducer,
+
+  site_view_list: SiteListReducer,
   Site_Management_Create: SiteCreateReducer,
-  Site_Management_Update: SiteUpdateReducer,
-  site_delete:SiteDeleteReducer,
+  site_Management_Update: SiteUpdateReducer,
+  site_Management_delete: SiteDeleteReducer,
 });
 
 const siteManagerInfoFromStorage = localStorage.getItem("siteManagerInfo")

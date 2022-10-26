@@ -15,38 +15,7 @@ import {
 import axios from "axios";
 import swal from "sweetalert";
 
-export const listsiteAction = () => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: SITE_LIST_REQUEST,
-    });
 
-    const {
-      staff_Login: { staffInfo },
-    } = getState();
-
-    const config = {
-      headers: {
-        Authorization: `Bearer ${staffInfo.token}`,
-      },
-    };
-    const { data } = await axios.get(`/user/staff/site/get`, config);
-
-    dispatch({
-      type: SITE_LIST_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    const message =
-      error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message;
-    dispatch({
-      type: SITE_LIST_FAIL,
-      payload: message,
-    });
-  }
-};
 export const createSiteAction = ( siteId,siteName,siteAddress,siteContactNumber,budget,siteManager) => async (dispatch, getState) => {
   try {
     dispatch({
@@ -81,7 +50,7 @@ export const createSiteAction = ( siteId,siteName,siteAddress,siteContactNumber,
       button: false,
     });
     setTimeout(function () {
-      window.location.href = "/staff-site-view";
+      window.location.href = "/site-management-view";
     }, 2000);
 
     dispatch({
@@ -94,12 +63,43 @@ export const createSiteAction = ( siteId,siteName,siteAddress,siteContactNumber,
       type: SITE_CREATE_FAIL,
       payload: message,
     });
-    // alert("Schedule is alredy exist");
 
     swal({
       title: "Error!",
       text: "",
       type: "error",
+    });
+  }
+};
+export const listsiteAction = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: SITE_LIST_REQUEST,
+    });
+
+    const {
+      staff_Login: { staffInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${staffInfo.token}`,
+      },
+    };
+    const { data } = await axios.get(`/user/staff/site/get`, config);
+
+    dispatch({
+      type: SITE_LIST_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({
+      type: SITE_LIST_FAIL,
+      payload: message,
     });
   }
 };
