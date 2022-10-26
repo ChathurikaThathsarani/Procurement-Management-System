@@ -26,6 +26,13 @@ import {
   invoiceCreateReducer,
 } from "./reducers/invoiceReducer";
 
+import {
+  SiteListReducer,
+  SiteCreateReducer,
+  SiteUpdateReducer,
+  SiteDeleteReducer,
+} from "./reducers/siteReducer"
+
 const reducer = combineReducers({
   siteManager_Login: siteMangerLoginReducer,
   supplier_Login: supplierLoginReducer,
@@ -43,6 +50,11 @@ const reducer = combineReducers({
   goodReceiptList: goodReceiptListReducer,
   invoiceCreate: invoiceCreateReducer,
   invoiceList: invoiceListReducer,
+  
+  SiteManagementList: SiteListReducer,
+  Site_Management_Create: SiteCreateReducer,
+  Site_Management_Update: SiteUpdateReducer,
+  site_delete:SiteDeleteReducer,
 });
 
 const siteManagerInfoFromStorage = localStorage.getItem("siteManagerInfo")

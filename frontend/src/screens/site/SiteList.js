@@ -18,10 +18,11 @@ export default function SiteList() {
   const site_list = useSelector((state) => state.site_list);
   const { loading, SiteManagementList, error } = site_list;
 
-  // const workoutHandlingUpdate = useSelector(
-  //   (state) => state.workoutHandlingUpdate
-  // );
-  // const { success: successUpdate } = workoutHandlingUpdate;
+  
+    const Site_Management_Update = useSelector(
+      (state) => state.Site_Management_Update
+    );
+    const { success: successUpdate } = Site_Management_Update;
 
   const site_delete = useSelector((state) => state.site_delete);
   const {
@@ -69,7 +70,7 @@ export default function SiteList() {
   const history = useHistory();
   useEffect(() => {
     dispatch(listsiteAction());
-  }, [dispatch, staffInfo, successDelete, history]);
+  }, [dispatch, staffInfo,successUpdate, successDelete, history]);
   if (staffInfo) {
     return (
       <div className="SiteBackgroundView">
