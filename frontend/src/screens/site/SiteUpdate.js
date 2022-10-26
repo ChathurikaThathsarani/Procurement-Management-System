@@ -2,206 +2,237 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Button, Card, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteWorkoutHandlingAction,
-  updateWorkouteHandlingAction,
-} from "../../actions/workoutActions";
-import ErrorMessage from "../../components/ErrorMessage";
-import Loading from "../../components/Loading";
-import { authHeader } from "../../actions/trainerActions";
-import "./workoutHandling.css";
+import { updateSiteAction } from "../../actions/siteAction";
+import Loading from "../../../components/Loading";
+import ErrorMessage from "../../../components/ErrorMessage";
+import { authHeader } from "../../actions/staffAction";
 import MainScreen from "../../components/MainScreen";
+import "./siteMangement.css";
 
-export default function WorkoutHandlingUpdate({ match, history }) {
-  const [workoutID, setWorkoutID] = useState("");
-  const [name, setName] = useState("");
-  const [workoutCategory, setWorkoutCategory] = useState("");
-  const [instructions, setInstructions] = useState("");
-  const [repetitions, setRepetitions] = useState("");
-  const [tips, setTips] = useState("");
+export default function SiteUpdate({ match, history }) {
+  const [siteId, setSiteId] = useState("");
+  const [siteName, setSiteName] = useState("");
+  const [siteAddress, setSiteAddress] = useState("");
+  const [siteContactNumber, setSiteContactNumber] = useState("");
+  const [budget, setBudget] = useState("");
+  const [siteManager, setSiteManager] = useState("");
 
   const dispatch = useDispatch();
-  const trainer_Login = useSelector((state) => state.trainer_Login);
-  const { trainerInfo } = trainer_Login;
-  const workoutHandlingUpdate = useSelector(
-    (state) => state.workoutHandlingUpdate
-  );
-  const { loading, error } = workoutHandlingUpdate;
+  const staff_Login = useSelector((state) => state.staff_Login);
+  const { staffInfo } = staff_Login;
 
-  const deleteHandler = (id) => {
-    if (window.confirm("Are you sure?")) {
-      dispatch(deleteWorkoutHandlingAction(id));
-    }
-    history.push("/workout-handling-view");
-  };
+  const Site_Management_Update = useSelector(
+    (state) => state.Site_Management_Update
+  );
+  const { loading, error } = Site_Management_Update;
 
   useEffect(() => {
     const fetching = async () => {
       const { data } = await axios.get(
-        `http://localhost:5000/user/trainer/workout/get/${match.params.id}`,
+        `/user/staff/order/${match.params.id}`,
         {
           headers: authHeader(),
         }
       );
-
-      setWorkoutID(data.workoutID);
-      setName(data.name);
-      setWorkoutCategory(data.workoutCategory);
-      setInstructions(data.instructions);
-      setRepetitions(data.repetitions);
-      setTips(data.tips);
       console.log(data);
+      setSiteId(data.siteId);
+      setSiteName(data.siteName);
+     setSiteAddress(data.siteAddress);
+     setSiteContactNumber(data.siteContactNumber);
+    setBudget(data.budget);
+    setSiteManager(data.siteManager);
     };
 
-    fetching();
-  }, [match.params.id]);
+   	fetching();
+	}, [match.params.id]);
+
+
 
   const updateHandler = (e) => {
     e.preventDefault();
-
     dispatch(
-      updateWorkouteHandlingAction(
+      updateSiteAction(
         match.params.id,
-        workoutID,
-        name,
-        workoutCategory,
-        instructions,
-        repetitions,
-        tips
+        siteId,
+        siteName,
+        siteAddress,
+        siteContactNumber,
+        budget,
+        siteManager
       )
     );
-    if (
-      !workoutID ||
-      !name ||
-      !workoutCategory ||
-      !instructions ||
-      !repetitions ||
-      !tips
-    )
+    if (!siteId || !siteName || !siteAddress || !siteContactNumber || !budget || !siteManager)
       return;
-
-    history.push("/workout-handling-view");
   };
-  if (trainerInfo) {
+  if (staffInfo) {
     return (
-      <div className="WorkoutBackgroundUpdate">
-        {" "}
-        <MainScreen title={"UPDATE A WORKOUT"}>
+      <div className="SiteBackgroundCreate">
+        <br></br>
+
+        <MainScreen title="Edit Site Information">
+          <br></br>
           <Button
             variant="success"
             style={{
-              marginLeft: 10,
               marginBottom: 6,
-              float: "left",
               fontSize: 15,
+              backgroundColor: "black",
+              borderRadius: 0,
+              border: "1px solid white",
+              height: 40,
             }}
-            size="lg"
-            href="/workout-handling-view"
+            href="/"
           >
             {" "}
-            Back to Workout List
+            Back to Site List
           </Button>
+          <br></br>
+          <br></br>
           <br></br>
           <br></br>
           <Card
             style={{
-              margin: 50,
-              marginLeft: "10%",
-              marginRight: "10%",
-              width: "80%",
-              borderRadius: 45,
-              borderWidth: 2.0,
-              marginTop: 20,
-              paddingInline: 10,
-              background: "rgba(231, 238, 238, 0.9)",
+              marginLeft: 60,
+              width: "70%",
+              borderWidth: 0,
+              padding: 25,
+              outline: "none",
+              background: "rgba(231, 238, 238, 0.8)",
+              borderRadius: 0,
             }}
           >
-            <br></br>
-
             <Card.Body>
               <Form onSubmit={updateHandler}>
                 {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
 
-                <Form.Group controlId="workoutID">
-                  <Form.Label>Workout ID</Form.Label>
-                  <Form.Control
-                    type="workoutID"
-                    value={workoutID}
-                    placeholder="Enter the Workout ID"
-                    onChange={(e) => setWorkoutID(e.target.value)}
-                  />
-                </Form.Group>
-
-                <Form.Group controlId="name">
-                  <Form.Label>Workout Name</Form.Label>
-                  <Form.Control
-                    value={name}
-                    placeholder="Enter the  Workout Name"
-                    rows={4}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </Form.Group>
-
-                <div className="form-group">
-                  <label className="WorkoutCategory">Workout Category</label>
-                  <select
-                    className="form-control"
-                    id="WorkoutCategory"
-                    value={workoutCategory}
-                    onChange={(e) => setWorkoutCategory(e.target.value)}
-                    required
+                <Form.Group controlId="siteId">
+                  <Form.Label
+                    style={{
+                      fontSize: 20,
+                    }}
                   >
-                    <option>Select Workout Category</option>
-                    <option value={workoutCategory.Legs}>Legs</option>
-                    <option value={workoutCategory.Chest}>Chest</option>
-                  </select>
-                </div>
+                    siteId
+                  </Form.Label>
+                  <Form.Control
+                    style={{
+                      height: 40,
+                      fontSize: 18,
+                    }}
+                    type="siteId"
+                    value={siteId}
+                  />
+                </Form.Group>
 
-                <Form.Group controlId="instructionsme">
-                  <Form.Label>Instructions</Form.Label>
+                <Form.Group controlId="sitename">
+                  <Form.Label
+                    style={{
+                      fontSize: 20,
+                    }}
+                  >
+                    Site Name
+                  </Form.Label>
                   <Form.Control
-                    as="textarea"
-                    type=" "
-                    placeholder="Enter the instructions"
-                    value={instructions}
-                    onChange={(e) => setInstructions(e.target.value)}
+                    style={{
+                      height: 40,
+                      fontSize: 18,
+                    }}
+                    type="sitename"
+                    value={siteName}
                   />
                 </Form.Group>
-                <Form.Group controlId="Repetitions">
-                  <Form.Label>Repetitions</Form.Label>
+
+                <Form.Group controlId="SiteAddress">
+                  <Form.Label
+                    style={{
+                      fontSize: 20,
+                    }}
+                  >
+                    SiteAddress
+                  </Form.Label>
                   <Form.Control
-                    type="number"
-                    value={repetitions}
-                    min="1"
-                    max="20"
-                    placeholder=""
-                    onChange={(e) => setRepetitions(e.target.value)}
+                    style={{
+                      height: 40,
+                      fontSize: 18,
+                    }}
+                    required
+                    value={siteAddress}
                   />
                 </Form.Group>
-                <Form.Group controlId="tips">
-                  <Form.Label>Tips</Form.Label>
+
+                <Form.Group controlId="placedDate">
+                  <Form.Label
+                    style={{
+                      fontSize: 20,
+                    }}
+                  >
+                    siteContactNumber
+                  </Form.Label>
                   <Form.Control
-                    type="tips"
-                    value={tips}
-                    placeholder="Enter the tips"
-                    onChange={(e) => setTips(e.target.value)}
+                    style={{
+                      height: 40,
+                      fontSize: 18,
+                    }}
+                    type="siteContactNumber"
+                    required
+                    value={siteContactNumber}
                   />
                 </Form.Group>
-                <br></br>
+                <Form.Group controlId="requiredDate">
+                  <Form.Label
+                    style={{
+                      fontSize: 20,
+                    }}
+                  >
+                    Budget
+                  </Form.Label>
+                  <Form.Control
+                    style={{
+                      height: 40,
+                      fontSize: 18,
+                    }}
+                    type="budget"
+                    required
+                    value={budget}
+                  />
+                </Form.Group>
+
+                <Form.Group controlId="siteManager">
+                  <Form.Label
+                    style={{
+                      fontSize: 20,
+                    }}
+                  >
+                    siteManager
+                  </Form.Label>
+                  <Form.Control
+                    style={{
+                      height: 40,
+                      fontSize: 18,
+                    }}
+                    type="siteManager"
+                    required
+                    value={siteManager}
+                  />
+                </Form.Group>
+
                 {loading && <Loading size={50} />}
-                <Button type="submit" variant="primary">
-                  Submit
-                </Button>
                 <Button
-                  className="mx-2"
-                  variant="danger"
-                  onClick={() => deleteHandler(match.params.id)}
+                  style={{
+                    width: 100,
+                    height: 40,
+                    backgroundColor: "black",
+                    borderRadius: 0,
+                    border: "3px solid white",
+                  }}
+                  type="submit"
+                  variant="primary"
                 >
-                  Delete
+                  Submit
                 </Button>
               </Form>
             </Card.Body>
           </Card>
+          <br></br>
           <br></br>
           <br></br>
         </MainScreen>
