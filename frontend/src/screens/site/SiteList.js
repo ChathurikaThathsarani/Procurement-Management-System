@@ -1,10 +1,10 @@
-import { useHistory } from "react-router-dom";
+import {Link, useHistory } from "react-router-dom";
 import {Button,Row,Col,ButtonGroup,Form,} from "react-bootstrap";
 import Table from "react-bootstrap/Table"; 
 import MainScreen from "../../components/MainScreen";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteSiteAction, listsiteAction } from "../../actions/workoutActions";
+import { deleteSiteAction, listsiteAction } from "../../actions/siteAction";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
 import "./siteMangement.css";
@@ -12,28 +12,24 @@ import swal from "sweetalert";
 
 export default function SiteList() {
   const dispatch = useDispatch();
-  const trainer_Login = useSelector((state) => state.trainer_Login);
+  const staff_Login = useSelector((state) => state.staff_Login);
 
-  const { trainerInfo } = trainer_Login;
-  const list_Workout_Handling = useSelector(
-    (state) => state.list_Workout_Handling
-  );
-  const { loading, workouts, error } = list_Workout_Handling;
+  const { staffInfo } = staff_Login;
+  const site_list = useSelector((state) => state.site_list);
+  const { loading, SiteManagementList, error } = site_list;
 
-  const workoutHandlingUpdate = useSelector(
-    (state) => state.workoutHandlingUpdate
-  );
-  const { success: successUpdate } = workoutHandlingUpdate;
+  // const workoutHandlingUpdate = useSelector(
+  //   (state) => state.workoutHandlingUpdate
+  // );
+  // const { success: successUpdate } = workoutHandlingUpdate;
 
-  const WorkoutHandlingDelete = useSelector(
-    (state) => state.WorkoutHandlingDelete
-  );
+  const site_delete = useSelector((state) => state.site_delete);
   const {
     loading: loadingDelete,
     error: errorDelete,
     success: successDelete,
-  } = WorkoutHandlingDelete;
-  console.log(workouts);
+  } = site_delete;
+  console.log(SiteManagementList);
 
   const [search, setSearch] = useState("");
 
@@ -50,14 +46,15 @@ export default function SiteList() {
     })
       .then((willDelete) => {
         if (willDelete) {
-          dispatch(deleteWorkoutHandlingAction(id));
+          dispatch(deleteSiteAction(id));
           swal({
             title: "Success!",
-            text: "Deleted Workout Successfully",
+            text: "Deleted Site Successfully",
             icon: "success",
             timer: 2000,
             button: false,
           });
+          history.push("/");
         }
       })
       .catch((err) => {
@@ -71,175 +68,167 @@ export default function SiteList() {
 
   const history = useHistory();
   useEffect(() => {
-    dispatch(listWorkoutHandling());
-  }, [dispatch, trainerInfo, successUpdate, successDelete, history]);
-  if (trainerInfo) {
+    dispatch(listsiteAction());
+  }, [dispatch, staffInfo, successDelete, history]);
+  if (staffInfo) {
     return (
-      <div className="WorkoutBackgroundView">
-        <MainScreen title={`Welcome Back ${trainerInfo && trainerInfo.name}..`}>
-          <Row>
-            <Col>
-              <h1
-                style={{
-                  display: "flex",
-                  marginLeft: "10px",
-                  width: "500px",
-                  color: "azure",
-                  fontStyle: "italic",
-                }}
-              >
-                Workouts List
-              </h1>
-            </Col>
-            <Col>
-              <div className="search" style={{ marginTop: 5, marginLeft: 150 }}>
-                <Form inline>
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    style={{
-                      width: 400,
-                      height: 40,
-                      borderRadius: 50,
-                      padding: "10px",
-                      paddingLeft: "15px",
-                      fontSize: 18,
-                    }}
-                    onChange={searchHandler}
-                  />
-                </Form>
-              </div>
-            </Col>
-          </Row>
-          <br></br>
-          <br></br>
-
-          <ButtonGroup
-            variant="success"
-            className="mb-2"
-            size="lg"
-            style={{ width: "100%" }}
-          >
-            <Button variant="success" href="/trainer">
-              Back to Dashboard
-            </Button>
-
-            <Button variant="success" href="/workout-handling-create">
-              + Workout Create
-            </Button>
-          </ButtonGroup>
-          <br></br>
-          {errorDelete && (
-            <ErrorMessage variant="danger">{errorDelete}</ErrorMessage>
-          )}
-          {loadingDelete && <Loading />}
-          {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
-          {loading && <Loading />}
-          <br></br>
-
-          {workouts &&
-            workouts
-              .filter(
-                (filteredWorkout) =>
-                  filteredWorkout.name
-                    .toLowerCase()
-                    .includes(search.toLowerCase()) ||
-                  filteredWorkout.workoutID.includes(search)
-              )
-              .reverse()
-              .map((workout) => (
-                <Accordion key={workout._id}>
-                  <Card
-                    style={{
-                      margin: 10,
-                      borderRadius: 25,
-                      borderWidth: 1.0,
-                      borderColor: "rgb(0,0,0,0.5)",
-                      marginTop: 20,
-                      paddingInline: 10,
-                      background: "rgb(235, 235, 235)",
-                    }}
-                    key={workout._id}
-                  >
-                    <Card.Header
+      <div className="SiteBackgroundView">
+        <MainScreen title="Site List">
+          <div style={{ minHeight: 700, marginTop: 50 }} className="">
+            <div className="search" style={{ marginTop: 50 }}>
+              <Form inline>
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  onChange={searchHandler}
+                  style={{
+                    width: 260,
+                    height: 40,
+                    borderRadius: 50,
+                    padding: "10px",
+                    paddingLeft: "15px",
+                    marginLeft: 900,
+                  }}
+                />
+              </Form>
+            </div>
+            <br></br>
+            <div>
+              <Row>
+                <Col>
+                  <Link to="/">
+                    <Button
+                      variant="success"
                       style={{
-                        display: "flex",
-                        paddingInline: 10,
-                        borderRadius: 25,
-                        marginTop: 10,
-                        marginBottom: 10,
-                        borderColor: "black",
-                        background: "#C1D9B7",
+                        marginBottom: 6,
+                        fontSize: 15,
+                        backgroundColor: "black",
+                        borderRadius: 0,
+                        border: "1px solid white",
+                      }}
+                      size="lg"
+                    >
+                      + New Draft Order
+                    </Button>
+                  </Link>
+                </Col>
+              </Row>
+            </div>
+
+            <br />
+            {errorDelete && (
+              <ErrorMessage variant="danger">{errorDelete}</ErrorMessage>
+            )}
+            {loadingDelete && <Loading />}
+            {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
+            {loading && <Loading />}
+            <Table style={{ background: "white" }}>
+              <>
+                <thead>
+                  <tr
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                      height: 60,
+                    }}
+                  >
+                    <th
+                      style={{
+                        width: 30,
+                        fontSize: 20,
                       }}
                     >
-                      <span
-                        // onClick={() => ModelShow(note)}
+                      Site Name
+                    </th>
+                    <th
+                      style={{
+                        width: 50,
+                        fontSize: 20,
+                      }}
+                    >
+                      siteContactNumber
+                    </th>
+                    <th
+                      style={{
+                        width: 50,
+                        fontSize: 20,
+                      }}
+                    >
+                      Budget
+                    </th>
+                    <th
+                      style={{
+                        width: 10,
+                        fontSize: 20,
+                      }}
+                    >
+                      site Manager
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {SiteManagementList?.reverse()
+                    .filter((filteredB) => filteredB.siteName.includes(search))
+                    .map((siteManagements) => (
+                      <tr
+                        key={siteManagements._id}
                         style={{
-                          color: "black",
-                          textDecoration: "none",
-                          flex: 1,
-                          cursor: "pointer",
-                          alignSelf: "center",
-                          fontSize: 18,
+                          boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
                         }}
                       >
-                        <Accordion.Toggle
-                          as={Card.Text}
-                          variant="link"
-                          eventKey="0"
+                        <td
                           style={{
-                            paddingInline: 20,
-                            marginTop: 10,
-                            marginBottom: 10,
+                            fontSize: 20,
                           }}
                         >
-                          Workout ID : {workout.workoutID}
-                          <br></br>
-                          Name : {workout.name}
-                        </Accordion.Toggle>
-                      </span>
-                      <div>
-                        <Button
-                          style={{ marginTop: 20, fontSize: 15 }}
-                          href={`/workout-handling/${workout._id}`}
+                          {siteManagements.siteName}
+                        </td>
+                        <td
+                          style={{
+                            fontSize: 20,
+                          }}
                         >
-                          Edit
-                        </Button>
-                      </div>
-                      &emsp;
-                      <div>
-                        <Button
-                          style={{ marginTop: 20, fontSize: 15 }}
-                          variant="danger"
-                          className="mx-2"
-                          onClick={() => deleteHandler(workout._id)}
+                          {siteManagements.siteContactNumber}
+                        </td>
+                        <td
+                          style={{
+                            fontSize: 20,
+                          }}
                         >
-                          Delete
-                        </Button>
-                      </div>
-                      <br></br>
-                      <br></br>
-                    </Card.Header>
-                    <Accordion.Collapse eventKey="0">
-                      <Card.Body>
-                        <Row>
-                          <Col md={6}>
-                            <h5> Workout ID : {workout.workoutID}</h5>
-                            <h5> Workout Name :{workout.name}</h5>
-                            <h5>
-                              {" "}
-                              Workout Category: {workout.workoutCategory}
-                            </h5>
-                            <h5> Instructions: {workout.instructions}</h5>
-                            <h5> Repetitions: {workout.repetitions}</h5>
-                            <h5>Tips : {workout.tips}</h5>
-                          </Col>
-                        </Row>
-                      </Card.Body>
-                    </Accordion.Collapse>
-                  </Card>
-                </Accordion>
-              ))}
+                          {siteManagements.budget}
+                        </td>
+                        <td
+                          style={{
+                            fontSize: 20,
+                          }}
+                        >
+                          {siteManagements.siteManager}
+                        </td>
+                        <td
+                          style={{
+                            fontSize: 20,
+                          }}
+                        >
+                          {siteManagements.status}
+                        </td>
+                        <td>
+                          &emsp;
+                          <span
+                            onClick={() => deleteHandler(siteManagements._id)}
+                          >
+                            <i
+                              class="fa-solid fa-trash"
+                              onClick={() => deleteHandler(siteManagements._id)}
+                            ></i>
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </>
+            </Table>
+            <br></br>
+          </div>
         </MainScreen>
       </div>
     );
