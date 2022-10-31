@@ -173,36 +173,36 @@ const receiptForOrders = asyncHandler(async (req, res) => {
 });
 
 
-// list view more than 100 000 staff view
-
-// const OrderToPending = asyncHandler(async (req, res) => {
-// 	const { productName, productQty } = req.body;
-
-// 	const order = await Order.findById(req.params.id);
-// 	const orderNo = "ref" + order._id;
-// 	const product = await Product.findOne({ productName: productName });
-// 	const price = product.productPrice;
-// 	const totalPrice = price * productQty;
-
-// 	if (order) {
-// 		order.orderNo = orderNo;
-// 		order.productName = productName;
-// 		order.productQty = productQty;
-// 		order.status = "Pending";
-// 		order.totalPrice = totalPrice;
-
-// 		const pendingOrder = await order.save();
-// 		res.json(pendingOrder);
-// 	} else {
-// 		res.status(404);
-// 		throw new Error("Draft Order not found");
-// 	}
-// });
+// get all ordr for staff
+const getStaffOrders = asyncHandler(async (req, res) => {
+	const orders = await Order.find();
+	 orders.totalPrice <= 100000;
+	  res.json(orders);
+});
 
 
+// Get one order for staff
+const getStaffOneOrder = asyncHandler(async (req, res) => {
+	const order = await Order.findById(req.params.id);
+	res.json(order);
+});
 
-//edit for approve staff
-//also view
+// staff order approve
+const StaffOrderToApproved = asyncHandler(async (req, res) => {
+	const { status } = req.body;
+
+	const order = await Order.findById(req.params.id);
+	if (order) {
+		order.status = status;
+		const approvedOrder = await order.save();
+		res.json(approvedOrder);
+	} else {
+		res.status(404);
+		throw new Error("Pending Order not found");
+	}
+});
+
+
 module.exports = {
 	createOrder,
 	getSuppliers,
@@ -216,4 +216,7 @@ module.exports = {
 	supplierGetOrders,
 	approvedOrderToPlaced,
 	receiptForOrders,
+	getStaffOrders,
+	getStaffOneOrder,
+	StaffOrderToApproved,
 };
