@@ -17,6 +17,7 @@ export default function SiteUpdate({ match, history }) {
   const [budget, setBudget] = useState("");
   const [siteManager, setSiteManager] = useState("");
 
+
   const dispatch = useDispatch();
   const staff_Login = useSelector((state) => state.staff_Login);
   const { staffInfo } = staff_Login;
@@ -152,7 +153,7 @@ export default function SiteUpdate({ match, history }) {
                   <Form.Control
                     type="siteManager"
                     value={siteManager}
-                    onChange={(e) => setSiteManager(e.target.value)}
+                    readOnly
                   />
                 </Form.Group>
 
