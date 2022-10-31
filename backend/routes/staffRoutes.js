@@ -4,6 +4,11 @@ const { createSite, updateSite,getSite,getSiteId,deleteSite} = require("../contr
 const { createGoodReceipt, getReceipts } = require("../controllers/goodReceiptController");
 const { createInvoice, getInvoices } = require("../controllers/invoiceController");
 const { receiptForOrders, getOneOrder } = require("../controllers/orderController");
+const { getStaffOrders, getStaffOneOrder, StaffOrderToApproved } = require("../controllers/orderController");
+
+
+const { getSiteManagers } = require("../controllers/siteManagerController");
+;
 
 const { protect } = require("../middleware/authStaffMiddleware");
 const router = express.Router();
@@ -22,7 +27,14 @@ router
     .put(protect, updateSite)
     .delete(protect, deleteSite);
 
+  router.route("/site-managers/get").get(protect, getSiteManagers);  
 
+//PRODUCT STAFF
+router.route("/product-staff/get").get(protect, getStaffOrders);
+
+router.route("/product-staff/get/:id").get(protect, getStaffOneOrder);
+
+router.route("/product-staff/approve/:id").put(protect, StaffOrderToApproved);
 
 router.route("/good-receipt/create").post(protect, createGoodReceipt);
 router.route("/good-receipts").get(protect, getReceipts);
