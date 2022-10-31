@@ -26,62 +26,44 @@ import CreateGoodReceipt from "./screens/goodReceipt/CreateGoodReceipt";
 import InvoiceOrderList from "./screens/invoice/InvoiceOrderList";
 import InvoiceList from "./screens/invoice/InvoiceList";
 import CreateInvoice from "./screens/invoice/CreateInvoice";
+import StaffRegisterScreen from "./screens/userManagement/register/StaffRegisterScreen";
+import SupplierRegisterScreen from "./screens/userManagement/register/SupplierRegisterScreen";
+import SiteManagerRegisterScreen from "./screens/userManagement/register/SiteManagerRegisterScreen";
 const App = () => {
-  return (
-    <BrowserRouter>
-      <Header />
-      <main>
-        <Route path="/" component={HomePage} exact />
-        <Route path="/login-select" component={LoginSelectorPage} exact />
-        <Route
-          path="/siteManager-login"
-          component={SiteManagerLoginScreen}
-          exact
-        />
-        <Route path="/supplier-login" component={SupplierLoginScreen} exact />
-        <Route path="/staff-login" component={StaffLoginScreen} exact />
-        <Route path="/site-manager" component={SiteManagerDashboard} exact />
-        <Route path="/supplier" component={SupplierDashboard} exact />
-        <Route path="/staff" component={StaffDashboard} exact />
-        <Route path="/create-draft-order" component={CreateDraftOrder} exact />
-        <Route path="/draft-orders" component={DraftOrderList} exact />
-        <Route
-          path="/draft-order-to-pending/:id"
-          component={DraftOrderToPendingOrder}
-          exact
-        />
-        <Route path="/orders" component={OrderList} exact />
-        <Route path="/order-to-approve/:id" component={OrderToApprove} exact />
-        <Route
-          path="/single-order-view/:id"
-          component={SingleOrderView}
-          exact
-        />
-        <Route path="/supplier-orders" component={SupplierOrderList} exact />
-        <Route
-          path="/single-supplier-order-edit/:id"
-          component={SupplierPlacedOrRejectOrder}
-          exact
-        />
-        <Route
-          path="/single-supplier-order-view/:id"
-          component={SupplierViewOneOrder}
-          exact
-        />
-        <Route path="/placed-orders" component={PlacedOrderList} exact />
-        <Route path="/good-receipts" component={GoodReceiptList} exact />
-        <Route path="/good-receipt/:id" component={CreateGoodReceipt} exact />
-        <Route
-          path="/invoice-placed-orders"
-          component={InvoiceOrderList}
-          exact
-        />
-        <Route path="/invoices" component={InvoiceList} exact />
-        <Route path="/invoice/:id" component={CreateInvoice} exact />
-      </main>
-      <Footer />
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			<Header />
+			<main>
+				<Route path="/" component={HomePage} exact />
+				<Route path="/login-select" component={LoginSelectorPage} exact />
+				<Route path="/siteManager-login" component={SiteManagerLoginScreen} exact />
+				<Route path="/supplier-login" component={SupplierLoginScreen} exact />
+				<Route path="/staff-login" component={StaffLoginScreen} exact />
+				<Route path="/site-manager" component={SiteManagerDashboard} exact />
+				<Route path="/supplier" component={SupplierDashboard} exact />
+				<Route path="/staff" component={StaffDashboard} exact />
+				<Route path="/create-draft-order" component={CreateDraftOrder} exact />
+				<Route path="/draft-orders" component={DraftOrderList} exact />
+				<Route path="/draft-order-to-pending/:id" component={DraftOrderToPendingOrder} exact />
+				<Route path="/orders" component={OrderList} exact />
+				<Route path="/order-to-approve/:id" component={OrderToApprove} exact />
+				<Route path="/single-order-view/:id" component={SingleOrderView} exact />
+				<Route path="/supplier-orders" component={SupplierOrderList} exact />
+				<Route path="/single-supplier-order-edit/:id" component={SupplierPlacedOrRejectOrder} exact />
+				<Route path="/single-supplier-order-view/:id" component={SupplierViewOneOrder} exact />
+				<Route path="/placed-orders" component={PlacedOrderList} exact />
+				<Route path="/good-receipts" component={GoodReceiptList} exact />
+				<Route path="/good-receipt/:id" component={CreateGoodReceipt} exact />
+				<Route path="/invoice-placed-orders" component={InvoiceOrderList} exact />
+				<Route path="/invoices" component={InvoiceList} exact />
+				<Route path="/invoice/:id" component={CreateInvoice} exact />
+				<Route path="/staff-register" component={StaffRegisterScreen} exact />
+				<Route path="/supplier-register" component={SupplierRegisterScreen} exact />
+				<Route path="/site-manager-register" component={SiteManagerRegisterScreen} exact />
+			</main>
+			<Footer />
+		</BrowserRouter>
+	);
 };
 
 export default App;

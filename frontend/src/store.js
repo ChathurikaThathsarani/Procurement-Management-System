@@ -1,74 +1,65 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { siteMangerLoginReducer } from "./reducers/siteManagerReducer";
-import { supplierLoginReducer } from "./reducers/supplierReducer";
-import { staffLoginReducer } from "./reducers/staffReducer";
+import { siteMangerLoginReducer, siteManagerRegisterReducer } from "./reducers/siteManagerReducer";
+import { supplierLoginReducer, supplierRegisterReducer } from "./reducers/supplierReducer";
+import { staffLoginReducer, staffRegisterReducer } from "./reducers/staffReducer";
 import {
-  draftOrderCreateReducer,
-  draftOrderListReducer,
-  draftOrderDeleteReducer,
-  draftOrderToPendingOrderReducer,
-  OrderListReducer,
-  orderToApproveReducer,
-  supplierOrderListReducer,
-  orderToPlacedReducer,
-  placedOrderListReducer,
+	draftOrderCreateReducer,
+	draftOrderListReducer,
+	draftOrderDeleteReducer,
+	draftOrderToPendingOrderReducer,
+	OrderListReducer,
+	orderToApproveReducer,
+	supplierOrderListReducer,
+	orderToPlacedReducer,
+	placedOrderListReducer,
 } from "./reducers/orderReducer";
 
-import {
-  goodReceiptListReducer,
-  goodReceiptCreateReducer,
-} from "./reducers/goodReceiptReducer";
+import { goodReceiptListReducer, goodReceiptCreateReducer } from "./reducers/goodReceiptReducer";
 
-import {
-  invoiceListReducer,
-  invoiceCreateReducer,
-} from "./reducers/invoiceReducer";
+import { invoiceListReducer, invoiceCreateReducer } from "./reducers/invoiceReducer";
 
 const reducer = combineReducers({
-  siteManager_Login: siteMangerLoginReducer,
-  supplier_Login: supplierLoginReducer,
-  staff_Login: staffLoginReducer,
-  draftOrderCreate: draftOrderCreateReducer,
-  draftOrderList: draftOrderListReducer,
-  draftOrderDelete: draftOrderDeleteReducer,
-  draftOrderToPending: draftOrderToPendingOrderReducer,
-  orderList: OrderListReducer,
-  orderToApprove: orderToApproveReducer,
-  supplier_Orders: supplierOrderListReducer,
-  orderToPlaced: orderToPlacedReducer,
-  placedOrderList: placedOrderListReducer,
-  goodReceiptCreate: goodReceiptCreateReducer,
-  goodReceiptList: goodReceiptListReducer,
-  invoiceCreate: invoiceCreateReducer,
-  invoiceList: invoiceListReducer,
+	siteManager_Login: siteMangerLoginReducer,
+	supplier_Login: supplierLoginReducer,
+	staff_Login: staffLoginReducer,
+	staffRegistration: staffRegisterReducer,
+	supplierRegistration: supplierRegisterReducer,
+	siteManagerRegistration: siteManagerRegisterReducer,
+	draftOrderCreate: draftOrderCreateReducer,
+	draftOrderList: draftOrderListReducer,
+	draftOrderDelete: draftOrderDeleteReducer,
+	draftOrderToPending: draftOrderToPendingOrderReducer,
+	orderList: OrderListReducer,
+	orderToApprove: orderToApproveReducer,
+	supplier_Orders: supplierOrderListReducer,
+	orderToPlaced: orderToPlacedReducer,
+	placedOrderList: placedOrderListReducer,
+	goodReceiptCreate: goodReceiptCreateReducer,
+	goodReceiptList: goodReceiptListReducer,
+	invoiceCreate: invoiceCreateReducer,
+	invoiceList: invoiceListReducer,
 });
 
 const siteManagerInfoFromStorage = localStorage.getItem("siteManagerInfo")
-  ? JSON.parse(localStorage.getItem("siteManagerInfo"))
-  : null;
+	? JSON.parse(localStorage.getItem("siteManagerInfo"))
+	: null;
 
 const supplierInfoFromStorage = localStorage.getItem("supplierInfo")
-  ? JSON.parse(localStorage.getItem("supplierInfo"))
-  : null;
+	? JSON.parse(localStorage.getItem("supplierInfo"))
+	: null;
 
-const staffInfoFromStorage = localStorage.getItem("staffInfo")
-  ? JSON.parse(localStorage.getItem("staffInfo"))
-  : null;
+const staffInfoFromStorage = localStorage.getItem("staffInfo") ? JSON.parse(localStorage.getItem("staffInfo")) : null;
 
 const initialState = {
-  siteManager_Login: { siteManagerInfo: siteManagerInfoFromStorage },
-  supplier_Login: { supplierInfo: supplierInfoFromStorage },
-  staff_Login: { staffInfo: staffInfoFromStorage },
+	siteManager_Login: { siteManagerInfo: siteManagerInfoFromStorage },
+	supplier_Login: { supplierInfo: supplierInfoFromStorage },
+	staff_Login: { staffInfo: staffInfoFromStorage },
 };
 
 const middleware = [thunk];
 
-const store = createStore(
-  reducer,
-  initialState,
-  composeWithDevTools(applyMiddleware(...middleware))
-);
+const store = createStore(reducer, initialState, composeWithDevTools(applyMiddleware(...middleware)));
 
 export default store;
