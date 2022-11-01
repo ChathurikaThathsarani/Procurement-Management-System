@@ -5,6 +5,8 @@ import { createSiteAction } from "../../actions/siteAction";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
 import MainScreen from "../../components/MainScreen";
+import { authHeader } from "../../actions/staffAction";
+import axios from "axios";
 import "./siteMangement.css";
 
 export default function CreateSite({ history }) {
@@ -14,6 +16,22 @@ export default function CreateSite({ history }) {
   const [siteContactNumber, setSiteContactNumber] = useState("");
   const [budget, setBudget] = useState("");
   const [siteManager, setSiteManager] = useState("");
+  const [myArrayName, setMyArrayName] = useState([]);
+
+  useEffect(() => {
+    const fetching = async () => {
+      const { data } = await axios.get(`/user/staff/site-managers/get`, {
+        headers: authHeader(),
+      });
+      setMyArrayName(data);
+      
+    };
+
+    fetching();
+
+   
+  });
+
 
   const dispatch = useDispatch();
   const staff_Login = useSelector((state) => state.staff_Login);
@@ -53,11 +71,10 @@ export default function CreateSite({ history }) {
   const demoHandler = async (e) => {
     e.preventDefault();
     setSiteId("ST003");
-    setSiteName("dfbndfnf");
-    setSiteAddress("dsfhbdfbndfndf");
-    setSiteContactNumber("4386937869");
-    setBudget("100000");
-    setSiteManager("63459dc7ebca0f8af497c164");
+    setSiteName("Jaffna");
+    setSiteAddress("No 16 Palachi road Jaffna");
+    setSiteContactNumber("0112346578");
+    setBudget("120000");
   };
   useEffect(() => {}, []);
   if (staffInfo) {
@@ -151,17 +168,27 @@ export default function CreateSite({ history }) {
                     required
                   />
                 </Form.Group>
-
                 <Form.Group controlId="siteManager">
                   <Form.Label>Site Manager</Form.Label>
-                  <Form.Control
-                    type="siteManager"
-                    value={siteManager}
-                    placeholder="Enter the Site Manager"
+                  <select
+                    style={{
+                      height: "30px",
+                      width: "100%",
+                      borderRadius: 5,
+                      borderColor: "#808080",
+                      borderWidth: 0.5,
+                    }}
                     onChange={(e) => setSiteManager(e.target.value)}
-                    required
-                  />
+                  >
+                    <option value="Select">Select</option>
+                    {myArrayName.map((siteManager) => (
+                      <option value={siteManager.name}>
+                        {siteManager.name}
+                      </option>
+                    ))}
+                  </select>
                 </Form.Group>
+
                 <br></br>
 
                 {loading && <Loading size={50} />}
