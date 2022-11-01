@@ -26,6 +26,15 @@ import {
   invoiceCreateReducer,
 } from "./reducers/invoiceReducer";
 
+import{
+  productCreateReducer,
+  productListReducer,
+  productDeleteReducer,
+  productUpdateReducer,
+  viewProductListForSiteManagerReducer,
+  viewProductListForStaffReducer
+}from "./reducers/productReducer";
+
 const reducer = combineReducers({
   siteManager_Login: siteMangerLoginReducer,
   supplier_Login: supplierLoginReducer,
@@ -43,6 +52,12 @@ const reducer = combineReducers({
   goodReceiptList: goodReceiptListReducer,
   invoiceCreate: invoiceCreateReducer,
   invoiceList: invoiceListReducer,
+  productCreate:productCreateReducer,
+  productList:productListReducer,
+  productDelete:productDeleteReducer,
+  productUpdate:productUpdateReducer,
+  viewProductListForSiteManager:viewProductListForSiteManagerReducer,
+  viewProductListForStaff:viewProductListForStaffReducer
 });
 
 const siteManagerInfoFromStorage = localStorage.getItem("siteManagerInfo")

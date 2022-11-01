@@ -65,6 +65,7 @@ const StaffDashboard = ({ history }) => {
                         backgroundColor: "black",
                         borderRadius: 0,
                         border: "1px solid white",
+                        boxShadow:"none"
                       }}
                     >
                       Order Management
@@ -84,6 +85,7 @@ const StaffDashboard = ({ history }) => {
                         backgroundColor: "black",
                         borderRadius: 0,
                         border: "1px solid white",
+                        boxShadow:"none"
                       }}
                     >
                       Site Management
@@ -103,6 +105,7 @@ const StaffDashboard = ({ history }) => {
                         backgroundColor: "black",
                         borderRadius: 0,
                         border: "1px solid white",
+                        boxShadow:"none"
                       }}
                     >
                       Good Receipt Management
@@ -122,6 +125,7 @@ const StaffDashboard = ({ history }) => {
                         backgroundColor: "black",
                         borderRadius: 0,
                         border: "1px solid white",
+                        boxShadow:"none"
                       }}
                     >
                       Invoice Management
@@ -129,6 +133,25 @@ const StaffDashboard = ({ history }) => {
                   </Link>
                 </div>
                 <br></br>
+                <div>
+                  <Link to="/view-products-for-staff">
+                    <Button
+                      variant="success"
+                      size="lg"
+                      className="landingbutton"
+                      style={{
+                        width: 350,
+                        height: 75,
+                        backgroundColor: "black",
+                        borderRadius: 0,
+                        border: "1px solid white",
+                        boxShadow:"none"
+                      }}
+                    >
+                      View Supplier Products
+                    </Button>
+                  </Link>
+                </div>
                 <br></br>
               </div>
             </Card>

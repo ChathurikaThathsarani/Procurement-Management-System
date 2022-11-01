@@ -1,6 +1,6 @@
 import React from "react";
 import "./navbar.css";
-//import image1 from "./logo.PNG";
+import image1 from "./eagle.png";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -17,9 +17,9 @@ function Header({ setSearch }) {
 
   return (
     <div className="Navbar">
-      {/* <div className="leftSide">
+      {<div className="leftSide">
         <img src={image1} alt="" />
-      </div> */}
+      </div> }
       <div className="rightSide">
         <div className="links">
           <ButtonGroup
@@ -38,7 +38,7 @@ function Header({ setSearch }) {
             <Button
               variant=""
               style={{ color: "white", fontSize: "20px", marginLeft: "35px" }}
-              href="/"
+              href="/about-us"
             >
               ABOUT US
             </Button>
@@ -46,7 +46,7 @@ function Header({ setSearch }) {
             <Button
               variant=""
               style={{ color: "white", fontSize: "20px", marginLeft: "35px" }}
-              href="/"
+              href="/terms-and-conditions"
             >
               Terms And Conditions
             </Button>
