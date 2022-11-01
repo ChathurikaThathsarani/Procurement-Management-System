@@ -17,6 +17,8 @@ const {
 	getOrders,
 	pendingOrderToApproved,
 } = require("../controllers/orderController");
+
+const { getSupplierProduct } = require("../controllers/productController");
 const { protect } = require("../middleware/authSiteManagerMiddleware");
 const router = express.Router();
 
@@ -35,5 +37,7 @@ router.route("/orders/draft/products/:id").get(protect, getProductListOfSupplier
 router.route("/order/pending/:id").put(protect, draftOrderToPending);
 router.route("/orders/:id").get(protect, getOrders);
 router.route("/order/approved/:id").put(protect, pendingOrderToApproved);
+
+router.route("/supplier/supplier_product").get(protect, getSupplierProduct);
 
 module.exports = router;

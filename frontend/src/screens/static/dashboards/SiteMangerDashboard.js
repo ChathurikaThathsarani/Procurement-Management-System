@@ -65,6 +65,7 @@ const SiteManagerDashboard = ({ history }) => {
 												backgroundColor: "black",
 												borderRadius: 0,
 												border: "1px solid white",
+												boxShadow: "none",
 											}}
 										>
 											Draft Order
@@ -84,6 +85,7 @@ const SiteManagerDashboard = ({ history }) => {
 												backgroundColor: "black",
 												borderRadius: 0,
 												border: "1px solid white",
+												boxShadow: "none",
 											}}
 										>
 											Order Management
@@ -91,6 +93,25 @@ const SiteManagerDashboard = ({ history }) => {
 									</Link>
 								</div>
 								<br></br>
+								<div>
+									<Link to="/view-products">
+										<Button
+											variant="success"
+											size="lg"
+											className="landingbutton"
+											style={{
+												width: 350,
+												height: 75,
+												backgroundColor: "black",
+												borderRadius: 0,
+												border: "1px solid white",
+												boxShadow: "none",
+											}}
+										>
+											View Supplier Products
+										</Button>
+									</Link>
+								</div>
 								<br></br>
 							</div>
 						</Card>

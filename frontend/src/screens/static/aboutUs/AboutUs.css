@@ -1,0 +1,132 @@
+.abtMain {
+	min-height: 93vh;
+	display: flex;
+	align-items: center;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+		url("https://res.cloudinary.com/bytesquad202202/image/upload/v1667219724/architect-plan-working-table-crane-building-construction-background-file-35192700_onnqbw.jpg");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+@media only screen and (min-width: 1200px) {
+	.buttonContainer {
+		padding: 0 200px;
+	}
+	.title {
+		padding: 0 100px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.title {
+		font-size: 60px;
+	}
+	.landingbutton {
+		width: 150px;
+		height: 50px;
+	}
+}
+
+.abtTitle {
+	text-shadow: 7px 7px 60px black;
+	color: #ffffff;
+	text-transform: uppercase;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.abtIntro {
+	color: silver;
+	font-weight: bold;
+	margin-top: -10px;
+}
+
+.abtMission p {
+	color: silver;
+	line-height: 1.25;
+	font-size: 13pt;
+	text-align: justify;
+}
+
+.abtMission h3 {
+	color: white;
+	font-weight: bold;
+}
+
+/* .abtMission hr{
+  border:1px solid white;
+} */
+
+.abtVison p {
+	color: silver;
+	font-weight: 500;
+	font-size: 13pt;
+	text-align: justify;
+}
+
+.abtVison h3 {
+	color: white;
+	font-weight: bold;
+}
+
+/* .abtVison hr{
+  border:1px solid white;
+} */
+
+.abtUs {
+	padding: 25px;
+}
+
+.abtUs hr {
+	border: 2px;
+	height: 1px;
+	background: rgb(255, 255, 255);
+	background-image: linear-gradient(to right, #ccc, rgba(247, 244, 244, 0.24), #ccc);
+}
+
+.abtUs p {
+	color: silver;
+	font-weight: 500;
+	font-size: 13pt;
+	text-align: center;
+	padding-top: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.abtUs h2 {
+	color: white;
+	font-weight: bold;
+}
+
+.abtHr {
+	border: 2px;
+	height: 1px;
+	background: rgb(255, 255, 255);
+	background-image: linear-gradient(to right, #ccc, rgba(247, 244, 244, 0.24), #ccc);
+}
+
+.abtLogo {
+	margin-left: -100px;
+}
+
+.abtOwner h3 {
+	color: white;
+	font-weight: bold;
+}
+
+.abtOwner p {
+	color: silver;
+	font-weight: 500;
+	font-size: 13pt;
+	text-align: justify;
+	padding-top: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.abtvl {
+	border-left: 1px solid rgb(187, 186, 186);
+	height: 125px;
+}

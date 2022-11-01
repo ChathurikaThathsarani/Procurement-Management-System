@@ -65,6 +65,7 @@ const StaffDashboard = ({ history }) => {
 												backgroundColor: "black",
 												borderRadius: 0,
 												border: "1px solid white",
+												boxShadow: "none",
 											}}
 										>
 											Order Management
@@ -84,6 +85,7 @@ const StaffDashboard = ({ history }) => {
 												backgroundColor: "black",
 												borderRadius: 0,
 												border: "1px solid white",
+												boxShadow: "none",
 											}}
 										>
 											Site Management
@@ -92,7 +94,7 @@ const StaffDashboard = ({ history }) => {
 								</div>
 								<br></br>
 								<div>
-									<Link to="/supplier-register">
+									<Link to="/good-receipts">
 										<Button
 											variant="success"
 											size="lg"
@@ -103,9 +105,30 @@ const StaffDashboard = ({ history }) => {
 												backgroundColor: "black",
 												borderRadius: 0,
 												border: "1px solid white",
+												boxShadow: "none",
 											}}
 										>
-											Supplier Management
+											Good Receipt Management
+										</Button>
+									</Link>
+								</div>
+								<br></br>
+								<div>
+									<Link to="/invoices">
+										<Button
+											variant="success"
+											size="lg"
+											className="landingbutton"
+											style={{
+												width: 350,
+												height: 75,
+												backgroundColor: "black",
+												borderRadius: 0,
+												border: "1px solid white",
+												boxShadow: "none",
+											}}
+										>
+											Invoice Management
 										</Button>
 									</Link>
 								</div>
@@ -128,9 +151,10 @@ const StaffDashboard = ({ history }) => {
 										</Button>
 									</Link>
 								</div>
-								<br></br>
+								<br />
+								<br />
 								<div>
-									<Link to="/good-receipts">
+									<Link to="/supplier-register">
 										<Button
 											variant="success"
 											size="lg"
@@ -143,13 +167,14 @@ const StaffDashboard = ({ history }) => {
 												border: "1px solid white",
 											}}
 										>
-											Good Receipt Management
+											Supplier Management
 										</Button>
 									</Link>
 								</div>
-								<br></br>
+								<br />
+								<br />
 								<div>
-									<Link to="/invoices">
+									<Link to="/view-products-for-staff">
 										<Button
 											variant="success"
 											size="lg"
@@ -160,13 +185,13 @@ const StaffDashboard = ({ history }) => {
 												backgroundColor: "black",
 												borderRadius: 0,
 												border: "1px solid white",
+												boxShadow: "none",
 											}}
 										>
-											Invoice Management
+											View Supplier Products
 										</Button>
 									</Link>
 								</div>
-								<br></br>
 								<br></br>
 							</div>
 						</Card>

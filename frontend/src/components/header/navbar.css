@@ -1,8 +1,9 @@
 img {
-	height: 150px;
+	height: 100px;
 	padding: 0px;
-	margin-left: 20px;
-	margin-bottom: 20px;
+	margin-left: 50px;
+	margin-bottom: 30px;
+	margin-top: 20px;
 }
 
 button:hover {

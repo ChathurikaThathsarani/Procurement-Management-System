@@ -20,13 +20,19 @@ import { goodReceiptListReducer, goodReceiptCreateReducer } from "./reducers/goo
 
 import { invoiceListReducer, invoiceCreateReducer } from "./reducers/invoiceReducer";
 
+import {
+	productCreateReducer,
+	productListReducer,
+	productDeleteReducer,
+	productUpdateReducer,
+	viewProductListForSiteManagerReducer,
+	viewProductListForStaffReducer,
+} from "./reducers/productReducer";
+
 const reducer = combineReducers({
 	siteManager_Login: siteMangerLoginReducer,
 	supplier_Login: supplierLoginReducer,
 	staff_Login: staffLoginReducer,
-	staffRegistration: staffRegisterReducer,
-	supplierRegistration: supplierRegisterReducer,
-	siteManagerRegistration: siteManagerRegisterReducer,
 	draftOrderCreate: draftOrderCreateReducer,
 	draftOrderList: draftOrderListReducer,
 	draftOrderDelete: draftOrderDeleteReducer,
@@ -40,6 +46,15 @@ const reducer = combineReducers({
 	goodReceiptList: goodReceiptListReducer,
 	invoiceCreate: invoiceCreateReducer,
 	invoiceList: invoiceListReducer,
+	productCreate: productCreateReducer,
+	productList: productListReducer,
+	productDelete: productDeleteReducer,
+	productUpdate: productUpdateReducer,
+	viewProductListForSiteManager: viewProductListForSiteManagerReducer,
+	viewProductListForStaff: viewProductListForStaffReducer,
+	staffRegistration: staffRegisterReducer,
+	supplierRegistration: supplierRegisterReducer,
+	siteManagerRegistration: siteManagerRegisterReducer,
 });
 
 const siteManagerInfoFromStorage = localStorage.getItem("siteManagerInfo")

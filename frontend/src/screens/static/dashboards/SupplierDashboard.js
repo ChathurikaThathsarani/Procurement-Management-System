@@ -65,6 +65,7 @@ const SupplierDashboard = ({ history }) => {
 												backgroundColor: "black",
 												borderRadius: 0,
 												border: "1px solid white",
+												boxShadow: "none",
 											}}
 										>
 											Order Management
@@ -73,7 +74,7 @@ const SupplierDashboard = ({ history }) => {
 								</div>
 								<br></br>
 								<div>
-									<Link to="/">
+									<Link to="/product-list">
 										<Button
 											variant="success"
 											size="lg"
@@ -84,6 +85,7 @@ const SupplierDashboard = ({ history }) => {
 												backgroundColor: "black",
 												borderRadius: 0,
 												border: "1px solid white",
+												boxShadow: "none",
 											}}
 										>
 											Product Management

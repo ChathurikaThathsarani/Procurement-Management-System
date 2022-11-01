@@ -36,6 +36,7 @@ const LoginSelectorPage = () => {
 										borderRadius: 0,
 										border: "5px solid black",
 										color: "black",
+										boxShadow: "none",
 									}}
 								>
 									Site Manager Login
@@ -54,6 +55,7 @@ const LoginSelectorPage = () => {
 										borderRadius: 0,
 										border: "5px solid black",
 										color: "black",
+										boxShadow: "none",
 									}}
 								>
 									Suppier Login
@@ -72,6 +74,7 @@ const LoginSelectorPage = () => {
 										borderRadius: 0,
 										border: "5px solid black",
 										color: "black",
+										boxShadow: "none",
 									}}
 								>
 									Staff Login

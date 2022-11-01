@@ -26,6 +26,13 @@ import CreateGoodReceipt from "./screens/goodReceipt/CreateGoodReceipt";
 import InvoiceOrderList from "./screens/invoice/InvoiceOrderList";
 import InvoiceList from "./screens/invoice/InvoiceList";
 import CreateInvoice from "./screens/invoice/CreateInvoice";
+import ProductCreate from "./screens/productManagement/supplierProduct/ProductCreate";
+import ProductList from "./screens/productManagement/supplierProduct/ProductList";
+import ProductUpdate from "./screens/productManagement/supplierProduct/ProductUpdate";
+import ViewProductToSiteManager from "./screens/productManagement/viewProductToSiteManager/ViewProductToSiteManager";
+import ViewProductToStaff from "./screens/productManagement/viewProductToStaff/ViewProductToStaff";
+import TermsAndCondtions from "./screens/static/termsAndConditions/TermsAndCondition";
+import { AboutUs } from "./screens/static/aboutUs/AboutUs";
 import StaffRegisterScreen from "./screens/userManagement/register/StaffRegisterScreen";
 import SupplierRegisterScreen from "./screens/userManagement/register/SupplierRegisterScreen";
 import SiteManagerRegisterScreen from "./screens/userManagement/register/SiteManagerRegisterScreen";
@@ -57,6 +64,13 @@ const App = () => {
 				<Route path="/invoice-placed-orders" component={InvoiceOrderList} exact />
 				<Route path="/invoices" component={InvoiceList} exact />
 				<Route path="/invoice/:id" component={CreateInvoice} exact />
+				<Route path="/product-create" component={ProductCreate} exact />
+				<Route path="/product-list" component={ProductList} exact />
+				<Route path="/single-product/:id" component={ProductUpdate} exact />
+				<Route path="/view-products" component={ViewProductToSiteManager} exact />
+				<Route path="/view-products-for-staff" component={ViewProductToStaff} exact />
+				<Route path="/terms-and-conditions" component={TermsAndCondtions} exact />
+				<Route path="/about-us" component={AboutUs} exact />
 				<Route path="/staff-register" component={StaffRegisterScreen} exact />
 				<Route path="/supplier-register" component={SupplierRegisterScreen} exact />
 				<Route path="/site-manager-register" component={SiteManagerRegisterScreen} exact />
