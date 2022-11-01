@@ -48,61 +48,66 @@ export const listsiteAction = () => async (dispatch, getState) => {
   }
 };
 
-export const createSiteAction = ( siteId,siteName,siteAddress,siteContactNumber,budget,siteManager) => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: SITE_CREATE_REQUEST,
-    });
-    const {
-      staff_Login: { staffInfo },
-    } = getState();
+export const createSiteAction =
+  (siteId, siteName, siteAddress, siteContactNumber, budget, siteManagerName) =>
+  async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: SITE_CREATE_REQUEST,
+      });
+      const {
+        staff_Login: { staffInfo },
+      } = getState();
 
-    const config = {
-      headers: {
-        Authorization: `Bearer ${staffInfo.token}`,
-      },
-    };
-    const { data } = await axios.post(
-      `/user/staff/site/create`,
-      {
-        siteId,
-        siteName,
-        siteAddress,
-        siteContactNumber,
-        budget,
-        siteManager,
-      },
-      config
-    );
-    swal({
-      title: "Success !!!",
-      text: "A Site successfully created.",
-      icon: "success",
-      timer: 2000,
-      button: false,
-    });
-    setTimeout(function () {
-      window.location.href = "/site-management-view";
-    }, 2000);
+      const config = {
+        headers: {
+          Authorization: `Bearer ${staffInfo.token}`,
+        },
+      };
+      const { data } = await axios.post(
+        `/user/staff/site/create`,
+        {
+          siteId,
+          siteName,
+          siteAddress,
+          siteContactNumber,
+          budget,
+          siteManagerName,
+        },
+        
+        config
+    
+      );
+          console.log(data);
+      swal({
+        title: "Success !!!",
+        text: "A Site successfully created.",
+        icon: "success",
+        timer: 2000,
+        button: false,
+      });
+      setTimeout(function () {
+        window.location.href = "/site-management-view";
+      }, 2000);
 
-    dispatch({
-      type: SITE_CREATE_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    const message = "Site creation failed";
-    dispatch({
-      type: SITE_CREATE_FAIL,
-      payload: message,
-    });
+      dispatch({
+        type: SITE_CREATE_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      const message = "Site creation failed";
+      dispatch({
+        type: SITE_CREATE_FAIL,
+        payload: message,
+      });
 
-    swal({
-      title: "Error!",
-      text: "",
-      type: "error",
-    });
-  }
-};
+      swal({
+        title: "Error!",
+        text: "Plese select a manager",
+        type: "Error",
+      });
+    }
+  };
 
 export const updateSiteAction =
   (id,siteId, siteName, siteAddress, siteContactNumber, budget, siteManager) =>
@@ -140,7 +145,7 @@ export const updateSiteAction =
       });
       swal({
         title: "Success !!!",
-        text: "Schedule successfully updated.",
+        text: "Site successfully updated.",
         icon: "success",
         timer: 2000,
         button: false,
