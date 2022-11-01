@@ -10,7 +10,7 @@ const HomePage = () => {
 				<div className="container">
 					<div className="masthead-subheading">Welcome To Eagle Building Contracting!</div>
 					<div className="masthead-heading text-uppercase">It's Nice To Meet You</div>
-					<Link to="aboutus">
+					<Link to="about-us">
 						<Button
 							size="lg"
 							style={{

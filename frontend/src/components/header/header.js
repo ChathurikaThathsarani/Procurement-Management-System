@@ -41,7 +41,7 @@ function Header({ setSearch }) {
 							Terms And Conditions
 						</Button>
 
-						<Button variant="" style={{ color: "white", fontSize: "20px", marginLeft: "35px" }} href="/contactus">
+						<Button variant="" style={{ color: "white", fontSize: "20px", marginLeft: "35px" }} href="/">
 							CONTACT US
 						</Button>
 					</ButtonGroup>

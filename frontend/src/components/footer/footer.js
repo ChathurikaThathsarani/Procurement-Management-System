@@ -1,6 +1,6 @@
 import React from "react";
 import "./footer.css";
-//import image1 from "./eagle.png";
+import image1 from "./eagle.png";
 import { Row } from "react-bootstrap";
 
 function Footer() {
@@ -9,18 +9,18 @@ function Footer() {
 			<div className="container" style={{ marginLeft: "1%" }}>
 				<div className="row">
 					{/*Column1*/}
-					{/* <div className="col"style={{marginTop:10}}>
-            <img src={image1} alt="" style={{ width: "10%", height: "50%" }} />
-          </div>  */}
+					<div className="col">
+						<img src={image1} alt="" style={{ width: "40%", height: "60%" }} />
+					</div>
 					<div>
-						<Row style={{ marginLeft: 500 }}>
+						<Row>
 							{/* Column2 */}
 							<div className="col">
 								<h4>QUICK LINKS</h4>
 								<li className="list-unstyled">
 									<a href="/">HOME</a>
 									<br></br>
-									<a href="/aboutus">ABOUT US</a>
+									<a href="/about-us">ABOUT US</a>
 									<br></br>
 									<a href="/">PROJECTS</a>
 									<br></br>
@@ -31,7 +31,7 @@ function Footer() {
 							<div className="col">
 								<h4>POPULAR LINKS</h4>
 								<li className="list-unstyled">
-									<a href="/contactus">CONTACT US</a>
+									<a href="/">CONTACT US</a>
 									<br></br>
 									<a href="/">JOIN US</a>
 									<br></br>
