@@ -18,6 +18,7 @@ export default function SiteUpdate({ match, history }) {
   const [siteManager, setSiteManager] = useState("");
 
 
+
   const dispatch = useDispatch();
   const staff_Login = useSelector((state) => state.staff_Login);
   const { staffInfo } = staff_Login;
@@ -44,7 +45,9 @@ export default function SiteUpdate({ match, history }) {
     };
 
    	fetching();
-	}, [match.params.id]);
+  }, [match.params.id]);
+  
+
 
 
 
@@ -82,7 +85,8 @@ export default function SiteUpdate({ match, history }) {
               border: "1px solid white",
               height: 40,
             }}
-            href="/site-management-view">
+            href="/site-management-view"
+          >
             Back to Site List
           </Button>
           <br></br>
@@ -148,14 +152,7 @@ export default function SiteUpdate({ match, history }) {
                   />
                 </Form.Group>
 
-                <Form.Group controlId="siteManager">
-                  <Form.Label>Site Manager</Form.Label>
-                  <Form.Control
-                    type="siteManager"
-                    value={siteManager}
-                    readOnly
-                  />
-                </Form.Group>
+           
 
                 {loading && <Loading size={50} />}
                 <Button
