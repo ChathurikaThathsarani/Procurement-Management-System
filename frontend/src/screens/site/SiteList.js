@@ -29,6 +29,7 @@ export default function SiteList() {
 
   const [search, setSearch] = useState("");
 
+
   const searchHandler = (e) => {
     var lowerCase = e.target.value.toLowerCase();
     setSearch(lowerCase);
@@ -62,6 +63,8 @@ export default function SiteList() {
         });
       });
   };
+
+
 
   const history = useHistory();
   useEffect(() => {
@@ -190,6 +193,14 @@ export default function SiteList() {
                     >
                       Budget
                     </th>
+                    <th
+                      style={{
+                        width: 200,
+                        fontSize: 20,
+                      }}
+                    >
+                      Site Manager
+                    </th>
                   </tr>
                 </thead>
 
@@ -238,6 +249,13 @@ export default function SiteList() {
                           }}
                         >
                           {siteManagements.budget}
+                        </td>
+                        <td
+                          style={{
+                            fontSize: 20,
+                          }}
+                        >
+                          {siteManagements.siteManagerName}
                         </td>
 
                         <td>
