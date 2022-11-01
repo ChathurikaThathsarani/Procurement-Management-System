@@ -10,219 +10,197 @@ import axios from "axios";
 import "./siteMangement.css";
 
 export default function CreateSite({ history }) {
-  const [siteId, setSiteId] = useState("");
-  const [siteName, setSiteName] = useState("");
-  const [siteAddress, setSiteAddress] = useState("");
-  const [siteContactNumber, setSiteContactNumber] = useState("");
-  const [budget, setBudget] = useState("");
-  const [siteManager, setSiteManager] = useState("");
-  const [myArrayName, setMyArrayName] = useState([]);
+	const [siteId, setSiteId] = useState("");
+	const [siteName, setSiteName] = useState("");
+	const [siteAddress, setSiteAddress] = useState("");
+	const [siteContactNumber, setSiteContactNumber] = useState("");
+	const [budget, setBudget] = useState("");
+	const [siteManager, setSiteManager] = useState("");
+	const [myArrayName, setMyArrayName] = useState([]);
 
-  useEffect(() => {
-    const fetching = async () => {
-      const { data } = await axios.get(`/user/staff/site-managers/get`, {
-        headers: authHeader(),
-      });
-      setMyArrayName(data);
-      
-    };
+	useEffect(() => {
+		const fetching = async () => {
+			const { data } = await axios.get(`/user/staff/site-managers/get`, {
+				headers: authHeader(),
+			});
+			setMyArrayName(data);
+		};
 
-    fetching();
+		fetching();
+	});
 
-   
-  });
+	const dispatch = useDispatch();
+	const staff_Login = useSelector((state) => state.staff_Login);
+	const { staffInfo } = staff_Login;
 
+	const Site_Management_Create = useSelector((state) => state.Site_Management_Create);
+	const { loading, error } = Site_Management_Create;
 
-  const dispatch = useDispatch();
-  const staff_Login = useSelector((state) => state.staff_Login);
-    const { staffInfo } = staff_Login;
-    
-  const Site_Management_Create = useSelector(
-    (state) => state.Site_Management_Create
-  );
-  const { loading, error } = Site_Management_Create;
+	const resetHandler = () => {
+		setSiteId("");
+		setSiteName("");
+		setSiteAddress("");
+		setSiteContactNumber("");
+		setBudget("");
+		setSiteManager("");
+	};
 
-  const resetHandler = () => {
-    setSiteId("");
-    setSiteName("");
-    setSiteAddress("");
-    setSiteContactNumber("");
-    setBudget("");
-    setSiteManager("");
-  };
+	const submitHandler = (e) => {
+		e.preventDefault();
+		console.log("hello");
+		dispatch(createSiteAction(siteId, siteName, siteAddress, siteContactNumber, budget, siteManager));
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    console.log("hello");
-    dispatch(
-      createSiteAction(
-        siteId,
-        siteName,
-        siteAddress,
-        siteContactNumber,
-        budget,
-        siteManager
-      )
-    );
+		resetHandler();
+		history.push("/site-management-view");
+	};
+	const demoHandler = async (e) => {
+		e.preventDefault();
+		setSiteId("ST006");
+		setSiteName("Jaffna Redmark construction");
+		setSiteAddress("No 16 Palachi road Jaffna");
+		setSiteContactNumber("0112346578");
+		setBudget("220000");
+	};
+	useEffect(() => {}, []);
+	if (staffInfo) {
+		return (
+			<div className="SiteBackgroundCreate">
+				<MainScreen title="CREATE A SITE">
+					<Button
+						variant="info"
+						style={{
+							marginLeft: 10,
+							marginBottom: 6,
+							float: "left",
+							fontSize: 15,
+						}}
+						size="lg"
+						href="/site-management-view"
+					>
+						Back to Site List
+					</Button>
+					<br></br>
+					<br></br>
+					<br></br>
+					<Card
+						style={{
+							margin: 50,
+							marginLeft: "10%",
+							marginRight: "0%",
+							width: "80%",
+							borderRadius: 45,
+							borderWidth: 2.0,
+							marginTop: 20,
+							paddingInline: 10,
+							background: "rgba(231, 238, 238, 0.9)",
+						}}
+					>
+						<Card.Body>
+							<Form onSubmit={submitHandler}>
+								{error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
 
-    resetHandler();
-    history.push("/site-management-view");
-  };
-  const demoHandler = async (e) => {
-    e.preventDefault();
-    setSiteId("ST006");
-    setSiteName("Jaffna Redmark construction");
-    setSiteAddress("No 16 Palachi road Jaffna");
-    setSiteContactNumber("0112346578");
-    setBudget("220000");
-  };
-  useEffect(() => {}, []);
-  if (staffInfo) {
-    return (
-      <div className="SiteBackgroundCreate">
-        <MainScreen title="CREATE A SITE">
-          <Button
-            variant="info"
-            style={{
-              marginLeft: 10,
-              marginBottom: 6,
-              float: "left",
-              fontSize: 15,
-            }}
-            size="lg"
-            href="/site-management-view"
-          >
-            Back to Site List
-          </Button>
-          <br></br>
-          <br></br>
-          <br></br>
-          <Card
-            style={{
-              margin: 50,
-              marginLeft: "10%",
-              marginRight: "0%",
-              width: "80%",
-              borderRadius: 45,
-              borderWidth: 2.0,
-              marginTop: 20,
-              paddingInline: 10,
-              background: "rgba(231, 238, 238, 0.9)",
-            }}
-          >
-            <Card.Body>
-              <Form onSubmit={submitHandler}>
-                {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
+								<Form.Group controlId="siteId">
+									<Form.Label>Site ID</Form.Label>
+									<Form.Control
+										type="siteId"
+										value={siteId}
+										placeholder="Enter the Site ID"
+										onChange={(e) => setSiteId(e.target.value)}
+										required
+									/>
+								</Form.Group>
 
-                <Form.Group controlId="siteId">
-                  <Form.Label>Site ID</Form.Label>
-                  <Form.Control
-                    type="siteId"
-                    value={siteId}
-                    placeholder="Enter the Site ID"
-                    onChange={(e) => setSiteId(e.target.value)}
-                    required
-                  />
-                </Form.Group>
+								<Form.Group controlId="Name">
+									<Form.Label>Site Name</Form.Label>
+									<Form.Control
+										value={siteName}
+										placeholder="Enter the Site Name"
+										onChange={(e) => setSiteName(e.target.value)}
+										required
+									/>
+								</Form.Group>
 
-                <Form.Group controlId="Name">
-                  <Form.Label>Site Name</Form.Label>
-                  <Form.Control
-                    value={siteName}
-                    placeholder="Enter the Site Name"
-                    onChange={(e) => setSiteName(e.target.value)}
-                    required
-                  />
-                </Form.Group>
+								<Form.Group controlId="SiteAddress">
+									<Form.Label>Site Address</Form.Label>
+									<Form.Control
+										as="textarea"
+										type="SiteAddress"
+										value={siteAddress}
+										placeholder="Enter the Site Address "
+										onChange={(e) => setSiteAddress(e.target.value)}
+										required
+									/>
+								</Form.Group>
 
-                <Form.Group controlId="SiteAddress">
-                  <Form.Label>Site Address</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    type="SiteAddress"
-                    value={siteAddress}
-                    placeholder="Enter the Site Address "
-                    onChange={(e) => setSiteAddress(e.target.value)}
-                    required
-                  />
-                </Form.Group>
+								<Form.Group controlId="siteContactNumber">
+									<Form.Label>Site Contact Number</Form.Label>
+									<Form.Control
+										type="text"
+										value={siteContactNumber}
+										placeholder="Enter the Site Contact Number "
+										onChange={(e) => setSiteContactNumber(e.target.value)}
+										required
+									/>
+								</Form.Group>
 
-                <Form.Group controlId="siteContactNumber">
-                  <Form.Label>Site Contact Number</Form.Label>
-                  <Form.Control
-                    type="text"
-                    value={siteContactNumber}
-                    placeholder="Enter the Site Contact Number "
-                    onChange={(e) => setSiteContactNumber(e.target.value)}
-                    required
-                  />
-                </Form.Group>
+								<Form.Group controlId="Budget">
+									<Form.Label>Budget</Form.Label>
+									<Form.Control
+										type="budget"
+										value={budget}
+										placeholder="Enter the Budget"
+										onChange={(e) => setBudget(e.target.value)}
+										required
+									/>
+								</Form.Group>
+								<Form.Group controlId="siteManager">
+									<Form.Label>Site Manager</Form.Label>
+									<select
+										style={{
+											height: "30px",
+											width: "100%",
+											borderRadius: 5,
+											borderColor: "#808080",
+											borderWidth: 0.5,
+										}}
+										onChange={(e) => setSiteManager(e.target.value)}
+									>
+										<option value="Select">Select</option>
+										{myArrayName.map((siteManager) => (
+											<option value={siteManager.name}>{siteManager.name}</option>
+										))}
+									</select>
+								</Form.Group>
 
-                <Form.Group controlId="Budget">
-                  <Form.Label>Budget</Form.Label>
-                  <Form.Control
-                    type="budget"
-                    value={budget}
-                    placeholder="Enter the Budget"
-                    onChange={(e) => setBudget(e.target.value)}
-                    required
-                  />
-                </Form.Group>
-                <Form.Group controlId="siteManager">
-                  <Form.Label>Site Manager</Form.Label>
-                  <select
-                    style={{
-                      height: "30px",
-                      width: "100%",
-                      borderRadius: 5,
-                      borderColor: "#808080",
-                      borderWidth: 0.5,
-                    }}
-                    onChange={(e) => setSiteManager(e.target.value)}
-                  >
-                    <option value="Select">Select</option>
-                    {myArrayName.map((siteManager) => (
-                      <option value={siteManager.name}>
-                        {siteManager.name}
-                      </option>
-                    ))}
-                  </select>
-                </Form.Group>
+								<br></br>
 
-                <br></br>
+								{loading && <Loading size={50} />}
 
-                {loading && <Loading size={50} />}
+								<Button type="submit" variant="success">
+									Submit
+								</Button>
 
-                <Button type="submit" variant="success">
-                  Submit
-                </Button>
-
-                <Button
-                  className="mx-2"
-                  onClick={resetHandler}
-                  variant="danger"
-                >
-                  Reset
-                </Button>
-                <Button variant="info" onClick={demoHandler}>
-                  Demo
-                </Button>
-              </Form>
-              <br></br>
-            </Card.Body>
-          </Card>
-          <br></br>
-          <br></br>
-        </MainScreen>
-      </div>
-    );
-        
-  } else {
-    return (
-      <div className="denied">
-        <MainScreen />
-        <br></br>
-      </div>
-    );
-  }
+								<Button className="mx-2" onClick={resetHandler} variant="danger">
+									Reset
+								</Button>
+								<Button variant="info" onClick={demoHandler}>
+									Demo
+								</Button>
+							</Form>
+							<br></br>
+						</Card.Body>
+					</Card>
+					<br></br>
+					<br></br>
+				</MainScreen>
+			</div>
+		);
+	} else {
+		return (
+			<div className="denied">
+				<MainScreen />
+				<br></br>
+			</div>
+		);
+	}
 }
