@@ -66,6 +66,7 @@ export default function OrderToApprove({ match, history }) {
 							backgroundColor: "black",
 							border: "1px solid white",
 							borderRadius: 0,
+							boxShadow: "none",
 						}}
 						href="/orders"
 					>
