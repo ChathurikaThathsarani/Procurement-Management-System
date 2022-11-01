@@ -70,11 +70,11 @@ export default function CreateSite({ history }) {
   };
   const demoHandler = async (e) => {
     e.preventDefault();
-    setSiteId("ST003");
-    setSiteName("Jaffna");
+    setSiteId("ST006");
+    setSiteName("Jaffna Redmark construction");
     setSiteAddress("No 16 Palachi road Jaffna");
     setSiteContactNumber("0112346578");
-    setBudget("120000");
+    setBudget("220000");
   };
   useEffect(() => {}, []);
   if (staffInfo) {
