@@ -177,15 +177,13 @@ const receiptForOrders = asyncHandler(async (req, res) => {
 	res.json(orders);
 });
 
-
 // get all ordr for staff
 const getStaffOrders = asyncHandler(async (req, res) => {
 	const orders = await Order.find({
-		status: { $ne: "Draft" }
+		status: { $ne: "Draft" },
 	});
-	  res.json(orders);
+	res.json(orders);
 });
-
 
 // Get one order for staff
 const getStaffOneOrder = asyncHandler(async (req, res) => {
@@ -207,7 +205,6 @@ const StaffOrderToApproved = asyncHandler(async (req, res) => {
 		throw new Error("Pending Order not found");
 	}
 });
-
 
 module.exports = {
 	createOrder,

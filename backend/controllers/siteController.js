@@ -7,8 +7,6 @@ const getSite = asyncHandler(async (req, res) => {
 	res.json(site);
 });
 
-
-
 const getSiteId = asyncHandler(async (req, res) => {
 	const site = await Site.findById(req.params.id);
 

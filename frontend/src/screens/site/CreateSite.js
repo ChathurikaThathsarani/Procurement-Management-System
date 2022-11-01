@@ -59,7 +59,7 @@ export default function CreateSite({ history }) {
 		setSiteName("Jaffna Redmark construction");
 		setSiteAddress("No 16 Palachi road Jaffna");
 		setSiteContactNumber("0112346578");
-		setBudget("220000");
+		setBudget("350000");
 	};
 	useEffect(() => {}, []);
 	if (staffInfo) {

@@ -1,37 +1,37 @@
 import {
-  DRAFT_ORDER_CREATE_REQUEST,
-  DRAFT_ORDER_CREATE_SUCCESS,
-  DRAFT_ORDER_CREATE_FAIL,
-  DRAFT_ORDER_LIST_REQUEST,
-  DRAFT_ORDER_LIST_SUCCESS,
-  DRAFT_ORDER_LIST_FAIL,
-  DRAFT_ORDER_DELETE_REQUEST,
-  DRAFT_ORDER_DELETE_SUCCESS,
-  DRAFT_ORDER_DELETE_FAIL,
-  DRAFT_ORDER_TO_PENDING_REQUEST,
-  DRAFT_ORDER_TO_PENDING_SUCCESS,
-  DRAFT_ORDER_TO_PENDING_FAIL,
-  ORDER_LIST_REQUEST,
-  ORDER_LIST_SUCCESS,
-  ORDER_LIST_FAIL,
-  ORDER_TO_APPROVE_REQUEST,
-  ORDER_TO_APPROVE_SUCCESS,
-  ORDER_TO_APPROVE_FAIL,
-  ORDER_LIST_SUPPLIER_REQUEST,
-  ORDER_LIST_SUPPLIER_SUCCESS,
-  ORDER_LIST_SUPPLIER_FAIL,
-  ORDER_TO_PLACED_REQUEST,
-  ORDER_TO_PLACED_SUCCESS,
-  ORDER_TO_PLACED_FAIL,
-  PLACED_ORDER_REQUEST,
-  PLACED_ORDER_SUCCESS,
-  PLACED_ORDER_FAIL,
-  STAFF_ORDER_LIST_REQUEST,
-  STAFF_ORDER_LIST_SUCCESS,
-  SRAFF_ORDER_LIST_FAIL,
-  STAFF_ORDER_APPROVE_REQUEST,
-  STAFF_ORDER_APPROVE_SUCCESS,
-  STAFF_ORDER_APPROVE_FAIL,
+	DRAFT_ORDER_CREATE_REQUEST,
+	DRAFT_ORDER_CREATE_SUCCESS,
+	DRAFT_ORDER_CREATE_FAIL,
+	DRAFT_ORDER_LIST_REQUEST,
+	DRAFT_ORDER_LIST_SUCCESS,
+	DRAFT_ORDER_LIST_FAIL,
+	DRAFT_ORDER_DELETE_REQUEST,
+	DRAFT_ORDER_DELETE_SUCCESS,
+	DRAFT_ORDER_DELETE_FAIL,
+	DRAFT_ORDER_TO_PENDING_REQUEST,
+	DRAFT_ORDER_TO_PENDING_SUCCESS,
+	DRAFT_ORDER_TO_PENDING_FAIL,
+	ORDER_LIST_REQUEST,
+	ORDER_LIST_SUCCESS,
+	ORDER_LIST_FAIL,
+	ORDER_TO_APPROVE_REQUEST,
+	ORDER_TO_APPROVE_SUCCESS,
+	ORDER_TO_APPROVE_FAIL,
+	ORDER_LIST_SUPPLIER_REQUEST,
+	ORDER_LIST_SUPPLIER_SUCCESS,
+	ORDER_LIST_SUPPLIER_FAIL,
+	ORDER_TO_PLACED_REQUEST,
+	ORDER_TO_PLACED_SUCCESS,
+	ORDER_TO_PLACED_FAIL,
+	PLACED_ORDER_REQUEST,
+	PLACED_ORDER_SUCCESS,
+	PLACED_ORDER_FAIL,
+	STAFF_ORDER_LIST_REQUEST,
+	STAFF_ORDER_LIST_SUCCESS,
+	SRAFF_ORDER_LIST_FAIL,
+	STAFF_ORDER_APPROVE_REQUEST,
+	STAFF_ORDER_APPROVE_SUCCESS,
+	STAFF_ORDER_APPROVE_FAIL,
 } from "../constants/orderConstant";
 
 import axios from "axios";
@@ -389,87 +389,80 @@ export const placedlistOrders = () => async (dispatch, getState) => {
 	}
 };
 export const getOrderStaffAction = () => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: STAFF_ORDER_LIST_REQUEST,
-    });
+	try {
+		dispatch({
+			type: STAFF_ORDER_LIST_REQUEST,
+		});
 
-    const {
-      staff_Login: { staffInfo },
-    } = getState();
+		const {
+			staff_Login: { staffInfo },
+		} = getState();
 
-    const config = {
-      headers: {
-        Authorization: `Bearer ${staffInfo.token}`,
-      },
-    };
-    const { data } = await axios.get(`/user/staff/product-staff/get`, config);
-    console.log(data);
-    dispatch({
-      type: STAFF_ORDER_LIST_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    const message =
-      error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message;
-    dispatch({
-      type: SRAFF_ORDER_LIST_FAIL,
-      payload: message,
-    });
-  }
+		const config = {
+			headers: {
+				Authorization: `Bearer ${staffInfo.token}`,
+			},
+		};
+		const { data } = await axios.get(`/user/staff/product-staff/get`, config);
+		console.log(data);
+		dispatch({
+			type: STAFF_ORDER_LIST_SUCCESS,
+			payload: data,
+		});
+	} catch (error) {
+		const message = error.response && error.response.data.message ? error.response.data.message : error.message;
+		dispatch({
+			type: SRAFF_ORDER_LIST_FAIL,
+			payload: message,
+		});
+	}
 };
 
-export const StaffOrderToApproveOrderAction =
-  (id, status) => async (dispatch, getState) => {
-    try {
-      dispatch({
-        type: STAFF_ORDER_APPROVE_REQUEST,
-      });
+export const StaffOrderToApproveOrderAction = (id, status) => async (dispatch, getState) => {
+	try {
+		dispatch({
+			type: STAFF_ORDER_APPROVE_REQUEST,
+		});
 
-      const {
-        staff_Login: { staffInfo },
-      } = getState();
+		const {
+			staff_Login: { staffInfo },
+		} = getState();
 
-      const config = {
-        headers: {
-          Authorization: `Bearer ${staffInfo.token}`,
-        },
-      };
+		const config = {
+			headers: {
+				Authorization: `Bearer ${staffInfo.token}`,
+			},
+		};
 
-      const { data } = await axios.put(
-        `/user/staff/product-staff/approve/${id}`,
-        {
-          status,
-        },
-        config
-      );
+		const { data } = await axios.put(
+			`/user/staff/product-staff/approve/${id}`,
+			{
+				status,
+			},
+			config
+		);
 
-      swal({
-        title: "Success !!!",
-        text: " Order status is changed",
-        icon: "success",
-        timer: 2000,
-        button: false,
-      });
+		swal({
+			title: "Success !!!",
+			text: " Order status is changed",
+			icon: "success",
+			timer: 2000,
+			button: false,
+		});
 
-      setTimeout(function () {
-        window.location.href = "/staff-orders";
-      }, 2000);
+		setTimeout(function () {
+			window.location.href = "/staff-orders";
+		}, 2000);
 
-      dispatch({
-        type: STAFF_ORDER_APPROVE_SUCCESS,
-        payload: data,
-      });
-    } catch (error) {
-      const message =
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message;
-      dispatch({
-        type: STAFF_ORDER_APPROVE_FAIL,
-        payload: message,
-      });
-    }
-  };
+		dispatch({
+			type: STAFF_ORDER_APPROVE_SUCCESS,
+			payload: data,
+		});
+	} catch (error) {
+		const message = error.response && error.response.data.message ? error.response.data.message : error.message;
+		dispatch({
+			type: STAFF_ORDER_APPROVE_FAIL,
+			payload: message,
+		});
+	}
+};
