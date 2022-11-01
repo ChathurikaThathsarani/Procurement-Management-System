@@ -13,10 +13,10 @@ import {
 	PRODUCT_UPDATE_SUCCESS,
 	VIEW_PRODUCT_FOR_SITE_MANAGER_LIST_FAIL,
 	VIEW_PRODUCT_FOR_SITE_MANAGER_LIST_REQUEST,
-	VIEW_PRODUCT_FOR_SITE_MANAGER_LIST_SUCCESS, 
+	VIEW_PRODUCT_FOR_SITE_MANAGER_LIST_SUCCESS,
 	VIEW_PRODUCT_FOR_STAFF_LIST_FAIL,
 	VIEW_PRODUCT_FOR_STAFF_LIST_REQUEST,
-	VIEW_PRODUCT_FOR_STAFF_LIST_SUCCESS 
+	VIEW_PRODUCT_FOR_STAFF_LIST_SUCCESS,
 } from "../constants/productConstant";
 
 export const productListReducer = (state = { product: [] }, action) => {
@@ -49,19 +49,19 @@ export const productCreateReducer = (state = {}, action) => {
 
 export const productDeleteReducer = (state = {}, action) => {
 	switch (action.type) {
-	  case PRODUCT_DELETE_REQUEST:
-		return { loading: true };
-	  case PRODUCT_DELETE_SUCCESS:
-		return { loading: false, success: true };
-	  case PRODUCT_DELETE_FAIL:
-		return { loading: false, error: action.payload, success: false };
-  
-	  default:
-		return state;
-	}
-  };
+		case PRODUCT_DELETE_REQUEST:
+			return { loading: true };
+		case PRODUCT_DELETE_SUCCESS:
+			return { loading: false, success: true };
+		case PRODUCT_DELETE_FAIL:
+			return { loading: false, error: action.payload, success: false };
 
-  export const productUpdateReducer = (state = {}, action) => {
+		default:
+			return state;
+	}
+};
+
+export const productUpdateReducer = (state = {}, action) => {
 	switch (action.type) {
 		case PRODUCT_UPDATE_REQUEST:
 			return { loading: true };
@@ -74,7 +74,7 @@ export const productDeleteReducer = (state = {}, action) => {
 			return state;
 	}
 };
-  
+
 export const viewProductListForSiteManagerReducer = (state = { product: [] }, action) => {
 	switch (action.type) {
 		case VIEW_PRODUCT_FOR_SITE_MANAGER_LIST_REQUEST:

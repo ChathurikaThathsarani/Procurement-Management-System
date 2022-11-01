@@ -13,10 +13,10 @@ import {
 	PRODUCT_UPDATE_SUCCESS,
 	VIEW_PRODUCT_FOR_SITE_MANAGER_LIST_FAIL,
 	VIEW_PRODUCT_FOR_SITE_MANAGER_LIST_REQUEST,
-	VIEW_PRODUCT_FOR_SITE_MANAGER_LIST_SUCCESS, 
+	VIEW_PRODUCT_FOR_SITE_MANAGER_LIST_SUCCESS,
 	VIEW_PRODUCT_FOR_STAFF_LIST_FAIL,
 	VIEW_PRODUCT_FOR_STAFF_LIST_REQUEST,
-	VIEW_PRODUCT_FOR_STAFF_LIST_SUCCESS 
+	VIEW_PRODUCT_FOR_STAFF_LIST_SUCCESS,
 } from "../constants/productConstant";
 import axios from "axios";
 import swal from "sweetalert";
@@ -53,8 +53,7 @@ export const listProductAction = () => async (dispatch, getState) => {
 };
 
 export const createProductAction =
-	(supplier, productName,productPrice, productDescription) =>
-	async (dispatch, getState) => {
+	(supplier, productName, productPrice, productDescription) => async (dispatch, getState) => {
 		try {
 			dispatch({ type: PRODUCT_CREATE_REQUEST });
 
@@ -72,10 +71,10 @@ export const createProductAction =
 			const { data } = await axios.post(
 				`user/supplier/product/create`,
 				{
-					supplier, 
-                    productName,
-                    productPrice, 
-                    productDescription
+					supplier,
+					productName,
+					productPrice,
+					productDescription,
 				},
 				config
 			);
@@ -100,14 +99,7 @@ export const createProductAction =
 	};
 
 export const updateProductAction =
-	(
-		id,
-		supplier, 
-        productName,
-        productPrice, 
-        productDescription
-	) =>
-	async (dispatch, getState) => {
+	(id, supplier, productName, productPrice, productDescription) => async (dispatch, getState) => {
 		try {
 			dispatch({ type: PRODUCT_UPDATE_REQUEST });
 
@@ -122,10 +114,10 @@ export const updateProductAction =
 			const { data } = await axios.put(
 				`/user/supplier/supplier-product/${id}`,
 				{
-		            supplier, 
-                    productName,
-                    productPrice, 
-                    productDescription
+					supplier,
+					productName,
+					productPrice,
+					productDescription,
 				},
 				config
 			);
@@ -154,7 +146,7 @@ export const updateProductAction =
 export const productDeleteAction = (id) => async (dispatch, getState) => {
 	try {
 		dispatch({
-			type:PRODUCT_DELETE_REQUEST,
+			type: PRODUCT_DELETE_REQUEST,
 		});
 
 		const {
@@ -207,7 +199,7 @@ export const viewProductForSiteManagerAction = () => async (dispatch, getState) 
 	} catch (error) {
 		const message = error.response && error.response.data.message ? error.response.data.message : error.message;
 		dispatch({
-			type:VIEW_PRODUCT_FOR_SITE_MANAGER_LIST_FAIL,
+			type: VIEW_PRODUCT_FOR_SITE_MANAGER_LIST_FAIL,
 			payload: message,
 		});
 	}
@@ -238,9 +230,8 @@ export const viewProductForStaffAction = () => async (dispatch, getState) => {
 	} catch (error) {
 		const message = error.response && error.response.data.message ? error.response.data.message : error.message;
 		dispatch({
-			type:VIEW_PRODUCT_FOR_STAFF_LIST_FAIL,
+			type: VIEW_PRODUCT_FOR_STAFF_LIST_FAIL,
 			payload: message,
 		});
 	}
 };
-
