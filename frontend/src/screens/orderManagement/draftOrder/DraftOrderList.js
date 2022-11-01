@@ -70,7 +70,7 @@ export default function DraftOrderList() {
 							<Form inline>
 								<input
 									type="text"
-									placeholder="Search..."
+									placeholder="Enter the Supplier Name"
 									onChange={inputHandler}
 									style={{
 										width: 260,
@@ -96,6 +96,7 @@ export default function DraftOrderList() {
 												backgroundColor: "black",
 												borderRadius: 0,
 												border: "1px solid white",
+												boxShadow: "none",
 											}}
 											size="lg"
 										>
@@ -223,7 +224,11 @@ export default function DraftOrderList() {
 													</Link>
 													&emsp;
 													<span onClick={() => deleteHandler(draft._id)}>
-														<i class="fa-solid fa-trash" onClick={() => deleteHandler(draft._id)}></i>
+														<i
+															class="fa-solid fa-trash"
+															onClick={() => deleteHandler(draft._id)}
+															style={{ cursor: "pointer" }}
+														></i>
 													</span>
 												</td>
 											</tr>
