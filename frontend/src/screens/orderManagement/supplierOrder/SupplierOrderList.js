@@ -38,7 +38,7 @@ export default function SupplierOrderList() {
 						<Form inline>
 							<input
 								type="text"
-								placeholder="Search..."
+								placeholder="Enter the Order Number"
 								onChange={inputHandler}
 								style={{
 									width: 260,
@@ -119,7 +119,7 @@ export default function SupplierOrderList() {
 							<tbody>
 								{supplierOrders
 									?.reverse()
-									.filter((filteredB) => filteredB.status.includes(search))
+									.filter((filteredB) => filteredB.orderNo.includes(search))
 									.map((order) => (
 										<tr
 											key={order._id}

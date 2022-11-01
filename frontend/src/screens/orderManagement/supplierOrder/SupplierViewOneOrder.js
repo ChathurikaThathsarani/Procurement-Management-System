@@ -55,6 +55,7 @@ export default function SupplierViewOneOrder({ match, history }) {
 							backgroundColor: "black",
 							border: "1px solid white",
 							borderRadius: 0,
+							boxShadow: "none",
 						}}
 						href="/supplier-orders"
 					>

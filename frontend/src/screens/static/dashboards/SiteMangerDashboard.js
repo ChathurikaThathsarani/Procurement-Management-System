@@ -108,10 +108,11 @@ const SiteManagerDashboard = ({ history }) => {
 												boxShadow: "none",
 											}}
 										>
-											View Supplier Products
+											Supplier Products
 										</Button>
 									</Link>
 								</div>
+								<br></br>
 								<br></br>
 							</div>
 						</Card>
