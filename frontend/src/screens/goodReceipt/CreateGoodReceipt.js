@@ -56,11 +56,12 @@ export default function CreateGoodReceipt({ match, history }) {
 							borderRadius: 0,
 							border: "1px solid white",
 							height: 40,
+							boxShadow: "none",
 						}}
 						href="/placed-orders"
 					>
 						{" "}
-						Placed Orders
+						Back To Placed Orders
 					</Button>
 					<br></br>
 					<br></br>

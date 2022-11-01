@@ -42,18 +42,19 @@ export default function GoodReceiptList() {
 							backgroundColor: "black",
 							border: "1px solid white",
 							borderRadius: 0,
+							boxShadow: "none",
 						}}
 						href="/placed-orders"
 					>
 						{" "}
-						Placed Orders
+						+ New Receipt
 					</Button>
 					<br></br>
 					<div className="search" style={{ marginTop: 5 }}>
 						<Form inline>
 							<input
 								type="text"
-								placeholder="Search..."
+								placeholder="Enter the Order No"
 								onChange={inputHandler}
 								style={{
 									width: 260,

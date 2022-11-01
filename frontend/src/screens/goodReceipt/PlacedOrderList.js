@@ -45,11 +45,12 @@ export default function PlacedOrderList() {
 							backgroundColor: "black",
 							border: "1px solid white",
 							borderRadius: 0,
+							boxShadow: "none",
 						}}
 						href="/good-receipts"
 					>
 						{" "}
-						Good Receipts
+						Back To Good Receipt List
 					</Button>
 					<br></br>
 					<div className="search" style={{ marginTop: 5 }}>
