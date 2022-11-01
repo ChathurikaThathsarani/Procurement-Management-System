@@ -42,18 +42,19 @@ export default function InvoiceOrderList() {
 							backgroundColor: "black",
 							border: "1px solid white",
 							borderRadius: 0,
+							boxShadow: "none",
 						}}
 						href="/invoices"
 					>
 						{" "}
-						Invoices
+						Back To Invoice List
 					</Button>
 					<br></br>
 					<div className="search" style={{ marginTop: 5 }}>
 						<Form inline>
 							<input
 								type="text"
-								placeholder="Search..."
+								placeholder="Enter the Order Number"
 								onChange={inputHandler}
 								style={{
 									width: 260,
@@ -109,7 +110,7 @@ export default function InvoiceOrderList() {
 											fontSize: 20,
 										}}
 									>
-										Product Name
+										Product
 									</th>
 
 									<th
@@ -118,7 +119,7 @@ export default function InvoiceOrderList() {
 											fontSize: 20,
 										}}
 									>
-										Total Price
+										Total
 									</th>
 									<th
 										style={{

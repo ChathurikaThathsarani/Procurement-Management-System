@@ -57,7 +57,7 @@ export default function PlacedOrderList() {
 						<Form inline>
 							<input
 								type="text"
-								placeholder="Search..."
+								placeholder="Enter the Order Number"
 								onChange={inputHandler}
 								style={{
 									width: 260,
@@ -113,7 +113,7 @@ export default function PlacedOrderList() {
 											fontSize: 20,
 										}}
 									>
-										Product Name
+										Product
 									</th>
 
 									<th
@@ -122,7 +122,7 @@ export default function PlacedOrderList() {
 											fontSize: 20,
 										}}
 									>
-										Total Price
+										Price
 									</th>
 									<th
 										style={{
