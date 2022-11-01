@@ -145,13 +145,13 @@ const StaffDashboard = ({ history }) => {
 												backgroundColor: "black",
 												borderRadius: 0,
 												border: "1px solid white",
+												boxShadow: "none",
 											}}
 										>
 											Site Manager Management
 										</Button>
 									</Link>
 								</div>
-								<br />
 								<br />
 								<div>
 									<Link to="/supplier-register">
@@ -165,6 +165,7 @@ const StaffDashboard = ({ history }) => {
 												backgroundColor: "black",
 												borderRadius: 0,
 												border: "1px solid white",
+												boxShadow: "none",
 											}}
 										>
 											Supplier Management
@@ -172,7 +173,27 @@ const StaffDashboard = ({ history }) => {
 									</Link>
 								</div>
 								<br />
+								<div>
+									<Link to="/staff-register">
+										<Button
+											variant="success"
+											size="lg"
+											className="landingbutton"
+											style={{
+												width: 350,
+												height: 75,
+												backgroundColor: "black",
+												borderRadius: 0,
+												border: "1px solid white",
+												boxShadow: "none",
+											}}
+										>
+											Staff Management
+										</Button>
+									</Link>
+								</div>
 								<br />
+
 								<div>
 									<Link to="/view-products-for-staff">
 										<Button
@@ -188,7 +209,7 @@ const StaffDashboard = ({ history }) => {
 												boxShadow: "none",
 											}}
 										>
-											View Supplier Products
+											Supplier Products
 										</Button>
 									</Link>
 								</div>

@@ -101,9 +101,12 @@ const SiteManagerRegisterScreen = () => {
 					<Button
 						variant="success"
 						style={{
-							float: "left",
-							marginTop: 5,
+							marginBottom: 6,
 							fontSize: 15,
+							backgroundColor: "black",
+							borderRadius: 0,
+							border: "1px solid white",
+							boxShadow: "none",
 						}}
 						href="/staff"
 					>
@@ -112,11 +115,10 @@ const SiteManagerRegisterScreen = () => {
 					</Button>
 					<br></br>
 					<br></br>
-					<br></br>
 					<Card
 						className="profileCont"
 						style={{
-							borderRadius: 45,
+							borderRadius: 0,
 							borderWidth: 2.0,
 							marginTop: 20,
 							paddingInline: 10,
@@ -126,7 +128,6 @@ const SiteManagerRegisterScreen = () => {
 						}}
 					>
 						<div className="loginContainer">
-							<br></br>
 							<div>
 								{error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
 								{message && <ErrorMessage variant="danger">{message}</ErrorMessage>}
@@ -259,8 +260,11 @@ const SiteManagerRegisterScreen = () => {
 											variant="primary"
 											type="submit"
 											style={{
-												fontSize: 15,
-												marginTop: 10,
+												width: 100,
+												height: 40,
+												backgroundColor: "black",
+												borderRadius: 0,
+												border: "3px solid white",
 											}}
 										>
 											Register
@@ -270,8 +274,11 @@ const SiteManagerRegisterScreen = () => {
 											variant="danger"
 											onClick={resetHandler}
 											style={{
-												fontSize: 15,
-												marginTop: 10,
+												width: 100,
+												height: 40,
+												backgroundColor: "red",
+												borderRadius: 0,
+												border: "3px solid white",
 											}}
 										>
 											Reset
@@ -281,8 +288,11 @@ const SiteManagerRegisterScreen = () => {
 											variant="info"
 											onClick={demoHandler}
 											style={{
-												fontSize: 15,
-												marginTop: 10,
+												width: 100,
+												height: 40,
+												backgroundColor: "blue",
+												borderRadius: 0,
+												border: "3px solid white",
 											}}
 										>
 											Demo

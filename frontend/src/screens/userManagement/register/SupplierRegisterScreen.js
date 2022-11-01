@@ -118,9 +118,12 @@ const SupplierRegisterScreen = () => {
 					<Button
 						variant="success"
 						style={{
-							float: "left",
-							marginTop: 5,
+							marginBottom: 6,
 							fontSize: 15,
+							backgroundColor: "black",
+							borderRadius: 0,
+							border: "1px solid white",
+							boxShadow: "none",
 						}}
 						href="/staff"
 					>
@@ -129,11 +132,11 @@ const SupplierRegisterScreen = () => {
 					</Button>
 					<br></br>
 					<br></br>
-					<br></br>
+
 					<Card
 						className="profileCont"
 						style={{
-							borderRadius: 45,
+							borderRadius: 0,
 							borderWidth: 2.0,
 							marginTop: 20,
 							paddingInline: 10,
@@ -143,13 +146,12 @@ const SupplierRegisterScreen = () => {
 						}}
 					>
 						<div className="loginContainer">
-							<br></br>
 							<div>
 								{error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
 								{message && <ErrorMessage variant="danger">{message}</ErrorMessage>}
 								{loading && <Loading />}
 							</div>
-							<br></br>
+
 							<Row className="supplierProfileContainer">
 								<Col md={6}>
 									<Form onSubmit={submitHandler}>
@@ -288,6 +290,9 @@ const SupplierRegisterScreen = () => {
 											style={{
 												fontSize: 15,
 												marginTop: 10,
+												backgroundColor: "black",
+												borderRadius: 0,
+												border: "3px solid white",
 											}}
 										>
 											Register
@@ -299,6 +304,9 @@ const SupplierRegisterScreen = () => {
 											style={{
 												fontSize: 15,
 												marginTop: 10,
+												backgroundColor: "red",
+												borderRadius: 0,
+												border: "3px solid white",
 											}}
 										>
 											Reset
@@ -310,6 +318,9 @@ const SupplierRegisterScreen = () => {
 											style={{
 												fontSize: 15,
 												marginTop: 10,
+												backgroundColor: "blue",
+												borderRadius: 0,
+												border: "3px solid white",
 											}}
 										>
 											Demo

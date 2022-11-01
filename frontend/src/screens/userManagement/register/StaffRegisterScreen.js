@@ -103,9 +103,12 @@ const StaffRegisterScreen = () => {
 					<Button
 						variant="success"
 						style={{
-							float: "left",
-							marginTop: 5,
+							marginBottom: 6,
 							fontSize: 15,
+							backgroundColor: "black",
+							borderRadius: 0,
+							border: "1px solid white",
+							boxShadow: "none",
 						}}
 						href="/staff"
 					>
@@ -260,6 +263,9 @@ const StaffRegisterScreen = () => {
 											style={{
 												fontSize: 15,
 												marginTop: 10,
+												backgroundColor: "black",
+												borderRadius: 0,
+												border: "3px solid white",
 											}}
 										>
 											Register
@@ -271,6 +277,9 @@ const StaffRegisterScreen = () => {
 											style={{
 												fontSize: 15,
 												marginTop: 10,
+												backgroundColor: "red",
+												borderRadius: 0,
+												border: "3px solid white",
 											}}
 										>
 											Reset
@@ -282,6 +291,9 @@ const StaffRegisterScreen = () => {
 											style={{
 												fontSize: 15,
 												marginTop: 10,
+												backgroundColor: "blue",
+												borderRadius: 0,
+												border: "3px solid white",
 											}}
 										>
 											Demo
