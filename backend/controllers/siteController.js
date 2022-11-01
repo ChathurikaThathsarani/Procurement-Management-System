@@ -1,11 +1,13 @@
 const Site = require("../models/siteModel");
+const SiteManager = require("../models/siteManagerModel");
 const asyncHandler = require("express-async-handler");
-
 
 const getSite = asyncHandler(async (req, res) => {
 	const site = await Site.find();
 	res.json(site);
 });
+
+
 
 const getSiteId = asyncHandler(async (req, res) => {
 	const site = await Site.findById(req.params.id);
@@ -18,9 +20,10 @@ const getSiteId = asyncHandler(async (req, res) => {
 });
 
 const createSite = asyncHandler(async (req, res) => {
-	const { siteId, siteName, siteAddress, siteContactNumber, budget, siteManager } = req.body;
-
-	if (!siteId || !siteName || !siteAddress || !siteContactNumber || !budget || !siteManager) {
+	const { siteId, siteName, siteAddress, siteContactNumber, budget, siteManagerName } = req.body;
+	const siteManagers = await SiteManager.findOne({ name: siteManagerName });
+	const siteManager = siteManagers._id;
+	if (!siteId || !siteName || !siteAddress || !siteContactNumber || !budget || !siteManagerName) {
 		res.status(400);
 		throw new Error("Please Fill all the feilds");
 	} else {
@@ -31,6 +34,7 @@ const createSite = asyncHandler(async (req, res) => {
 			siteContactNumber,
 			budget,
 			siteManager,
+			siteManagerName,
 		});
 
 		const createdSite = await site.save();
@@ -41,13 +45,8 @@ const createSite = asyncHandler(async (req, res) => {
 
 // edit delete view and single
 
-
-
-
-
 const updateSite = asyncHandler(async (req, res) => {
 	const { siteId, siteName, siteAddress, siteContactNumber, budget, siteManager } = req.body;
-
 	const site = await Site.findById(req.params.id);
 
 	if (site) {
@@ -82,5 +81,5 @@ module.exports = {
 	updateSite,
 	getSite,
 	getSiteId,
-	deleteSite, 
+	deleteSite,
 };
