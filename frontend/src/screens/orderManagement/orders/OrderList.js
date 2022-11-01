@@ -38,7 +38,7 @@ export default function OrderList() {
 						<Form inline>
 							<input
 								type="text"
-								placeholder="Search..."
+								placeholder="Enter the Order Number"
 								onChange={inputHandler}
 								style={{
 									width: 260,
@@ -78,7 +78,7 @@ export default function OrderList() {
 											fontSize: 20,
 										}}
 									>
-										Site Name
+										Site
 									</th>
 									<th
 										style={{
@@ -86,7 +86,7 @@ export default function OrderList() {
 											fontSize: 20,
 										}}
 									>
-										Supplier Name
+										Supplier
 									</th>
 									<th
 										style={{
@@ -94,7 +94,7 @@ export default function OrderList() {
 											fontSize: 20,
 										}}
 									>
-										Product Name
+										Product
 									</th>
 
 									<th
@@ -127,7 +127,7 @@ export default function OrderList() {
 							<tbody>
 								{orders
 									?.reverse()
-									.filter((filteredB) => filteredB.status.includes(search))
+									.filter((filteredB) => filteredB.orderNo.includes(search))
 									.map((order) => (
 										<tr
 											key={order._id}

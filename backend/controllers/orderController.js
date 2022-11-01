@@ -18,7 +18,7 @@ const createOrder = asyncHandler(async (req, res) => {
 	const siteManagerName = siteManger.name;
 
 	//Order no
-	const orderNo = "Test";
+	const orderNo = "0000000001";
 
 	//Status
 	const status = "Draft";
@@ -88,6 +88,11 @@ const getProductListOfSupplier = asyncHandler(async (req, res) => {
 // Convert draft order to pending order
 const draftOrderToPending = asyncHandler(async (req, res) => {
 	const { productName, productQty } = req.body;
+
+	if (!productName || !productQty) {
+		res.status(400);
+		throw new Error("Please Fill all the feilds");
+	}
 
 	const order = await Order.findById(req.params.id);
 	const orderNo = "ref" + order._id;

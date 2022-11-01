@@ -42,18 +42,19 @@ export default function InvoiceList() {
 							backgroundColor: "black",
 							border: "1px solid white",
 							borderRadius: 0,
+							boxShadow: "none",
 						}}
 						href="/invoice-placed-orders"
 					>
 						{" "}
-						Placed Orders
+						+ New Receipt
 					</Button>
 					<br></br>
 					<div className="search" style={{ marginTop: 5 }}>
 						<Form inline>
 							<input
 								type="text"
-								placeholder="Search..."
+								placeholder="Enter the Order Number"
 								onChange={inputHandler}
 								style={{
 									width: 260,
@@ -109,7 +110,7 @@ export default function InvoiceList() {
 											fontSize: 20,
 										}}
 									>
-										Account Number
+										Acc Number
 									</th>
 									<th
 										style={{
@@ -117,7 +118,7 @@ export default function InvoiceList() {
 											fontSize: 20,
 										}}
 									>
-										Deposit Amount
+										Amount
 									</th>
 									<th
 										style={{

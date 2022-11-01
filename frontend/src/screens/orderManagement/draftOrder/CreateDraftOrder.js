@@ -60,6 +60,7 @@ export default function CreateDraftOrder({ history }) {
 							backgroundColor: "black",
 							borderRadius: 0,
 							border: "1px solid white",
+							boxShadow: "none",
 						}}
 						href="/draft-orders"
 					>

@@ -15,7 +15,7 @@ function TermsAndCondtions() {
 						borderRadius: 20,
 						marginBottom: 90,
 						paddingInline: 10,
-						background: "rgba(200, 200, 230, 0.8)",
+						background: "#f9f9f9",
 						width: 1200,
 						marginLeft: 10,
 					}}

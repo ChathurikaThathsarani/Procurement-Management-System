@@ -57,11 +57,12 @@ export default function CreateInvoice({ match, history }) {
 							borderRadius: 0,
 							border: "1px solid white",
 							height: 40,
+							boxShadow: "none",
 						}}
 						href="/invoice-placed-orders"
 					>
 						{" "}
-						Placed Orders
+						Back To Placed Orders
 					</Button>
 					<br></br>
 					<br></br>
