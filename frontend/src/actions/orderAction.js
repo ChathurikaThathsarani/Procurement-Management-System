@@ -1,5 +1,4 @@
 import {
-<<<<<<< HEAD
   DRAFT_ORDER_CREATE_REQUEST,
   DRAFT_ORDER_CREATE_SUCCESS,
   DRAFT_ORDER_CREATE_FAIL,
@@ -449,7 +448,7 @@ export const StaffOrderToApproveOrderAction =
 
       swal({
         title: "Success !!!",
-        text: "Now Order is in Approve State.",
+        text: " Order status is changed",
         icon: "success",
         timer: 2000,
         button: false,

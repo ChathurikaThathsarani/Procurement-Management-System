@@ -121,7 +121,7 @@ const StaffRegisterScreen = () => {
 					<Card
 						className="profileCont"
 						style={{
-							borderRadius: 45,
+							borderRadius: 0,
 							borderWidth: 2.0,
 							marginTop: 20,
 							paddingInline: 10,

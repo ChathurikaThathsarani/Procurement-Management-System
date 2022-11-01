@@ -180,8 +180,9 @@ const receiptForOrders = asyncHandler(async (req, res) => {
 
 // get all ordr for staff
 const getStaffOrders = asyncHandler(async (req, res) => {
-	const orders = await Order.find();
-	 orders.totalPrice <= 100000;
+	const orders = await Order.find({
+		status: { $ne: "Draft" }
+	});
 	  res.json(orders);
 });
 

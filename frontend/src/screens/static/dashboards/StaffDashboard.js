@@ -37,117 +37,6 @@ const StaffDashboard = ({ history }) => {
 					<br></br>
 					<br></br>
 
-<<<<<<< HEAD
-          <div className="loginContainer">
-            <Card
-              style={{
-                borderRadius: 45,
-                borderWidth: 2.0,
-                marginTop: 20,
-                paddingInline: 10,
-                background: "rgba(231, 238, 238, 0.8)",
-                marginLeft: "10%",
-                marginRight: "10%",
-                width: "60%",
-              }}
-            >
-              <div className="intro-text">
-                <br></br>
-                <br></br>
-                <div>
-                  <Link to="/staff-orders">
-                    <Button
-                      variant="success"
-                      size="lg"
-                      className="landingbutton"
-                      style={{
-                        width: 350,
-                        height: 75,
-                        backgroundColor: "black",
-                        borderRadius: 0,
-                        border: "1px solid white",
-                      }}
-                    >
-                      Order Management
-                    </Button>
-                  </Link>
-                </div>
-                <br></br>
-                <div>
-                  <Link to="/site-management-view">
-                    <Button
-                      variant="success"
-                      size="lg"
-                      className="landingbutton"
-                      style={{
-                        width: 350,
-                        height: 75,
-                        backgroundColor: "black",
-                        borderRadius: 0,
-                        border: "1px solid white",
-                      }}
-                    >
-                      Site Management
-                    </Button>
-                  </Link>
-                </div>
-                <br></br>
-                <div>
-                  <Link to="/good-receipts">
-                    <Button
-                      variant="success"
-                      size="lg"
-                      className="landingbutton"
-                      style={{
-                        width: 350,
-                        height: 75,
-                        backgroundColor: "black",
-                        borderRadius: 0,
-                        border: "1px solid white",
-                      }}
-                    >
-                      Good Receipt Management
-                    </Button>
-                  </Link>
-                </div>
-                <br></br>
-                <div>
-                  <Link to="/invoices">
-                    <Button
-                      variant="success"
-                      size="lg"
-                      className="landingbutton"
-                      style={{
-                        width: 350,
-                        height: 75,
-                        backgroundColor: "black",
-                        borderRadius: 0,
-                        border: "1px solid white",
-                      }}
-                    >
-                      Invoice Management
-                    </Button>
-                  </Link>
-                </div>
-                <br></br>
-                <br></br>
-              </div>
-            </Card>
-          </div>
-        </MainScreen>
-        <br></br>
-        <br></br>
-      </div>
-    );
-  } else {
-    return (
-      <div className="denied">
-        <MainScreen />
-        <br></br>
-      </div>
-    );
-  }
-=======
 					<div className="loginContainer">
 						<Card
 							style={{
@@ -165,7 +54,7 @@ const StaffDashboard = ({ history }) => {
 								<br></br>
 								<br></br>
 								<div>
-									<Link to="/">
+									<Link to="/staff-orders">
 										<Button
 											variant="success"
 											size="lg"
@@ -185,7 +74,7 @@ const StaffDashboard = ({ history }) => {
 								</div>
 								<br></br>
 								<div>
-									<Link to="/">
+									<Link to="/site-management-view">
 										<Button
 											variant="success"
 											size="lg"
@@ -341,7 +230,6 @@ const StaffDashboard = ({ history }) => {
 			</div>
 		);
 	}
->>>>>>> 5ca26026b8311b6b802e934333886f4571de6ac0
 };
 
 export default StaffDashboard;

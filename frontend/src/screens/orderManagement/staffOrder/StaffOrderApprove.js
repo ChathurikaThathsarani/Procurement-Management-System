@@ -65,6 +65,7 @@ export default function StaffOrderApprove({ match, history }) {
 							backgroundColor: "black",
 							border: "1px solid white",
 							borderRadius: 0,
+							boxShadow:"none"
 						}}
 						href="/staff-orders"
 					>
@@ -261,6 +262,7 @@ export default function StaffOrderApprove({ match, history }) {
 										<option value="Approved">Approved</option>
 										<option value="Pending">Pending</option>
 										<option value="Finished">Finished</option>
+										<option value="Rejected">Rejected</option>
 									</select>
 								</Form.Group>
 								<br></br>

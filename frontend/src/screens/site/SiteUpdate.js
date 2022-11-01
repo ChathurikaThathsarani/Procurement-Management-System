@@ -62,6 +62,7 @@ export default function SiteUpdate({ match, history }) {
 							borderRadius: 0,
 							border: "1px solid white",
 							height: 40,
+							boxShadow: "none",
 						}}
 						href="/site-management-view"
 					>

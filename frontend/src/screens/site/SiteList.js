@@ -75,7 +75,7 @@ export default function SiteList() {
 							<Form inline>
 								<input
 									type="text"
-									placeholder="Search..."
+									placeholder="Enter the Site Name"
 									onChange={searchHandler}
 									style={{
 										width: 260,
@@ -101,32 +101,11 @@ export default function SiteList() {
 												backgroundColor: "black",
 												borderRadius: 0,
 												border: "1px solid white",
+												boxShadow: "none",
 											}}
 											size="lg"
 										>
 											+ Add New Site
-										</Button>
-									</Link>
-								</Col>
-							</Row>
-						</div>
-
-						<div>
-							<Row>
-								<Col>
-									<Link to="/staff">
-										<Button
-											variant="success"
-											style={{
-												marginBottom: 6,
-												fontSize: 15,
-												backgroundColor: "black",
-												borderRadius: 0,
-												border: "1px solid white",
-											}}
-											size="lg"
-										>
-											Back to dashboard
 										</Button>
 									</Link>
 								</Col>
@@ -177,7 +156,7 @@ export default function SiteList() {
 												fontSize: 20,
 											}}
 										>
-											Site Contact Number
+											Contact No
 										</th>
 										<th
 											style={{
@@ -194,6 +173,15 @@ export default function SiteList() {
 											}}
 										>
 											Site Manager
+										</th>
+
+										<th
+											style={{
+												width: 200,
+												fontSize: 20,
+											}}
+										>
+											Action
 										</th>
 									</tr>
 								</thead>
@@ -253,34 +241,17 @@ export default function SiteList() {
 												</td>
 
 												<td>
+													<Link to={`/site-management/${siteManagements._id}`}>
+														<i class="fa-solid fa-pen-to-square"></i>
+													</Link>
 													&emsp;
-													<Button
-														variant="success"
-														style={{
-															fontSize: 10,
-															backgroundColor: "black",
-															borderRadius: 0,
-															border: "1px solid white",
-														}}
-														href={`/site-management/${siteManagements._id}`}
-													>
-														Edit
-													</Button>
-													<Button
-														variant="success"
-														style={{
-															marginTop: -52,
-															marginLeft: 80,
-															width: 60,
-															fontSize: 10,
-															backgroundColor: "black",
-															borderRadius: 0,
-															border: "1px solid white",
-														}}
-														onClick={() => deleteHandler(siteManagements._id)}
-													>
-														Delete
-													</Button>
+													<span onClick={() => deleteHandler(siteManagements._id)}>
+														<i
+															class="fa-solid fa-trash"
+															onClick={() => deleteHandler(siteManagements._id)}
+															style={{ cursor: "pointer" }}
+														></i>
+													</span>
 												</td>
 											</tr>
 										))}

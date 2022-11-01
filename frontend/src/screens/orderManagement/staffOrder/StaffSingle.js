@@ -104,6 +104,7 @@ export default function StaffSingle({ match, history }) {
 							backgroundColor: "black",
 							border: "1px solid white",
 							borderRadius: 0,
+							boxShadow: "none",
 						}}
 						href="/staff-orders"
 					>

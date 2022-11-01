@@ -69,10 +69,12 @@ export default function CreateSite({ history }) {
 					<Button
 						variant="info"
 						style={{
-							marginLeft: 10,
 							marginBottom: 6,
-							float: "left",
 							fontSize: 15,
+							backgroundColor: "black",
+							borderRadius: 0,
+							border: "1px solid white",
+							boxShadow: "none",
 						}}
 						size="lg"
 						href="/site-management-view"
@@ -88,7 +90,7 @@ export default function CreateSite({ history }) {
 							marginLeft: "10%",
 							marginRight: "0%",
 							width: "80%",
-							borderRadius: 45,
+							borderRadius: 0,
 							borderWidth: 2.0,
 							marginTop: 20,
 							paddingInline: 10,
@@ -98,7 +100,6 @@ export default function CreateSite({ history }) {
 						<Card.Body>
 							<Form onSubmit={submitHandler}>
 								{error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
-
 								<Form.Group controlId="siteId">
 									<Form.Label>Site ID</Form.Label>
 									<Form.Control
@@ -109,7 +110,6 @@ export default function CreateSite({ history }) {
 										required
 									/>
 								</Form.Group>
-
 								<Form.Group controlId="Name">
 									<Form.Label>Site Name</Form.Label>
 									<Form.Control
@@ -119,7 +119,6 @@ export default function CreateSite({ history }) {
 										required
 									/>
 								</Form.Group>
-
 								<Form.Group controlId="SiteAddress">
 									<Form.Label>Site Address</Form.Label>
 									<Form.Control
@@ -131,7 +130,6 @@ export default function CreateSite({ history }) {
 										required
 									/>
 								</Form.Group>
-
 								<Form.Group controlId="siteContactNumber">
 									<Form.Label>Site Contact Number</Form.Label>
 									<Form.Control
@@ -142,7 +140,6 @@ export default function CreateSite({ history }) {
 										required
 									/>
 								</Form.Group>
-
 								<Form.Group controlId="Budget">
 									<Form.Label>Budget</Form.Label>
 									<Form.Control
@@ -171,19 +168,47 @@ export default function CreateSite({ history }) {
 										))}
 									</select>
 								</Form.Group>
-
 								<br></br>
-
 								{loading && <Loading size={50} />}
-
-								<Button type="submit" variant="success">
+								<Button
+									variant="primary"
+									type="submit"
+									style={{
+										fontSize: 15,
+										marginTop: 10,
+										backgroundColor: "black",
+										borderRadius: 0,
+										border: "3px solid white",
+									}}
+								>
 									Submit
 								</Button>
-
-								<Button className="mx-2" onClick={resetHandler} variant="danger">
+								&emsp;
+								<Button
+									variant="danger"
+									onClick={resetHandler}
+									style={{
+										fontSize: 15,
+										marginTop: 10,
+										backgroundColor: "red",
+										borderRadius: 0,
+										border: "3px solid white",
+									}}
+								>
 									Reset
 								</Button>
-								<Button variant="info" onClick={demoHandler}>
+								&emsp;
+								<Button
+									variant="info"
+									onClick={demoHandler}
+									style={{
+										fontSize: 15,
+										marginTop: 10,
+										backgroundColor: "blue",
+										borderRadius: 0,
+										border: "3px solid white",
+									}}
+								>
 									Demo
 								</Button>
 							</Form>

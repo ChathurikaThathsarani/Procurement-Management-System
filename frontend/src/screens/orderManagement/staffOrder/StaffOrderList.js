@@ -39,7 +39,7 @@ export default function StaffOrderList() {
 						<Form inline>
 							<input
 								type="text"
-								placeholder="Search..."
+								placeholder="Enter Order No Or Status"
 								onChange={searchHandler}
 								style={{
 									width: 260,
@@ -61,6 +61,7 @@ export default function StaffOrderList() {
 									backgroundColor: "black",
 									borderRadius: 0,
 									border: "1px solid white",
+									boxShadow: "none",
 								}}
 								size="lg"
 							>
@@ -95,7 +96,7 @@ export default function StaffOrderList() {
 											fontSize: 20,
 										}}
 									>
-										Site Name
+										Site
 									</th>
 									<th
 										style={{
@@ -103,7 +104,7 @@ export default function StaffOrderList() {
 											fontSize: 20,
 										}}
 									>
-										Supplier Name
+										Supplier
 									</th>
 									<th
 										style={{
