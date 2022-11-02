@@ -15,6 +15,12 @@ import {
 import axios from "axios";
 import swal from "sweetalert";
 
+/**
+ * This action is implemented to
+ * to  view list of sites  by
+ * staff
+ */
+
 export const listsiteAction = () => async (dispatch, getState) => {
 	try {
 		dispatch({
@@ -44,7 +50,11 @@ export const listsiteAction = () => async (dispatch, getState) => {
 		});
 	}
 };
-
+/**
+ * This action is implemented to
+ * to  create a site by
+ * staff
+ */
 export const createSiteAction =
 	(siteId, siteName, siteAddress, siteContactNumber, budget, siteManagerName) => async (dispatch, getState) => {
 		try {
@@ -103,7 +113,11 @@ export const createSiteAction =
 			});
 		}
 	};
-
+/**
+ * This action is implemented to
+ * to  update a site  by
+ * staff
+ */
 export const updateSiteAction =
 	(id, siteId, siteName, siteAddress, siteContactNumber, budget, siteManager) => async (dispatch, getState) => {
 		try {
@@ -155,7 +169,11 @@ export const updateSiteAction =
 			});
 		}
 	};
-
+/**
+ * This action is implemented to
+ * to  delete a site  by
+ * staff
+ */
 export const deleteSiteAction = (id) => async (dispatch, getState) => {
 	try {
 		dispatch({

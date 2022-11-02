@@ -10,21 +10,23 @@ import { useState } from "react";
 import MainScreen from "../../../components/MainScreen";
 
 export default function StaffOrderList() {
+	// get the site manager login state
 	const dispatch = useDispatch();
-
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
+	// get the  order list
 	const order_List_Staff = useSelector((state) => state.order_List_Staff);
 	const { loading, orders, error } = order_List_Staff;
 
 	console.log(orders);
+	// search handler
 	const [search, setSearch] = useState("");
 	let searchHandler = (e) => {
 		var lowerCase = e.target.value.toLowerCase();
 		setSearch(lowerCase);
 	};
-
+	// render  order list
 	const history = useHistory();
 	useEffect(() => {
 		dispatch(getOrderStaffAction());

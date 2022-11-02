@@ -234,7 +234,11 @@ const receiptForOrders = asyncHandler(async (req, res) => {
 	res.json(orders);
 });
 
-// get all ordr for staff
+/**
+ * This method is implemented to
+ * get all of orders list for staff
+ *
+ */
 const getStaffOrders = asyncHandler(async (req, res) => {
 	const orders = await Order.find({
 		status: { $ne: "Draft" },
@@ -242,13 +246,21 @@ const getStaffOrders = asyncHandler(async (req, res) => {
 	res.json(orders);
 });
 
-// Get one order for staff
+/**
+ * This method is implemented to
+ *  Get one order view for staff
+ */
+
 const getStaffOneOrder = asyncHandler(async (req, res) => {
 	const order = await Order.findById(req.params.id);
 	res.json(order);
 });
 
-// staff order approve
+/**
+ * This method is implemented to
+ *  approve order  by staff
+ */
+
 const StaffOrderToApproved = asyncHandler(async (req, res) => {
 	const { status } = req.body;
 

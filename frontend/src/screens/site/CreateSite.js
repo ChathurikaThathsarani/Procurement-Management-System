@@ -10,6 +10,7 @@ import axios from "axios";
 import "./siteMangement.css";
 
 export default function CreateSite({ history }) {
+	// set the states to values
 	const [siteId, setSiteId] = useState("");
 	const [siteName, setSiteName] = useState("");
 	const [siteAddress, setSiteAddress] = useState("");
@@ -18,6 +19,7 @@ export default function CreateSite({ history }) {
 	const [siteManager, setSiteManager] = useState("");
 	const [myArrayName, setMyArrayName] = useState([]);
 
+	// get all the sitemanagers
 	useEffect(() => {
 		const fetching = async () => {
 			const { data } = await axios.get(`/user/staff/site-managers/get`, {
@@ -29,10 +31,12 @@ export default function CreateSite({ history }) {
 		fetching();
 	});
 
+	// get staff login state
 	const dispatch = useDispatch();
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
+	// state for site create
 	const Site_Management_Create = useSelector((state) => state.Site_Management_Create);
 	const { loading, error } = Site_Management_Create;
 
@@ -45,6 +49,7 @@ export default function CreateSite({ history }) {
 		setSiteManager("");
 	};
 
+	// call the action to create site
 	const submitHandler = (e) => {
 		e.preventDefault();
 		console.log("hello");

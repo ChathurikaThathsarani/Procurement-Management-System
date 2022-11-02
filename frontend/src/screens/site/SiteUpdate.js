@@ -10,6 +10,7 @@ import MainScreen from "../../components/MainScreen";
 import "./siteMangement.css";
 
 export default function SiteUpdate({ match, history }) {
+	// set the states to values
 	const [siteId, setSiteId] = useState("");
 	const [siteName, setSiteName] = useState("");
 	const [siteAddress, setSiteAddress] = useState("");
@@ -17,13 +18,16 @@ export default function SiteUpdate({ match, history }) {
 	const [budget, setBudget] = useState("");
 	const [siteManager, setSiteManager] = useState("");
 
+	// get staff login state
 	const dispatch = useDispatch();
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
+	// state for site upadte
 	const site_Management_Update = useSelector((state) => state.site_Management_Update);
 	const { loading, error } = site_Management_Update;
 
+	// get one site by id
 	useEffect(() => {
 		const fetching = async () => {
 			const { data } = await axios.get(`/user/staff/site/get/${match.params.id}`, {
@@ -41,6 +45,7 @@ export default function SiteUpdate({ match, history }) {
 		fetching();
 	}, [match.params.id]);
 
+	// call the action to update site
 	const updateHandler = (e) => {
 		e.preventDefault();
 		dispatch(updateSiteAction(match.params.id, siteId, siteName, siteAddress, siteContactNumber, budget, siteManager));
