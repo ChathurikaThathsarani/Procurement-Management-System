@@ -15,7 +15,8 @@ export default function ProductList() {
 	const supplier_Login = useSelector((state) => state.supplier_Login);
 	const { supplierInfo } = supplier_Login;
 
-	const productList = useSelector((state) => state.productList);
+	// get the supplier's product list
+    const productList = useSelector((state) => state.productList);
 	const { loading, product, error } = productList;
 
 	const productCreate = useSelector((state) => state.productCreate);

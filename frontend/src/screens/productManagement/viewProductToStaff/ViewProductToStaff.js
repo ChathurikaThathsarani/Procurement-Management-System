@@ -12,6 +12,7 @@ import { viewProductForStaffAction } from "../../../actions/productAction";
 export default function ViewProductToStaff() {
 	const dispatch = useDispatch();
 
+	//call the action to view all supplier materials for staff
 	useEffect(() => {
 		dispatch(viewProductForStaffAction());
 	}, [dispatch]);
@@ -19,6 +20,7 @@ export default function ViewProductToStaff() {
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
+	//view all supplier materials
 	const viewProductListForStaff = useSelector((state) => state.viewProductListForStaff);
 	const { loading, product, error } = viewProductListForStaff;
 
@@ -29,6 +31,7 @@ export default function ViewProductToStaff() {
 	};
 
 	const history = useHistory();
+	//call the action to get all supplier material details
 	useEffect(() => {
 		dispatch(listProductAction());
 		if (!staffInfo) {
