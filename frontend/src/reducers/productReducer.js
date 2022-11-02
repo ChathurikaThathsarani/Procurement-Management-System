@@ -85,7 +85,6 @@ export const productDeleteReducer = (state = {}, action) => {
  * supplier
  */
 
-
 export const productUpdateReducer = (state = {}, action) => {
 	switch (action.type) {
 		case PRODUCT_UPDATE_REQUEST:
@@ -106,7 +105,6 @@ export const productUpdateReducer = (state = {}, action) => {
  * site manager
  */
 
-
 export const viewProductListForSiteManagerReducer = (state = { product: [] }, action) => {
 	switch (action.type) {
 		case VIEW_PRODUCT_FOR_SITE_MANAGER_LIST_REQUEST:
@@ -126,8 +124,6 @@ export const viewProductListForSiteManagerReducer = (state = { product: [] }, ac
  * to view all products for
  * staff
  */
-
-
 
 export const viewProductListForStaffReducer = (state = { product: [] }, action) => {
 	switch (action.type) {
