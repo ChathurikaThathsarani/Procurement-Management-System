@@ -26,6 +26,12 @@ import {
 	PLACED_ORDER_REQUEST,
 	PLACED_ORDER_SUCCESS,
 	PLACED_ORDER_FAIL,
+	STAFF_ORDER_LIST_REQUEST,
+	STAFF_ORDER_LIST_SUCCESS,
+	SRAFF_ORDER_LIST_FAIL,
+	STAFF_ORDER_APPROVE_REQUEST,
+	STAFF_ORDER_APPROVE_SUCCESS,
+	STAFF_ORDER_APPROVE_FAIL,
 } from "../constants/orderConstant";
 
 export const draftOrderCreateReducer = (state = {}, action) => {
@@ -148,6 +154,34 @@ export const placedOrderListReducer = (state = { placedOrders: [] }, action) => 
 			return { loading: false, placedOrders: action.payload };
 		case PLACED_ORDER_FAIL:
 			return { loading: false, error: action.payload };
+
+		default:
+			return state;
+	}
+};
+
+export const OrderStaffListReducer = (state = { orders: [] }, action) => {
+	switch (action.type) {
+		case STAFF_ORDER_LIST_REQUEST:
+			return { loading: true };
+		case STAFF_ORDER_LIST_SUCCESS:
+			return { loading: false, orders: action.payload };
+		case SRAFF_ORDER_LIST_FAIL:
+			return { loading: false, error: action.payload };
+
+		default:
+			return state;
+	}
+};
+
+export const StaffOrderToApproveReducer = (state = {}, action) => {
+	switch (action.type) {
+		case STAFF_ORDER_APPROVE_REQUEST:
+			return { loading: true };
+		case STAFF_ORDER_APPROVE_SUCCESS:
+			return { loading: false, success: true };
+		case STAFF_ORDER_APPROVE_FAIL:
+			return { loading: false, error: action.payload, success: false };
 
 		default:
 			return state;

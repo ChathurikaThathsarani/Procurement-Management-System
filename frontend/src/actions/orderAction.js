@@ -26,6 +26,12 @@ import {
 	PLACED_ORDER_REQUEST,
 	PLACED_ORDER_SUCCESS,
 	PLACED_ORDER_FAIL,
+	STAFF_ORDER_LIST_REQUEST,
+	STAFF_ORDER_LIST_SUCCESS,
+	SRAFF_ORDER_LIST_FAIL,
+	STAFF_ORDER_APPROVE_REQUEST,
+	STAFF_ORDER_APPROVE_SUCCESS,
+	STAFF_ORDER_APPROVE_FAIL,
 } from "../constants/orderConstant";
 
 import axios from "axios";
@@ -378,6 +384,84 @@ export const placedlistOrders = () => async (dispatch, getState) => {
 		const message = error.response && error.response.data.message ? error.response.data.message : error.message;
 		dispatch({
 			type: PLACED_ORDER_FAIL,
+			payload: message,
+		});
+	}
+};
+export const getOrderStaffAction = () => async (dispatch, getState) => {
+	try {
+		dispatch({
+			type: STAFF_ORDER_LIST_REQUEST,
+		});
+
+		const {
+			staff_Login: { staffInfo },
+		} = getState();
+
+		const config = {
+			headers: {
+				Authorization: `Bearer ${staffInfo.token}`,
+			},
+		};
+		const { data } = await axios.get(`/user/staff/product-staff/get`, config);
+		console.log(data);
+		dispatch({
+			type: STAFF_ORDER_LIST_SUCCESS,
+			payload: data,
+		});
+	} catch (error) {
+		const message = error.response && error.response.data.message ? error.response.data.message : error.message;
+		dispatch({
+			type: SRAFF_ORDER_LIST_FAIL,
+			payload: message,
+		});
+	}
+};
+
+export const StaffOrderToApproveOrderAction = (id, status) => async (dispatch, getState) => {
+	try {
+		dispatch({
+			type: STAFF_ORDER_APPROVE_REQUEST,
+		});
+
+		const {
+			staff_Login: { staffInfo },
+		} = getState();
+
+		const config = {
+			headers: {
+				Authorization: `Bearer ${staffInfo.token}`,
+			},
+		};
+
+		const { data } = await axios.put(
+			`/user/staff/product-staff/approve/${id}`,
+			{
+				status,
+			},
+			config
+		);
+
+		swal({
+			title: "Success !!!",
+			text: " Order status is changed",
+			icon: "success",
+			timer: 2000,
+			button: false,
+		});
+
+		setTimeout(function () {
+			window.location.href = "/staff-orders";
+		}, 2000);
+
+		dispatch({
+			type: STAFF_ORDER_APPROVE_SUCCESS,
+			payload: data,
+		});
+	} catch (error) {
+		const message = error.response && error.response.data.message ? error.response.data.message : error.message;
+		dispatch({
+			type: STAFF_ORDER_APPROVE_FAIL,
 			payload: message,
 		});
 	}

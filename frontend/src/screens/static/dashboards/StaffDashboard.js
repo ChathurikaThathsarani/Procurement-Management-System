@@ -54,7 +54,7 @@ const StaffDashboard = ({ history }) => {
 								<br></br>
 								<br></br>
 								<div>
-									<Link to="/">
+									<Link to="/staff-orders">
 										<Button
 											variant="success"
 											size="lg"
@@ -74,7 +74,7 @@ const StaffDashboard = ({ history }) => {
 								</div>
 								<br></br>
 								<div>
-									<Link to="/">
+									<Link to="/site-management-view">
 										<Button
 											variant="success"
 											size="lg"

@@ -27,6 +27,10 @@ const siteSchema = mongoose.Schema(
 			required: true,
 			ref: "SiteManager",
 		},
+		siteManagerName: {
+			type: String,
+			required: true,
+		},
 	},
 	{
 		timestamps: true,

@@ -177,6 +177,35 @@ const receiptForOrders = asyncHandler(async (req, res) => {
 	res.json(orders);
 });
 
+// get all ordr for staff
+const getStaffOrders = asyncHandler(async (req, res) => {
+	const orders = await Order.find({
+		status: { $ne: "Draft" },
+	});
+	res.json(orders);
+});
+
+// Get one order for staff
+const getStaffOneOrder = asyncHandler(async (req, res) => {
+	const order = await Order.findById(req.params.id);
+	res.json(order);
+});
+
+// staff order approve
+const StaffOrderToApproved = asyncHandler(async (req, res) => {
+	const { status } = req.body;
+
+	const order = await Order.findById(req.params.id);
+	if (order) {
+		order.status = status;
+		const approvedOrder = await order.save();
+		res.json(approvedOrder);
+	} else {
+		res.status(404);
+		throw new Error("Pending Order not found");
+	}
+});
+
 module.exports = {
 	createOrder,
 	getSuppliers,
@@ -190,4 +219,7 @@ module.exports = {
 	supplierGetOrders,
 	approvedOrderToPlaced,
 	receiptForOrders,
+	getStaffOrders,
+	getStaffOneOrder,
+	StaffOrderToApproved,
 };

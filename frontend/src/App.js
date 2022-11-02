@@ -36,6 +36,13 @@ import { AboutUs } from "./screens/static/aboutUs/AboutUs";
 import StaffRegisterScreen from "./screens/userManagement/register/StaffRegisterScreen";
 import SupplierRegisterScreen from "./screens/userManagement/register/SupplierRegisterScreen";
 import SiteManagerRegisterScreen from "./screens/userManagement/register/SiteManagerRegisterScreen";
+import CreateSite from "./screens/site/CreateSite";
+import SiteList from "./screens/site/SiteList";
+import SiteUpdate from "./screens/site/SiteUpdate";
+import StaffOrderList from "./screens/orderManagement/staffOrder/StaffOrderList";
+import StaffSingle from "./screens/orderManagement/staffOrder/StaffSingle";
+import StaffOrderApprove from "./screens/orderManagement/staffOrder/StaffOrderApprove";
+
 const App = () => {
 	return (
 		<BrowserRouter>
@@ -64,6 +71,12 @@ const App = () => {
 				<Route path="/invoice-placed-orders" component={InvoiceOrderList} exact />
 				<Route path="/invoices" component={InvoiceList} exact />
 				<Route path="/invoice/:id" component={CreateInvoice} exact />
+				<Route path="/site-management-create" component={CreateSite} exact />
+				<Route path="/site-management-view" component={SiteList} exact />
+				<Route path="/site-management/:id" component={SiteUpdate} exact />
+				<Route path="/staff-orders" component={StaffOrderList} exact />
+				<Route path="/product-staff/:id" component={StaffSingle} exact />
+				<Route path="/proudct-to-approve-staff/:id" component={StaffOrderApprove} exact />
 				<Route path="/product-create" component={ProductCreate} exact />
 				<Route path="/product-list" component={ProductList} exact />
 				<Route path="/single-product/:id" component={ProductUpdate} exact />

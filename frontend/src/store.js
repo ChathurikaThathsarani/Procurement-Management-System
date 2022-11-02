@@ -14,6 +14,8 @@ import {
 	supplierOrderListReducer,
 	orderToPlacedReducer,
 	placedOrderListReducer,
+	OrderStaffListReducer,
+	StaffOrderToApproveReducer,
 } from "./reducers/orderReducer";
 
 import { goodReceiptListReducer, goodReceiptCreateReducer } from "./reducers/goodReceiptReducer";
@@ -28,6 +30,8 @@ import {
 	viewProductListForSiteManagerReducer,
 	viewProductListForStaffReducer,
 } from "./reducers/productReducer";
+
+import { SiteListReducer, SiteCreateReducer, SiteUpdateReducer, SiteDeleteReducer } from "./reducers/siteReducer";
 
 const reducer = combineReducers({
 	siteManager_Login: siteMangerLoginReducer,
@@ -55,6 +59,13 @@ const reducer = combineReducers({
 	staffRegistration: staffRegisterReducer,
 	supplierRegistration: supplierRegisterReducer,
 	siteManagerRegistration: siteManagerRegisterReducer,
+	site_view_list: SiteListReducer,
+	Site_Management_Create: SiteCreateReducer,
+	site_Management_Update: SiteUpdateReducer,
+	site_Management_delete: SiteDeleteReducer,
+
+	order_List_Staff: OrderStaffListReducer,
+	Staff_order_To_Approve: StaffOrderToApproveReducer,
 });
 
 const siteManagerInfoFromStorage = localStorage.getItem("siteManagerInfo")
