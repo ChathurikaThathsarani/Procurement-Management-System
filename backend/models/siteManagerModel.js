@@ -1,3 +1,7 @@
+/**
+ * This model is implemented for
+ * store site manager details in the database
+ */
 const mongoose = require("mongoose");
 
 const siteManagerSchema = mongoose.Schema(
