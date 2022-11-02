@@ -1,5 +1,9 @@
-const mongoose = require("mongoose");
+/**
+ * This model is implemented for
+ * the order management
+ */
 
+const mongoose = require("mongoose");
 const orderSchema = mongoose.Schema(
 	{
 		orderNo: {

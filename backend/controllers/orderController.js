@@ -1,3 +1,8 @@
+/**
+ * This controller is implemented for
+ * the order management
+ */
+
 const Order = require("../models/orderModel");
 const Site = require("../models/siteModel");
 const SiteManager = require("../models/siteManagerModel");
@@ -5,7 +10,11 @@ const Supplier = require("../models/supplierModel");
 const Product = require("../models/productModel");
 const asyncHandler = require("express-async-handler");
 
-//Create draft order
+/**
+ * This method is implemented to
+ * create draft order which is to add only
+ * the supplier company name
+ */
 const createOrder = asyncHandler(async (req, res) => {
 	const { siteManagerId, placedDate, requiredDate, supplierName } = req.body;
 
@@ -22,6 +31,7 @@ const createOrder = asyncHandler(async (req, res) => {
 
 	//Status
 	const status = "Draft";
+
 	if (!siteManagerId || !placedDate || !requiredDate || !supplierName) {
 		res.status(400);
 		throw new Error("Please Fill all the feilds");
@@ -42,13 +52,21 @@ const createOrder = asyncHandler(async (req, res) => {
 	}
 });
 
-// Get suppliers names to create draft order
+/**
+ * This method is implemented to
+ * get the supplier company names from
+ * the system
+ */
 const getSuppliers = asyncHandler(async (req, res) => {
 	const suppliers = await Supplier.find();
 	res.json(suppliers);
 });
 
-// Get all draft orders
+/**
+ * This method is implemented to
+ * get all the draft orders from
+ * the system
+ */
 const getDraftOrders = asyncHandler(async (req, res) => {
 	const manager = await SiteManager.findById(req.params.id);
 	const name = manager.name;
@@ -56,13 +74,21 @@ const getDraftOrders = asyncHandler(async (req, res) => {
 	res.json(orders);
 });
 
-// Get one order
+/**
+ * This method is implemented to
+ * get one order from
+ * the system
+ */
 const getOneOrder = asyncHandler(async (req, res) => {
 	const order = await Order.findById(req.params.id);
 	res.json(order);
 });
 
-// Delete draft order
+/**
+ * This method is implemented to
+ * delete one order from
+ * the system
+ */
 const deleteDraftOrder = asyncHandler(async (req, res) => {
 	const order = await Order.findById(req.params.id);
 
@@ -75,7 +101,12 @@ const deleteDraftOrder = asyncHandler(async (req, res) => {
 	}
 });
 
-// Get product list of a particular supplier
+/**
+ * This method is implemented to
+ * get a list of product for a selected
+ * supplier company from
+ * the system
+ */
 const getProductListOfSupplier = asyncHandler(async (req, res) => {
 	const order = await Order.findById(req.params.id);
 	const supplierName = order.supplierName;
@@ -85,7 +116,12 @@ const getProductListOfSupplier = asyncHandler(async (req, res) => {
 	res.json(products);
 });
 
-// Convert draft order to pending order
+/**
+ * This method is implemented to
+ * convert the draft order to pending order
+ * by adding product name
+ * and the product quantity
+ */
 const draftOrderToPending = asyncHandler(async (req, res) => {
 	const { productName, productQty } = req.body;
 
@@ -115,7 +151,12 @@ const draftOrderToPending = asyncHandler(async (req, res) => {
 	}
 });
 
-// Get all orders
+/**
+ * This method is implemented to
+ * get the orders which are not draft orders and
+ * according to created site manager from
+ * the system
+ */
 const getOrders = asyncHandler(async (req, res) => {
 	const manager = await SiteManager.findById(req.params.id);
 	const name = manager.name;
@@ -126,7 +167,11 @@ const getOrders = asyncHandler(async (req, res) => {
 	res.json(orders);
 });
 
-// Convert pending order to approved order
+/**
+ * This method is implemented to
+ * convert the pending order to
+ * approve order
+ */
 const pendingOrderToApproved = asyncHandler(async (req, res) => {
 	const { status } = req.body;
 
@@ -141,20 +186,28 @@ const pendingOrderToApproved = asyncHandler(async (req, res) => {
 	}
 });
 
-//Supplier get the order
+/**
+ * This method is implemented to
+ * get the orders for a selected supplier from
+ * the system
+ */
 const supplierGetOrders = asyncHandler(async (req, res) => {
 	const supplier = await Supplier.findById(req.params.id);
 	const name = supplier.companyName;
 
 	const orders = await Order.find({
 		supplierName: name,
-		$or: [{ status: "Approved" }, { status: "Placed" }, { status: "Reject" }, { status: "Finished" }],
+		$or: [{ status: "Approved" }, { status: "Placed" }, { status: "Rejected" }, { status: "Finished" }],
 	});
 
 	res.json(orders);
 });
 
-// Convert pending order to approved order
+/**
+ * This method is implemented for
+ * the supplier to placed or reject
+ * the order
+ */
 const approvedOrderToPlaced = asyncHandler(async (req, res) => {
 	const { status, deleiveryDate, supplierComment } = req.body;
 
@@ -171,7 +224,11 @@ const approvedOrderToPlaced = asyncHandler(async (req, res) => {
 	}
 });
 
-//Supplier get the order
+/**
+ * This method is implemented to
+ * get the finished order to create
+ * receipts
+ */
 const receiptForOrders = asyncHandler(async (req, res) => {
 	const orders = await Order.find({ status: "Placed" });
 	res.json(orders);

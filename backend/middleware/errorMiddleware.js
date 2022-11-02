@@ -1,3 +1,8 @@
+/**
+ * This middleware is implemented to
+ * for the error handling
+ * of the system
+ */
 const notFound = (req, res, next) => {
 	const error = new Error(`Not Found - ${req.originalUrl}`);
 	res.status(404);

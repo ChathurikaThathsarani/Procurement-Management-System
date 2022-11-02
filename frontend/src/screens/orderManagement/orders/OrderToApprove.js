@@ -27,6 +27,7 @@ export default function OrderToApprove({ match, history }) {
 	const orderToApprove = useSelector((state) => state.orderToApprove);
 	const { loading, error } = orderToApprove;
 
+	// get the order by id
 	useEffect(() => {
 		const fetching = async () => {
 			const { data } = await axios.get(`/user/manager/order/${match.params.id}`, {
@@ -46,6 +47,7 @@ export default function OrderToApprove({ match, history }) {
 		fetching();
 	}, [match.params.id]);
 
+	// call the action to approve the order
 	const updateHandler = (e) => {
 		e.preventDefault();
 		dispatch(orderToApproveOrderAction(match.params.id, status));

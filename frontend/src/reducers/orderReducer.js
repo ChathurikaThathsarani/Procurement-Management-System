@@ -34,6 +34,11 @@ import {
 	STAFF_ORDER_APPROVE_FAIL,
 } from "../constants/orderConstant";
 
+/**
+ * This reducer is implemented to
+ * to create draft order by
+ * site manager
+ */
 export const draftOrderCreateReducer = (state = {}, action) => {
 	switch (action.type) {
 		case DRAFT_ORDER_CREATE_REQUEST:
@@ -47,6 +52,12 @@ export const draftOrderCreateReducer = (state = {}, action) => {
 			return state;
 	}
 };
+
+/**
+ * This reducer is implemented to
+ * to get all draft orders
+ * by site manager
+ */
 
 export const draftOrderListReducer = (state = { draftOrders: [] }, action) => {
 	switch (action.type) {
@@ -62,6 +73,12 @@ export const draftOrderListReducer = (state = { draftOrders: [] }, action) => {
 	}
 };
 
+/**
+ * This reducer is implemented to
+ * to delete draft order by
+ * site manager
+ */
+
 export const draftOrderDeleteReducer = (state = {}, action) => {
 	switch (action.type) {
 		case DRAFT_ORDER_DELETE_REQUEST:
@@ -75,6 +92,13 @@ export const draftOrderDeleteReducer = (state = {}, action) => {
 			return state;
 	}
 };
+
+/**
+ * This reducer is implemented to
+ * to convert draft order to pending
+ * order by
+ * site manager
+ */
 
 export const draftOrderToPendingOrderReducer = (state = {}, action) => {
 	switch (action.type) {
@@ -90,6 +114,12 @@ export const draftOrderToPendingOrderReducer = (state = {}, action) => {
 	}
 };
 
+/**
+ * This reducer is implemented to
+ * to get all orders by
+ * site manager
+ */
+
 export const OrderListReducer = (state = { orders: [] }, action) => {
 	switch (action.type) {
 		case ORDER_LIST_REQUEST:
@@ -103,6 +133,13 @@ export const OrderListReducer = (state = { orders: [] }, action) => {
 			return state;
 	}
 };
+
+/**
+ * This reducer is implemented to
+ * to convert pending order to
+ * pending order by
+ * site manager
+ */
 
 export const orderToApproveReducer = (state = {}, action) => {
 	switch (action.type) {
@@ -118,6 +155,12 @@ export const orderToApproveReducer = (state = {}, action) => {
 	}
 };
 
+/**
+ * This reducer is implemented to
+ * to get all order for
+ * selected supplier
+ */
+
 export const supplierOrderListReducer = (state = { supplierOrders: [] }, action) => {
 	switch (action.type) {
 		case ORDER_LIST_SUPPLIER_REQUEST:
@@ -132,6 +175,13 @@ export const supplierOrderListReducer = (state = { supplierOrders: [] }, action)
 	}
 };
 
+/**
+ * This reducer is implemented to
+ * to convert approved order to
+ * placed order by
+ * supplier
+ */
+
 export const orderToPlacedReducer = (state = {}, action) => {
 	switch (action.type) {
 		case ORDER_TO_PLACED_REQUEST:
@@ -145,6 +195,12 @@ export const orderToPlacedReducer = (state = {}, action) => {
 			return state;
 	}
 };
+
+/**
+ * This reducer is implemented to
+ * to get all placed orders by
+ * staff
+ */
 
 export const placedOrderListReducer = (state = { placedOrders: [] }, action) => {
 	switch (action.type) {

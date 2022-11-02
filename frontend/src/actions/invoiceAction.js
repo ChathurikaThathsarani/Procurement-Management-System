@@ -9,6 +9,12 @@ import {
 import axios from "axios";
 import swal from "sweetalert";
 
+/**
+ * This action is implemented to
+ * to get all invoices by
+ * staff
+ */
+
 export const listInvoice = () => async (dispatch, getState) => {
 	try {
 		dispatch({
@@ -38,6 +44,12 @@ export const listInvoice = () => async (dispatch, getState) => {
 		});
 	}
 };
+
+/**
+ * This action is implemented to
+ * to create invoice by
+ * staff
+ */
 
 export const createInvoiceAction =
 	(orderNo, bank, branch, accountNumber, depositAmount, depositDate) => async (dispatch, getState) => {

@@ -15,6 +15,7 @@ export default function InvoiceList() {
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
+	// get the invoice list
 	const invoiceList = useSelector((state) => state.invoiceList);
 	const { loading, invoices, error } = invoiceList;
 

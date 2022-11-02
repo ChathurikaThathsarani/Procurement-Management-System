@@ -2,6 +2,11 @@ const jwt = require("jsonwebtoken");
 const Supplier = require("../models/supplierModel.js");
 const asyncHandler = require("express-async-handler");
 
+/**
+ * This method is implemented to
+ * to authorize the routes for
+ * supplier
+ */
 const protect = asyncHandler(async (req, res, next) => {
 	let token;
 

@@ -15,6 +15,7 @@ export default function InvoiceOrderList() {
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
+	// get the placed order list
 	const placedOrderList = useSelector((state) => state.placedOrderList);
 	const { loading, placedOrders, error } = placedOrderList;
 

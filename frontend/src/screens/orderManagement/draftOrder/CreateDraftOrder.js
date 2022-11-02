@@ -15,6 +15,7 @@ export default function CreateDraftOrder({ history }) {
 	const [supplierName, setSupplierName] = useState("");
 	const [myArray, setMyArray] = useState([]);
 
+	// get all the supplier companies
 	useEffect(() => {
 		const fetching = async () => {
 			const { data } = await axios.get(`/user/manager/order/draft/suppliers`, {
@@ -33,6 +34,7 @@ export default function CreateDraftOrder({ history }) {
 	const draftOrderCreate = useSelector((state) => state.draftOrderCreate);
 	const { loading, error } = draftOrderCreate;
 
+	// call the action to create draft order
 	const submitHandler = (e) => {
 		e.preventDefault();
 
