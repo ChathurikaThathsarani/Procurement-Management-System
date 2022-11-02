@@ -10,6 +10,7 @@ import MainScreen from "../../../components/MainScreen";
 import "./draftOrder.css";
 
 export default function DraftOrderToPendingOrder({ match, history }) {
+	// set the states to values
 	const [siteName, setSiteName] = useState("");
 	const [supplierName, setSupplierName] = useState("");
 	const [placedDate, setPlacedDate] = useState("");
@@ -18,6 +19,7 @@ export default function DraftOrderToPendingOrder({ match, history }) {
 	const [productQty, setProductQty] = useState("");
 	const [myArray, setMyArray] = useState([]);
 
+	// get the site manager login state
 	const dispatch = useDispatch();
 	const siteManager_Login = useSelector((state) => state.siteManager_Login);
 	const { siteManagerInfo } = siteManager_Login;

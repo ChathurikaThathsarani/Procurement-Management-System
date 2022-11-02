@@ -12,6 +12,7 @@ import { viewProductForSiteManagerAction } from "../../../actions/productAction"
 export default function ViewProductToSiteManager() {
 	const dispatch = useDispatch();
 
+	//call the action to veiw all supplier material details for site manager
 	useEffect(() => {
 		dispatch(viewProductForSiteManagerAction());
 	}, [dispatch]);
@@ -19,6 +20,7 @@ export default function ViewProductToSiteManager() {
 	const siteManager_Login = useSelector((state) => state.siteManager_Login);
 	const { siteManagerInfo } = siteManager_Login;
 
+	//view all supplier material details
 	const viewProductListForSiteManager = useSelector((state) => state.viewProductListForSiteManager);
 	const { loading, product, error } = viewProductListForSiteManager;
 
@@ -29,6 +31,7 @@ export default function ViewProductToSiteManager() {
 	};
 
 	const history = useHistory();
+	//call the action to get all supplier material details
 	useEffect(() => {
 		dispatch(listProductAction());
 		if (!siteManagerInfo) {

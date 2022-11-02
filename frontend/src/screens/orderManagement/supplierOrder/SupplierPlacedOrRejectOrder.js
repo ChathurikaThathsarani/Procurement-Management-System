@@ -10,6 +10,7 @@ import MainScreen from "../../../components/MainScreen";
 import "./supplierOrder.css";
 
 export default function SupplierPlacedOrRejectOrder({ match, history }) {
+	// set states to values
 	const [orderNo, setOrderNo] = useState("");
 	const [siteName, setSiteName] = useState("");
 	const [placedDate, setPlacedDate] = useState("");
@@ -21,10 +22,12 @@ export default function SupplierPlacedOrRejectOrder({ match, history }) {
 	const [deleiveryDate, setDeleiveryDate] = useState("");
 	const [supplierComment, setSupplierComment] = useState("");
 
+	// get supplier login state
 	const dispatch = useDispatch();
 	const supplier_Login = useSelector((state) => state.supplier_Login);
 	const { supplierInfo } = supplier_Login;
 
+	// state for placed order
 	const orderToPlaced = useSelector((state) => state.orderToPlaced);
 	const { loading, error } = orderToPlaced;
 
@@ -54,6 +57,7 @@ export default function SupplierPlacedOrRejectOrder({ match, history }) {
 		e.preventDefault();
 		dispatch(orderToPlacedOrderAction(match.params.id, status, deleiveryDate, supplierComment));
 	};
+
 	if (supplierInfo) {
 		return (
 			<div className="orderToPlaced">

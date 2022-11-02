@@ -6,19 +6,24 @@ import Loading from "../../../components/Loading";
 import { useDispatch, useSelector } from "react-redux";
 import { staffLogin } from "../../../actions/staffAction";
 const StaffLoginScreen = () => {
+	//set initial states
 	const [nic, setNic] = useState("");
 	const [password, setPassword] = useState("");
 
+	//A hook to access the redux dispatch function.
 	const dispatch = useDispatch();
 
+	//get staff login state from store
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { loading, error } = staff_Login;
 
+	//submit login details
 	const submitHandler = (e) => {
 		e.preventDefault();
 		dispatch(staffLogin(nic, password));
 	};
 
+	//render screen of staff login
 	return (
 		<div className="staffLoginBg">
 			<br></br>

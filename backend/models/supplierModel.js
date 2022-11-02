@@ -1,3 +1,7 @@
+/**
+ * This model is implemented for
+ * store supplier details in the database
+ */
 const mongoose = require("mongoose");
 
 const supplierSchema = mongoose.Schema(

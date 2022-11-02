@@ -10,8 +10,8 @@ import { useState } from "react";
 import MainScreen from "../../components/MainScreen";
 
 export default function GoodReceiptList() {
+	// get staff login state
 	const dispatch = useDispatch();
-
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
@@ -19,16 +19,19 @@ export default function GoodReceiptList() {
 	const goodReceiptList = useSelector((state) => state.goodReceiptList);
 	const { loading, goodReceipts, error } = goodReceiptList;
 
+	// search handler
 	const [search, setSearch] = useState("");
 	let inputHandler = (e) => {
 		var lowerCase = e.target.value.toLowerCase();
 		setSearch(lowerCase);
 	};
 
+	// render the good receipt list
 	const history = useHistory();
 	useEffect(() => {
 		dispatch(listGoodReceipts());
 	}, [dispatch, history, staffInfo]);
+
 	if (staffInfo) {
 		return (
 			<div style={{ minHeight: 700, backgroundColor: "#f0f0f0" }} className="orders">

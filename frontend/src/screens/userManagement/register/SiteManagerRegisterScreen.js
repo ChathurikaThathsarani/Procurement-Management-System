@@ -7,6 +7,8 @@ import { siteManagerRegister } from "../../../actions/siteManagerAction";
 import MainScreen from "../../../components/MainScreen";
 
 const SiteManagerRegisterScreen = () => {
+
+	//set initial states
 	const [siteManagerId, setSiteManagerId] = useState("");
 	const [name, setName] = useState("");
 	const [dob, setDob] = useState("");
@@ -22,13 +24,16 @@ const SiteManagerRegisterScreen = () => {
 	const [message, setMessage] = useState(null);
 	const [picMessage, setPicMessage] = useState(null);
 
+	//use redux dispatch hook to access redux state store
 	const dispatch = useDispatch();
 	const siteManagerRegistration = useSelector((state) => state.siteManagerRegistration);
 	const { loading, error } = siteManagerRegistration;
 
+	//get staff login details from store
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
+	//submit details
 	const submitHandler = async (e) => {
 		e.preventDefault();
 
@@ -40,6 +45,8 @@ const SiteManagerRegisterScreen = () => {
 			);
 		}
 	};
+
+	//add demo data
 	const demoHandler = async (e) => {
 		e.preventDefault();
 
@@ -54,6 +61,7 @@ const SiteManagerRegisterScreen = () => {
 		setExperience("3 years");
 	};
 
+	//reset data added
 	const resetHandler = async (e) => {
 		e.preventDefault();
 
@@ -68,6 +76,7 @@ const SiteManagerRegisterScreen = () => {
 		setExperience("");
 	};
 
+	//post picture details
 	const postDetails = (pics) => {
 		if (pics === "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg") {
 			return setPicMessage("Please Select an Image");
@@ -93,7 +102,9 @@ const SiteManagerRegisterScreen = () => {
 			return setPicMessage("Please Select an Image");
 		}
 	};
+	//check staff access permission
 	if (staffInfo) {
+		//render screen
 		return (
 			<div className="registerBg">
 				<br></br>

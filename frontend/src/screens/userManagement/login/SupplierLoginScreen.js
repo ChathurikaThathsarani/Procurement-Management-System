@@ -6,19 +6,24 @@ import Loading from "../../../components/Loading";
 import { useDispatch, useSelector } from "react-redux";
 import { supplierLogin } from "../../../actions/supplierAction";
 const SupplierLoginScreen = () => {
+	//set initial states
 	const [nic, setNic] = useState("");
 	const [password, setPassword] = useState("");
 
+	//A hook to access the redux dispatch function.
 	const dispatch = useDispatch();
 
+	//get supplier login state from store
 	const supplier_Login = useSelector((state) => state.supplier_Login);
 	const { loading, error } = supplier_Login;
 
+	//submit login details
 	const submitHandler = (e) => {
 		e.preventDefault();
 		dispatch(supplierLogin(nic, password));
 	};
 
+	//render screen of supplier login
 	return (
 		<div className="supplierLoginBg">
 			<br></br>
