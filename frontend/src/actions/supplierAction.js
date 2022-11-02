@@ -1,8 +1,8 @@
 /*
-*These are the front end actions to 
-*manage a supplier account these frontend actions calls the backend routes and then these 
-*actions connect frontend and backend
-*/
+ *These are the front end actions to
+ *manage a supplier account these frontend actions calls the backend routes and then these
+ *actions connect frontend and backend
+ */
 import {
 	SUPPLIER_LOGIN_FAIL,
 	SUPPLIER_LOGIN_REQUEST,
@@ -53,7 +53,7 @@ export const supplierLogin = (nic, password) => async (dispatch) => {
 
 /**
  * This action is implemented to
- * to pass the access permission to the do the other functionalities 
+ * to pass the access permission to the do the other functionalities
  */
 export function authHeader() {
 	let supplier = JSON.parse(localStorage.getItem("supplierInfo"));
@@ -75,9 +75,9 @@ export const supplierLogout = () => async (dispatch) => {
 };
 
 /**
-*This action is implemented to
-*create a new supplier account
-*/
+ *This action is implemented to
+ *create a new supplier account
+ */
 export const supplierRegister =
 	(
 		supplierId,

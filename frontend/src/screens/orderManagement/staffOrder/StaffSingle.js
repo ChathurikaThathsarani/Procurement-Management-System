@@ -6,6 +6,7 @@ import { authHeader } from "../../../actions/staffAction";
 import MainScreen from "../../../components/MainScreen";
 
 export default function StaffSingle({ match, history }) {
+	// set the states to value
 	const [orderNo, setOrderNo] = useState("");
 	const [siteName, setSiteName] = useState("");
 	const [placedDate, setPlacedDate] = useState("");
@@ -18,9 +19,11 @@ export default function StaffSingle({ match, history }) {
 	const [deleiveryDate, setDeleiveryDate] = useState("");
 	const [supplierComment, setSupplierComment] = useState([]);
 
+	// get the staff login state
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
+	// get one order by id
 	useEffect(() => {
 		const fetching = async () => {
 			const { data } = await axios.get(`/user/staff/product-staff/get/${match.params.id}`, {
