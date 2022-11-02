@@ -1,7 +1,7 @@
 /**
-*These are the reducers of supplier
-*which keeps states of the supplier actions
-*/
+ *These are the reducers of supplier
+ *which keeps states of the supplier actions
+ */
 import {
 	SUPPLIER_LOGIN_FAIL,
 	SUPPLIER_LOGIN_REQUEST,

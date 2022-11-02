@@ -7,7 +7,6 @@ import { siteManagerRegister } from "../../../actions/siteManagerAction";
 import MainScreen from "../../../components/MainScreen";
 
 const SiteManagerRegisterScreen = () => {
-
 	//set initial states
 	const [siteManagerId, setSiteManagerId] = useState("");
 	const [name, setName] = useState("");

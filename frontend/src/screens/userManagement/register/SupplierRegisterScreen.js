@@ -7,7 +7,6 @@ import { supplierRegister } from "../../../actions/supplierAction";
 import MainScreen from "../../../components/MainScreen";
 
 const SupplierRegisterScreen = () => {
-
 	//set initial states
 	const [supplierId, setSupplierId] = useState("");
 	const [ownerName, setOwnerName] = useState("");

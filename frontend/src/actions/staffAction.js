@@ -1,8 +1,8 @@
 /*
-*These are the front end actions to 
-*manage a staff account these frontend actions calls the backend routes and then these 
-*actions connect frontend and backend
-*/
+ *These are the front end actions to
+ *manage a staff account these frontend actions calls the backend routes and then these
+ *actions connect frontend and backend
+ */
 import {
 	STAFF_LOGIN_FAIL,
 	STAFF_LOGIN_REQUEST,
@@ -53,7 +53,7 @@ export const staffLogin = (nic, password) => async (dispatch) => {
 
 /**
  * This action is implemented to
- * to pass the access permission to the do the other functionalities 
+ * to pass the access permission to the do the other functionalities
  */
 export function authHeader() {
 	let staff = JSON.parse(localStorage.getItem("staffInfo"));
@@ -75,9 +75,9 @@ export const staffLogout = () => async (dispatch) => {
 };
 
 /**
-*This action is implemented to
-*create a new staff member account
-*/
+ *This action is implemented to
+ *create a new staff member account
+ */
 export const staffRegister =
 	(staffId, name, dob, nic, telephone, address, email, password, pic, qualifications, experience) =>
 	async (dispatch) => {

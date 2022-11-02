@@ -1,6 +1,6 @@
 /**
-*These are the reducers of staff 
-*which keeps states of the staff actions
+ *These are the reducers of staff
+ *which keeps states of the staff actions
  */
 import {
 	STAFF_LOGIN_FAIL,
