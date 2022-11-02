@@ -8,6 +8,8 @@ import MainScreen from "../../../components/MainScreen";
 import "./RegisterScreen.css";
 
 const StaffRegisterScreen = () => {
+
+	//set initial states
 	const [staffId, setStaffId] = useState("");
 	const [name, setName] = useState("");
 	const [dob, setDob] = useState("");
@@ -23,13 +25,16 @@ const StaffRegisterScreen = () => {
 	const [message, setMessage] = useState(null);
 	const [picMessage, setPicMessage] = useState(null);
 
+	//use redux dispatch hook to access redux state store
 	const dispatch = useDispatch();
 	const staffRegistration = useSelector((state) => state.staffRegistration);
 	const { loading, error } = staffRegistration;
-
+	
+	//get staff login details from store
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
+	//submit details
 	const submitHandler = async (e) => {
 		e.preventDefault();
 
@@ -42,6 +47,7 @@ const StaffRegisterScreen = () => {
 		}
 	};
 
+	//add demo data
 	const demoHandler = async (e) => {
 		e.preventDefault();
 
@@ -56,6 +62,7 @@ const StaffRegisterScreen = () => {
 		setExperience("4 yrs");
 	};
 
+	//reset data added
 	const resetHandler = async (e) => {
 		e.preventDefault();
 
@@ -70,6 +77,7 @@ const StaffRegisterScreen = () => {
 		setExperience("");
 	};
 
+	//post picture details
 	const postDetails = (pics) => {
 		if (pics === "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg") {
 			return setPicMessage("Please Select an Image");
@@ -95,7 +103,9 @@ const StaffRegisterScreen = () => {
 			return setPicMessage("Please Select an Image");
 		}
 	};
+	//check staff access permission
 	if (staffInfo) {
+		//render screen
 		return (
 			<div className="registerBg">
 				<br></br>
