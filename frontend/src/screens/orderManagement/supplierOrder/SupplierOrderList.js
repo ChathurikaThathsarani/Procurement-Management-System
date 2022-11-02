@@ -10,8 +10,8 @@ import { useState } from "react";
 import MainScreen from "../../../components/MainScreen";
 
 export default function SupplierOrderList() {
+	// get the supplier login state
 	const dispatch = useDispatch();
-
 	const supplier_Login = useSelector((state) => state.supplier_Login);
 	const { supplierInfo } = supplier_Login;
 
@@ -19,16 +19,19 @@ export default function SupplierOrderList() {
 	const supplier_Orders = useSelector((state) => state.supplier_Orders);
 	const { loading, supplierOrders, error } = supplier_Orders;
 
+	// search handler
 	const [search, setSearch] = useState("");
 	let inputHandler = (e) => {
 		var lowerCase = e.target.value.toLowerCase();
 		setSearch(lowerCase);
 	};
 
+	// render the supplier orders
 	const history = useHistory();
 	useEffect(() => {
 		dispatch(supplierlistOrders());
 	}, [dispatch, history, supplierInfo]);
+
 	if (supplierInfo) {
 		return (
 			<div style={{ minHeight: 700, backgroundColor: "#f0f0f0" }} className="orders">

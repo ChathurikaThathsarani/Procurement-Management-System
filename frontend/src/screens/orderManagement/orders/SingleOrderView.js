@@ -7,6 +7,7 @@ import MainScreen from "../../../components/MainScreen";
 import "./order.css";
 
 export default function SingleOrderView({ match, history }) {
+	// set the states to value
 	const [orderNo, setOrderNo] = useState("");
 	const [siteName, setSiteName] = useState("");
 	const [placedDate, setPlacedDate] = useState("");
@@ -19,6 +20,7 @@ export default function SingleOrderView({ match, history }) {
 	const [deleiveryDate, setDeleiveryDate] = useState("");
 	const [supplierComment, setSupplierComment] = useState([]);
 
+	// get the site manager login state
 	const siteManager_Login = useSelector((state) => state.siteManager_Login);
 	const { siteManagerInfo } = siteManager_Login;
 

@@ -6,6 +6,7 @@ import { authHeader } from "../../../actions/supplierAction";
 import MainScreen from "../../../components/MainScreen";
 
 export default function SupplierViewOneOrder({ match, history }) {
+	// set order to values
 	const [orderNo, setOrderNo] = useState("");
 	const [siteName, setSiteName] = useState("");
 	const [placedDate, setPlacedDate] = useState("");
@@ -17,6 +18,7 @@ export default function SupplierViewOneOrder({ match, history }) {
 	const [deleiveryDate, setDeleiveryDate] = useState("");
 	const [supplierComment, setSupplierComment] = useState("");
 
+	// get state of supplier login
 	const supplier_Login = useSelector((state) => state.supplier_Login);
 	const { supplierInfo } = supplier_Login;
 

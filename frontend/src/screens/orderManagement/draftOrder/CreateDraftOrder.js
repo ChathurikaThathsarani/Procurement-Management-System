@@ -10,6 +10,7 @@ import axios from "axios";
 import "./draftOrder.css";
 
 export default function CreateDraftOrder({ history }) {
+	// set the states to values
 	const [placedDate, setPlacedDate] = useState("");
 	const [requiredDate, setRequiredDate] = useState("");
 	const [supplierName, setSupplierName] = useState("");
@@ -27,10 +28,12 @@ export default function CreateDraftOrder({ history }) {
 		fetching();
 	});
 
+	// get site manager logun state
 	const dispatch = useDispatch();
 	const siteManager_Login = useSelector((state) => state.siteManager_Login);
 	const { siteManagerInfo } = siteManager_Login;
 
+	// state for draft order create
 	const draftOrderCreate = useSelector((state) => state.draftOrderCreate);
 	const { loading, error } = draftOrderCreate;
 
