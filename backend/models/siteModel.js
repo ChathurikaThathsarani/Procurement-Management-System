@@ -1,3 +1,8 @@
+/**
+ * This model is implemented for
+ * the site  management
+ */
+
 const mongoose = require("mongoose");
 
 const siteSchema = mongoose.Schema(
