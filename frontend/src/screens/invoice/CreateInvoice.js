@@ -10,6 +10,7 @@ import MainScreen from "../../components/MainScreen";
 import "./invoice.css";
 
 export default function CreateInvoice({ match, history }) {
+	// set the states to values
 	const [orderNo, setOrderNo] = useState("");
 	const [bank, setBank] = useState("");
 	const [branch, setBranch] = useState("");
@@ -17,10 +18,12 @@ export default function CreateInvoice({ match, history }) {
 	const [depositAmount, setDepositAmount] = useState("");
 	const [depositDate, setDepositDate] = useState("");
 
+	// get the staff login state
 	const dispatch = useDispatch();
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
+	// state for invoice create
 	const invoiceCreate = useSelector((state) => state.invoiceCreate);
 	const { loading, error } = invoiceCreate;
 
@@ -43,6 +46,7 @@ export default function CreateInvoice({ match, history }) {
 		dispatch(createInvoiceAction(orderNo, bank, branch, accountNumber, depositAmount, depositDate));
 		if (!orderNo || !bank || !branch || !accountNumber || !depositAmount || !depositDate) return;
 	};
+
 	if (staffInfo) {
 		return (
 			<div className="createInvoice">

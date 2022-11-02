@@ -1,3 +1,4 @@
+//supplier constants to connect actions and reducers
 export const SUPPLIER_LOGIN_REQUEST = "SUPPLIER_LOGIN_REQUEST";
 export const SUPPLIER_LOGIN_SUCCESS = "SUPPLIER_LOGIN_SUCCESS";
 export const SUPPLIER_LOGIN_FAIL = "SUPPLIER_LOGIN_FAIL";

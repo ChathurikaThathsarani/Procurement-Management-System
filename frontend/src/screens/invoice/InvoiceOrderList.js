@@ -10,8 +10,8 @@ import { useState } from "react";
 import MainScreen from "../../components/MainScreen";
 
 export default function InvoiceOrderList() {
+	// get staff login state
 	const dispatch = useDispatch();
-
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
@@ -19,16 +19,19 @@ export default function InvoiceOrderList() {
 	const placedOrderList = useSelector((state) => state.placedOrderList);
 	const { loading, placedOrders, error } = placedOrderList;
 
+	// search handler
 	const [search, setSearch] = useState("");
 	let inputHandler = (e) => {
 		var lowerCase = e.target.value.toLowerCase();
 		setSearch(lowerCase);
 	};
 
+	// render placed order list
 	const history = useHistory();
 	useEffect(() => {
 		dispatch(placedlistOrders());
 	}, [dispatch, history, staffInfo]);
+
 	if (staffInfo) {
 		return (
 			<div style={{ minHeight: 700, backgroundColor: "#f0f0f0" }} className="orders">
