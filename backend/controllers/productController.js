@@ -9,11 +9,11 @@ const asyncHandler = require("express-async-handler");
 
 /**
  * This method is implemented to
- * create supplier products 
+ * create supplier products
  */
 const createProduct = asyncHandler(async (req, res) => {
 	const { supplier, productName, productPrice, productDescription } = req.body;
-	
+
 	//get company name
 	const suppliers = await Supplier.findOne({ _id: supplier });
 	const companyName = suppliers.companyName;

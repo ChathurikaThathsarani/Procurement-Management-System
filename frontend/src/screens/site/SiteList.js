@@ -11,23 +11,27 @@ import "./siteMangement.css";
 import swal from "sweetalert";
 
 export default function SiteList() {
+	// get staff login state
 	const dispatch = useDispatch();
-
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
+	// state for site list
 	const site_view_list = useSelector((state) => state.site_view_list);
 	const { loading, sites, error } = site_view_list;
 
+	// state for site upadate
 	const site_Management_Update = useSelector((state) => state.site_Management_Update);
 	const { success: successUpdate } = site_Management_Update;
 
+	// state for site delete
 	const site_Management_delete = useSelector((state) => state.site_Management_delete);
 	const { loading: loadingDelete, error: errorDelete, success: successDelete } = site_Management_delete;
 	console.log(sites);
 
 	const [search, setSearch] = useState("");
 
+	// search handler
 	const searchHandler = (e) => {
 		var lowerCase = e.target.value.toLowerCase();
 		setSearch(lowerCase);
@@ -61,7 +65,7 @@ export default function SiteList() {
 				});
 			});
 	};
-
+	// render  site list
 	const history = useHistory();
 	useEffect(() => {
 		dispatch(listsiteAction());
