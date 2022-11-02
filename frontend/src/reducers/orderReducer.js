@@ -215,6 +215,11 @@ export const placedOrderListReducer = (state = { placedOrders: [] }, action) => 
 			return state;
 	}
 };
+/**
+ * This reducer is implemented to
+ * to get all order list
+ * by staff
+ */
 
 export const OrderStaffListReducer = (state = { orders: [] }, action) => {
 	switch (action.type) {
@@ -229,7 +234,11 @@ export const OrderStaffListReducer = (state = { orders: [] }, action) => {
 			return state;
 	}
 };
-
+/**
+ * This reducer is implemented to
+ * to approve orders
+ * by staff
+ */
 export const StaffOrderToApproveReducer = (state = {}, action) => {
 	switch (action.type) {
 		case STAFF_ORDER_APPROVE_REQUEST:
