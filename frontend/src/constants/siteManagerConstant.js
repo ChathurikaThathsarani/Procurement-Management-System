@@ -1,3 +1,4 @@
+//site manager constants to connect actions and reducers
 export const SITE_MANGER_LOGIN_REQUEST = "SITE_MANGER_LOGIN_REQUEST";
 export const SITE_MANGER_LOGIN_SUCCESS = "SITE_MANGER_LOGIN_SUCCESS";
 export const SITE_MANGER_LOGIN_FAIL = "SITE_MANGER_LOGIN_FAIL";
