@@ -13,6 +13,11 @@ import {
 	SITE_DELETE_FAIL,
 } from "../constants/siteConstants";
 
+/**
+ * This reducer is implemented to
+ * to create a site
+ * by staff
+ */
 export const SiteCreateReducer = (state = {}, action) => {
 	switch (action.type) {
 		case SITE_CREATE_REQUEST:
@@ -26,6 +31,11 @@ export const SiteCreateReducer = (state = {}, action) => {
 			return state;
 	}
 };
+/**
+ * This reducer is implemented to
+ * to view site list
+ * by staff
+ */
 export const SiteListReducer = (state = { sites: [] }, action) => {
 	switch (action.type) {
 		case SITE_LIST_REQUEST:
@@ -39,7 +49,11 @@ export const SiteListReducer = (state = { sites: [] }, action) => {
 			return state;
 	}
 };
-
+/**
+ * This reducer is implemented to
+ * to update a site
+ * by staff
+ */
 export const SiteUpdateReducer = (state = {}, action) => {
 	switch (action.type) {
 		case SITE_UPDATE_REQUEST:
@@ -53,6 +67,11 @@ export const SiteUpdateReducer = (state = {}, action) => {
 			return state;
 	}
 };
+/**
+ * This reducer is implemented to
+ * to delete a site
+ * by staff
+ */
 
 export const SiteDeleteReducer = (state = {}, action) => {
 	switch (action.type) {

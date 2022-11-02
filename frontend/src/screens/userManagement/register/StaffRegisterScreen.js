@@ -8,7 +8,6 @@ import MainScreen from "../../../components/MainScreen";
 import "./RegisterScreen.css";
 
 const StaffRegisterScreen = () => {
-
 	//set initial states
 	const [staffId, setStaffId] = useState("");
 	const [name, setName] = useState("");
@@ -29,7 +28,7 @@ const StaffRegisterScreen = () => {
 	const dispatch = useDispatch();
 	const staffRegistration = useSelector((state) => state.staffRegistration);
 	const { loading, error } = staffRegistration;
-	
+
 	//get staff login details from store
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;

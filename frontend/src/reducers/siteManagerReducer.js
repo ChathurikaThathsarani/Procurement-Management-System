@@ -1,6 +1,6 @@
 /**
-*These are the reducers of site manager 
-*which keeps states of the site manager actions
+ *These are the reducers of site manager
+ *which keeps states of the site manager actions
  */
 import {
 	SITE_MANGER_LOGIN_FAIL,

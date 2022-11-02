@@ -442,6 +442,11 @@ export const placedlistOrders = () => async (dispatch, getState) => {
 		});
 	}
 };
+/**
+ * This action is implemented to
+ * to  placed orders view  by
+ * staff
+ */
 export const getOrderStaffAction = () => async (dispatch, getState) => {
 	try {
 		dispatch({
@@ -471,7 +476,11 @@ export const getOrderStaffAction = () => async (dispatch, getState) => {
 		});
 	}
 };
-
+/**
+ * This action is implemented to
+ * to  orders approve  by
+ * staff
+ */
 export const StaffOrderToApproveOrderAction = (id, status) => async (dispatch, getState) => {
 	try {
 		dispatch({

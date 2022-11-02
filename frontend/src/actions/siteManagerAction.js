@@ -1,8 +1,8 @@
 /*
-*These are the front end actions to 
-*manage a site manager account these frontend actions calls the backend routes and then these 
-*actions connect frontend and backend
-*/
+ *These are the front end actions to
+ *manage a site manager account these frontend actions calls the backend routes and then these
+ *actions connect frontend and backend
+ */
 import {
 	SITE_MANGER_LOGIN_FAIL,
 	SITE_MANGER_LOGIN_REQUEST,
@@ -53,7 +53,7 @@ export const siteManagerLogin = (nic, password) => async (dispatch) => {
 
 /**
  * This action is implemented to
- * to pass the access permission to the do the other functionalities 
+ * to pass the access permission to the do the other functionalities
  */
 export function authHeader() {
 	let siteManager = JSON.parse(localStorage.getItem("siteManagerInfo"));
@@ -75,9 +75,9 @@ export const siteMangerLogout = () => async (dispatch) => {
 };
 
 /**
-*This action is implemented to
-*create a new site manager account
-*/
+ *This action is implemented to
+ *create a new site manager account
+ */
 export const siteManagerRegister =
 	(siteManagerId, name, dob, nic, gender, telephone, address, email, password, pic, experience) => async (dispatch) => {
 		try {

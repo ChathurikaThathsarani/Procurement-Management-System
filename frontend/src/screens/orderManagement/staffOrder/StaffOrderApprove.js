@@ -9,6 +9,7 @@ import { authHeader } from "../../../actions/staffAction";
 import MainScreen from "../../../components/MainScreen";
 
 export default function StaffOrderApprove({ match, history }) {
+	// set the states to values
 	const [orderNo, setOrderNo] = useState("");
 	const [siteName, setSiteName] = useState("");
 	const [placedDate, setPlacedDate] = useState("");
@@ -19,13 +20,16 @@ export default function StaffOrderApprove({ match, history }) {
 	const [totalCost, setTotalCost] = useState("");
 	const [status, setStatus] = useState([]);
 
+	// get the staff login state
 	const dispatch = useDispatch();
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
+	// state for approve order
 	const Staff_order_To_Approve = useSelector((state) => state.Staff_order_To_Approve);
 	const { loading, error } = Staff_order_To_Approve;
 
+	// get the order by id
 	useEffect(() => {
 		const fetching = async () => {
 			const { data } = await axios.get(`/user/staff/product-staff/get/${match.params.id}`, {
@@ -45,6 +49,7 @@ export default function StaffOrderApprove({ match, history }) {
 		fetching();
 	}, [match.params.id]);
 
+	// call the action to approve the order
 	const updateHandler = (e) => {
 		e.preventDefault();
 		dispatch(StaffOrderToApproveOrderAction(match.params.id, status));
