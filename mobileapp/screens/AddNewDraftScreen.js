@@ -9,6 +9,10 @@ import RNPickerSelect from "react-native-picker-select";
 import DatePicker from "react-native-datepicker-2021";
 
 const AddNewDraftScreen = ({ navigation }) => {
+<<<<<<< HEAD
+=======
+	//initial states
+>>>>>>> fc55f5cd625bb8826830242f9e488b9af06b776c
 	const [reqDate, setReqDate] = useState(null);
 	const [placedDate, setPlacedDate] = useState(null);
 	const [supname, setSupName] = useState("");
@@ -16,6 +20,10 @@ const AddNewDraftScreen = ({ navigation }) => {
 
 	const [success, setSuccess] = useState(false);
 
+<<<<<<< HEAD
+=======
+	//use effect hook
+>>>>>>> fc55f5cd625bb8826830242f9e488b9af06b776c
 	useEffect(() => {
 		orderservice
 			.getSuppliers()
@@ -25,6 +33,10 @@ const AddNewDraftScreen = ({ navigation }) => {
 			.catch((e) => console.log(e));
 	}, []);
 
+<<<<<<< HEAD
+=======
+	//submit method
+>>>>>>> fc55f5cd625bb8826830242f9e488b9af06b776c
 	async function onSubmit() {
 		try {
 			if (supname == "") {
@@ -63,10 +75,18 @@ const AddNewDraftScreen = ({ navigation }) => {
 		}
 	}
 
+<<<<<<< HEAD
 	if (success) {
 		return (
 			<SuccesScreen
 				btname="Go to Draft Orders"
+=======
+	//render
+	if (success) {
+		return (
+			<SuccesScreen
+				btname="Go to Orders"
+>>>>>>> fc55f5cd625bb8826830242f9e488b9af06b776c
 				text="New Draft order added successfully."
 				nextScreen="DrawerNavigationRoutes"
 				navigation={navigation}
