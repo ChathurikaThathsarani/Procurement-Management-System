@@ -28,6 +28,7 @@ export default function SupplierPlacedOrRejectOrder({ match, history }) {
 	const orderToPlaced = useSelector((state) => state.orderToPlaced);
 	const { loading, error } = orderToPlaced;
 
+	// get one order by id
 	useEffect(() => {
 		const fetching = async () => {
 			const { data } = await axios.get(`/user/supplier/order/${match.params.id}`, {
@@ -48,6 +49,7 @@ export default function SupplierPlacedOrRejectOrder({ match, history }) {
 		fetching();
 	}, [match.params.id]);
 
+	// call the action to convert the order to placed
 	const updateHandler = (e) => {
 		e.preventDefault();
 		dispatch(orderToPlacedOrderAction(match.params.id, status, deleiveryDate, supplierComment));
@@ -246,7 +248,7 @@ export default function SupplierPlacedOrRejectOrder({ match, history }) {
 									>
 										<option value="Approved">Approved</option>
 										<option value="Placed">Placed</option>
-										<option value="Reject">Reject</option>
+										<option value="Rejected">Rejected</option>
 									</select>
 								</Form.Group>
 

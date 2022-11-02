@@ -2,6 +2,11 @@ const jwt = require("jsonwebtoken");
 const Staff = require("../models/staffModel.js");
 const asyncHandler = require("express-async-handler");
 
+/**
+ * This method is implemented to
+ * to authorize the routes for
+ * procurement staff
+ */
 const protect = asyncHandler(async (req, res, next) => {
 	let token;
 

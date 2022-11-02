@@ -20,6 +20,7 @@ export default function SupplierViewOneOrder({ match, history }) {
 	const supplier_Login = useSelector((state) => state.supplier_Login);
 	const { supplierInfo } = supplier_Login;
 
+	// get one order by id
 	useEffect(() => {
 		const fetching = async () => {
 			const { data } = await axios.get(`/user/supplier/order/${match.params.id}`, {

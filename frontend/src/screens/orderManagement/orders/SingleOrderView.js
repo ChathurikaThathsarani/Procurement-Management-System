@@ -22,6 +22,7 @@ export default function SingleOrderView({ match, history }) {
 	const siteManager_Login = useSelector((state) => state.siteManager_Login);
 	const { siteManagerInfo } = siteManager_Login;
 
+	// get one order by id
 	useEffect(() => {
 		const fetching = async () => {
 			const { data } = await axios.get(`/user/manager/order/${match.params.id}`, {

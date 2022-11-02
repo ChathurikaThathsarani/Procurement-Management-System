@@ -15,6 +15,7 @@ export default function SupplierOrderList() {
 	const supplier_Login = useSelector((state) => state.supplier_Login);
 	const { supplierInfo } = supplier_Login;
 
+	// get the orders for a selected supplier
 	const supplier_Orders = useSelector((state) => state.supplier_Orders);
 	const { loading, supplierOrders, error } = supplier_Orders;
 

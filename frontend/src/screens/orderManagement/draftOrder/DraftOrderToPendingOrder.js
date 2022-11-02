@@ -26,6 +26,7 @@ export default function DraftOrderToPendingOrder({ match, history }) {
 	const { loading, error } = draftOrderToPending;
 
 	useEffect(() => {
+		// get the order by id
 		const fetching = async () => {
 			const { data } = await axios.get(`/user/manager/order/${match.params.id}`, {
 				headers: authHeader(),
@@ -37,6 +38,7 @@ export default function DraftOrderToPendingOrder({ match, history }) {
 			setRequiredDate(data.requiredDate);
 		};
 
+		// get products list according to selected supplier company name
 		const fetchingProducts = async () => {
 			const { data } = await axios.get(`/user/manager/orders/draft/products/${match.params.id}`, {
 				headers: authHeader(),
@@ -49,6 +51,7 @@ export default function DraftOrderToPendingOrder({ match, history }) {
 		fetchingProducts();
 	}, [match.params.id, myArray]);
 
+	// call the action to convert draft to pending order
 	const updateHandler = (e) => {
 		e.preventDefault();
 		dispatch(draftOrderToPendingOrderAction(match.params.id, productName, productQty));
