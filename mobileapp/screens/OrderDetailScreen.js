@@ -13,7 +13,7 @@ const OrderDetailScreen = ({ route }) => {
     orderservice
       .getOrder(route.params.id)
       .then((data) => {
-        const { _id, ...rest } = data;
+        const { _id, __v, ...rest } = data;
         setOrder(rest);
       })
       .catch((e) => console.log(e));

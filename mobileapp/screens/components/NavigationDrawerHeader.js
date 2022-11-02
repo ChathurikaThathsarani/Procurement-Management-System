@@ -6,7 +6,6 @@ const NavigationDrawerHeader = (props) => {
     props.navigationProps.toggleDrawer();
   };
 
-  //this is the component drawer header
   return (
     <View style={{ flexDirection: "row" }}>
       <TouchableOpacity onPress={toggleDrawer}>

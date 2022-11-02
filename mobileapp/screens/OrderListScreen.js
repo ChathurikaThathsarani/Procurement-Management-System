@@ -42,6 +42,7 @@ const OrderListScreen = ({ navigation }) => {
                   buttonStyle={{ minHeight: "44%" }}
                 />
                 <Button
+                  disabled={l.totalPrice >= 100000}
                   onPress={() => {
                     reset();
                     navigation.navigate("OrderApproveScreen", { id: l._id });

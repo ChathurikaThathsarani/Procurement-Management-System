@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Image, Text, TouchableOpacity, StyleSheet } from "react-native";
 
-//this is the success screen
 const SuccesScreen = ({ btname, text, nextScreen, navigation }) => {
   return (
     <View
@@ -19,7 +18,7 @@ const SuccesScreen = ({ btname, text, nextScreen, navigation }) => {
       <TouchableOpacity
         style={styles.buttonStyle}
         activeOpacity={0.5}
-        onPress={() => navigation.navigate(nextScreen)}
+        onPress={() => navigation.replace(nextScreen)}
       >
         <Text style={styles.buttonTextStyle}>{btname}</Text>
       </TouchableOpacity>
@@ -29,7 +28,6 @@ const SuccesScreen = ({ btname, text, nextScreen, navigation }) => {
 
 export default SuccesScreen;
 
-//added styles
 const styles = StyleSheet.create({
   SectionStyle: {
     flexDirection: "row",

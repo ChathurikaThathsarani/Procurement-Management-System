@@ -9,7 +9,6 @@ import {
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-//this is the component side bar
 const CustomSidebarMenu = (props) => {
   return (
     <View style={stylesSidebar.sideMenuContainer}>
@@ -58,7 +57,6 @@ const CustomSidebarMenu = (props) => {
 
 export default CustomSidebarMenu;
 
-//added styles
 const stylesSidebar = StyleSheet.create({
   sideMenuContainer: {
     width: "100%",

@@ -16,7 +16,7 @@ const OrderApproveScreen = ({ route, navigation }) => {
     orderservice
       .getOrder(route.params.id)
       .then((data) => {
-        const { _id, status, ...rest } = data;
+        const { _id, status, __v, ...rest } = data;
         setOrder(rest);
       })
       .catch((e) => console.log(e));

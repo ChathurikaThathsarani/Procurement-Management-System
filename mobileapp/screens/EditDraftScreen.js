@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ScrollView, TextInput } from "react-native";
+import { ScrollView, TextInput, Alert } from "react-native";
 import { ListItem, Icon, Button } from "@rneui/themed";
 import orderservice from "../services/orderservice";
 import RNPickerSelect from "react-native-picker-select";
@@ -27,8 +27,8 @@ const EditDraftScreen = ({ route, navigation }) => {
           supplierComment,
           deleiveryDate,
           orderNo,
-          updatedAt,
           __v,
+          updatedAt,
           ...rest
         } = data;
         setOrder(rest);
@@ -45,18 +45,30 @@ const EditDraftScreen = ({ route, navigation }) => {
 
   async function onSubmit() {
     try {
-      if(qty != 0){
-          await orderservice.draftOrderToPending(
-          route.params.id,
-          selectedValue,
-          qty
-        );
-        setSuccess(true);
-      } else{
-        alert("Enter Quantity !");
+      console.log(selectedValue);
+      if (selectedValue == "" || selectedValue == null) {
+        Alert.alert("", "Select a product");
+        return;
       }
+      if (qty == 0) {
+        Alert.alert("", "Enter quantity");
+        return;
+      }
+      let product = productlist.find(
+        (item) => item.productName == selectedValue
+      );
+      let totalPrice = qty * product.productPrice;
+      if (totalPrice >= 100000) {
+        Alert.alert("", "Total Price is higher than 100000");
+        return;
+      }
+      await orderservice.draftOrderToPending(
+        route.params.id,
+        selectedValue,
+        qty
+      );
 
-      
+      setSuccess(true);
     } catch (error) {
       console.log(error);
     }
@@ -66,7 +78,7 @@ const EditDraftScreen = ({ route, navigation }) => {
     return (
       <SuccesScreen
         btname="Go to Draft Orders"
-        text="Approved Successfully."
+        text="Product details added to order successfully."
         nextScreen="DrawerNavigationRoutes"
         navigation={navigation}
       />

@@ -11,6 +11,7 @@ import DrawerNavigatorRoutes from "./screens/DrawerNavigationRoutes";
 import OrderDetailScreen from "./screens/OrderDetailScreen";
 import OrderApproveScreen from "./screens/OrderApproveScreen";
 import EditDraftScreen from "./screens/EditDraftScreen";
+import AddNewDraftScreen from "./screens/AddNewDraftScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -84,6 +85,15 @@ export default function App() {
           component={EditDraftScreen}
           options={{
             title: "Add The Products", //Set Header Title
+          }}
+          // options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="AddNewDraftScreen"
+          component={AddNewDraftScreen}
+          options={{
+            title: "Add New Draft Order", //Set Header Title
           }}
           // options={{ headerShown: false }}
         />
