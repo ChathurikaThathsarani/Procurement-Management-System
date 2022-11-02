@@ -1,3 +1,7 @@
+/**
+*These are the reducers of staff 
+*which keeps states of the staff actions
+ */
 import {
 	STAFF_LOGIN_FAIL,
 	STAFF_LOGIN_REQUEST,
@@ -8,6 +12,10 @@ import {
 	STAFF_REGISTER_SUCCESS,
 } from "../constants/staffConstant";
 
+/**
+ * This reducer is implemented to
+ * login a staff member
+ */
 export const staffLoginReducer = (state = {}, action) => {
 	switch (action.type) {
 		case STAFF_LOGIN_REQUEST:
@@ -24,6 +32,10 @@ export const staffLoginReducer = (state = {}, action) => {
 	}
 };
 
+/**
+ * This reducer is implemented to
+ * register a staff member
+ */
 export const staffRegisterReducer = (state = {}, action) => {
 	switch (action.type) {
 		case STAFF_REGISTER_REQUEST:
