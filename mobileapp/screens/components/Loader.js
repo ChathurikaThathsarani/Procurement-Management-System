@@ -4,6 +4,7 @@ import { StyleSheet, View, Modal, ActivityIndicator } from "react-native";
 const Loader = (props) => {
   const { loading, ...attributes } = props;
 
+  //this is the component loader
   return (
     <Modal
       transparent={true}
@@ -29,6 +30,7 @@ const Loader = (props) => {
 
 export default Loader;
 
+//added styles
 const styles = StyleSheet.create({
   modalBackground: {
     flex: 1,

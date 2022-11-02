@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Image, Text, TouchableOpacity, StyleSheet } from "react-native";
 
+//this is the success screen
 const SuccesScreen = ({ btname, text, nextScreen, navigation }) => {
   return (
     <View
@@ -28,6 +29,7 @@ const SuccesScreen = ({ btname, text, nextScreen, navigation }) => {
 
 export default SuccesScreen;
 
+//added styles
 const styles = StyleSheet.create({
   SectionStyle: {
     flexDirection: "row",

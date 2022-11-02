@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-
+//added styles
 export const authstyles = StyleSheet.create({
   mainBody: {
     flex: 1,
