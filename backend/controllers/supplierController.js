@@ -1,3 +1,7 @@
+/**
+ * This controller is implemented for
+ * the supplier user management
+ */
 const asyncHandler = require("express-async-handler");
 const Supplier = require("../models/supplierModel");
 const {} = require("../routes/supplierRoutes");
@@ -5,6 +9,10 @@ const {} = require("../routes/siteManagerRoutes");
 const generateToken = require("../utils/generateToken");
 const bcrypt = require("bcryptjs");
 
+/**
+ * This method is implemented to
+ * register a new supplier to the system
+ */
 const registerSupplier = asyncHandler(async (req, res) => {
 	const {
 		supplierId,
@@ -69,6 +77,10 @@ const registerSupplier = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * login a supplier
+ */
 const authSupplier = asyncHandler(async (req, res) => {
 	const { nic, password } = req.body;
 
@@ -103,11 +115,19 @@ const authSupplier = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * get all supplier account details to the staff
+ */
 const getSuppliers = asyncHandler(async (req, res) => {
 	const suppliers = await Supplier.find();
 	res.json(suppliers);
 });
 
+/**
+ * This method is implemented to
+ * view own supplier account by the supplier
+ */
 const getSupplierProfile = asyncHandler(async (req, res) => {
 	const supplier = await Supplier.findById(req.supplier._id);
 
@@ -119,6 +139,10 @@ const getSupplierProfile = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * get the supplier profile for staff
+ */
 const getSupplierProfileById = asyncHandler(async (req, res) => {
 	const supplier = await Supplier.findById(req.params._id);
 
@@ -130,6 +154,10 @@ const getSupplierProfileById = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * update the supplier account
+ */
 const updateSupplierProfile = asyncHandler(async (req, res) => {
 	const supplier = await Supplier.findById(req.supplier._id);
 
@@ -172,6 +200,10 @@ const updateSupplierProfile = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * update the supplier account by id
+ */
 const updateSupplierProfileById = asyncHandler(async (req, res) => {
 	const supplier = await Supplier.findById(req.params._id);
 
@@ -214,6 +246,10 @@ const updateSupplierProfileById = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * delete a supplier account
+ */
 const deleteSupplierProfile = asyncHandler(async (req, res) => {
 	const supplier = await Supplier.findById(req.supplier._id);
 
@@ -226,6 +262,10 @@ const deleteSupplierProfile = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * delete a supplier account by staff
+ */
 const deleteSupplierProfileById = asyncHandler(async (req, res) => {
 	const supplier = await Supplier.findById(req.params._id);
 
