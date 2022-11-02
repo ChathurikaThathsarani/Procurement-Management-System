@@ -15,11 +15,7 @@ const SuccesScreen = ({ btname, text, nextScreen, navigation }) => {
 				style={{ height: 150, resizeMode: "contain", alignSelf: "center" }}
 			/>
 			<Text style={styles.successTextStyle}>{text}</Text>
-<<<<<<< HEAD
-			<TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5} onPress={() => navigation.navigate(nextScreen)}>
-=======
 			<TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5} onPress={() => navigation.replace(nextScreen)}>
->>>>>>> fc55f5cd625bb8826830242f9e488b9af06b776c
 				<Text style={styles.buttonTextStyle}>{btname}</Text>
 			</TouchableOpacity>
 		</View>

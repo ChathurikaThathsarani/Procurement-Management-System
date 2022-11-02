@@ -4,15 +4,10 @@ import { ListItem, Icon, Button } from "@rneui/themed";
 import orderservice from "../services/orderservice";
 
 const OrderListScreen = ({ navigation }) => {
-<<<<<<< HEAD
-	const [orderList, setOrderList] = useState([]);
-
-=======
 	//initial states
 	const [orderList, setOrderList] = useState([]);
 
 	//use effect hook
->>>>>>> fc55f5cd625bb8826830242f9e488b9af06b776c
 	useEffect(() => {
 		setOrderList([]);
 
@@ -24,59 +19,6 @@ const OrderListScreen = ({ navigation }) => {
 			})
 			.catch((e) => console.log(e));
 	}, []);
-<<<<<<< HEAD
-	return (
-		<>
-			<ScrollView style={styles.con}>
-				{orderList.map((l, i) => (
-					<ListItem.Swipeable
-						key={i}
-						bottomDivider
-						containerStyle={{
-							marginBottom: 10,
-							borderRadius: 2,
-							borderColor: "#307ecc",
-							borderWidth: 2,
-						}}
-						rightContent={(reset) => (
-							<>
-								<Button
-									onPress={() => {
-										reset();
-										navigation.navigate("OrderDetailScreen", { id: l._id });
-									}}
-									title="Info"
-									icon={{ name: "info", color: "white" }}
-									buttonStyle={{ minHeight: "44%" }}
-								/>
-								<Button
-									disabled={l.totalPrice >= 100000}
-									onPress={() => {
-										reset();
-										navigation.navigate("OrderApproveScreen", { id: l._id });
-									}}
-									title="Approve"
-									icon={{ name: "update", color: "white" }}
-									buttonStyle={{ minHeight: "44%", backgroundColor: "green" }}
-								/>
-							</>
-						)}
-					>
-						<ListItem.Content>
-							<ListItem.Subtitle>
-								Supplier: <Text style={{ color: "red" }}> {l.supplierName}</Text>
-							</ListItem.Subtitle>
-
-							<ListItem.Subtitle>Product Name: {l.productName}</ListItem.Subtitle>
-							<ListItem.Subtitle>Placed Date: {l.placedDate}</ListItem.Subtitle>
-						</ListItem.Content>
-
-						<ListItem.Content right>
-							<ListItem.Title right style={{ color: "green" }}>
-								{l.status}
-							</ListItem.Title>
-
-=======
 
 	//render screen
 	return (
@@ -130,7 +72,6 @@ const OrderListScreen = ({ navigation }) => {
 								{l.status}
 							</ListItem.Title>
 
->>>>>>> fc55f5cd625bb8826830242f9e488b9af06b776c
 							<ListItem.Subtitle>Total Price: {l.totalPrice}</ListItem.Subtitle>
 						</ListItem.Content>
 					</ListItem.Swipeable>

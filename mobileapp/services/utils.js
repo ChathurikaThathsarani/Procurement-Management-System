@@ -19,11 +19,7 @@ export async function autheader() {
 	}
 }
 
-<<<<<<< HEAD
-export const api_base_url = "http://192.168.1.144:5000/user/manager/";
-=======
 export const api_base_url = "http://192.168.1.100:5000/user/manager/";
->>>>>>> fc55f5cd625bb8826830242f9e488b9af06b776c
 
 export async function getLoginUser() {
 	let s = await AsyncStorage.getItem("@userdata");

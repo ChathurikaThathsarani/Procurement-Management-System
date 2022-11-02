@@ -5,15 +5,10 @@ import orderservice from "../services/orderservice";
 import { convertToTitleCase } from "../services/utils";
 
 const OrderDetailScreen = ({ route }) => {
-<<<<<<< HEAD
-	const [order, setOrder] = useState({});
-
-=======
 	//initial state
 	const [order, setOrder] = useState({});
 
 	//use effect hook
->>>>>>> fc55f5cd625bb8826830242f9e488b9af06b776c
 	useEffect(() => {
 		setOrder({});
 
@@ -26,10 +21,7 @@ const OrderDetailScreen = ({ route }) => {
 			.catch((e) => console.log(e));
 	}, []);
 
-<<<<<<< HEAD
-=======
 	//render screen
->>>>>>> fc55f5cd625bb8826830242f9e488b9af06b776c
 	return (
 		<ScrollView>
 			{Object.entries(order).map(([key, value], i) => {
