@@ -1,3 +1,8 @@
+/*
+*These are the front end actions to 
+*manage a site manager account these frontend actions calls the backend routes and then these 
+*actions connect frontend and backend
+*/
 import {
 	SITE_MANGER_LOGIN_FAIL,
 	SITE_MANGER_LOGIN_REQUEST,
@@ -10,6 +15,10 @@ import {
 import axios from "axios";
 import swal from "sweetalert";
 
+/**
+ * This action is implemented to
+ * to login a site manager to their account
+ */
 export const siteManagerLogin = (nic, password) => async (dispatch) => {
 	try {
 		dispatch({ type: SITE_MANGER_LOGIN_REQUEST });
@@ -42,6 +51,10 @@ export const siteManagerLogin = (nic, password) => async (dispatch) => {
 	}
 };
 
+/**
+ * This action is implemented to
+ * to pass the access permission to the do the other functionalities 
+ */
 export function authHeader() {
 	let siteManager = JSON.parse(localStorage.getItem("siteManagerInfo"));
 
@@ -52,11 +65,19 @@ export function authHeader() {
 	}
 }
 
+/**
+ * This action is implemented to
+ * to log out a site manager from the account
+ */
 export const siteMangerLogout = () => async (dispatch) => {
 	localStorage.removeItem("siteManagerInfo");
 	dispatch({ type: SITE_MANGER_LOGOUT });
 };
 
+/**
+*This action is implemented to
+*create a new site manager account
+*/
 export const siteManagerRegister =
 	(siteManagerId, name, dob, nic, gender, telephone, address, email, password, pic, experience) => async (dispatch) => {
 		try {
