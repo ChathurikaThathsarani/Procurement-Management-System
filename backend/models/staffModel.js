@@ -1,3 +1,7 @@
+/**
+ * This model is implemented for
+ * store staff account details in the database
+ */
 const mongoose = require("mongoose");
 
 const staffSchema = mongoose.Schema(
