@@ -1,5 +1,9 @@
-const mongoose = require("mongoose");
+/**
+ * This model is implemented for
+ * the good receipt management
+ */
 
+const mongoose = require("mongoose");
 const goodReceiptSchema = mongoose.Schema(
 	{
 		orderNo: {

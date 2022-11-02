@@ -1,5 +1,13 @@
+/**
+ * This controller is implemented for
+ * the good receipt management
+ */
 const GoodReceipt = require("../models/goodReceiptModel");
 const asyncHandler = require("express-async-handler");
+/**
+ * This method is implemented to
+ * create good receipt for a finished order
+ */
 const createGoodReceipt = asyncHandler(async (req, res) => {
 	const { orderNo, productName, productQuantity, deliveryDate } = req.body;
 
@@ -20,6 +28,11 @@ const createGoodReceipt = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * get all good receipt from
+ * the system
+ */
 const getReceipts = asyncHandler(async (req, res) => {
 	const receipts = await GoodReceipt.find();
 	res.json(receipts);
