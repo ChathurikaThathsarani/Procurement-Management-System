@@ -7,12 +7,6 @@ import SuccesScreen from "./components/SuccesScreen";
 import { convertToTitleCase } from "../services/utils";
 
 const OrderApproveScreen = ({ route, navigation }) => {
-<<<<<<< HEAD
-	const [order, setOrder] = useState({});
-
-	const [selectedValue, setSelectedValue] = useState("Pending");
-	const [aprovesuccess, setAprovesuccess] = useState(false);
-=======
 	//initial states
 	const [order, setOrder] = useState({});
 
@@ -20,7 +14,6 @@ const OrderApproveScreen = ({ route, navigation }) => {
 	const [aprovesuccess, setAprovesuccess] = useState(false);
 
 	//use effect hook
->>>>>>> fc55f5cd625bb8826830242f9e488b9af06b776c
 	useEffect(() => {
 		setOrder({});
 
@@ -43,10 +36,7 @@ const OrderApproveScreen = ({ route, navigation }) => {
 		);
 	}
 
-<<<<<<< HEAD
-=======
 	//render screen
->>>>>>> fc55f5cd625bb8826830242f9e488b9af06b776c
 	return (
 		<ScrollView>
 			{Object.entries(order).map(([key, value], i) => {

@@ -16,10 +16,7 @@ import authenticationservice from "../services/authservice";
 import { authstyles } from "./components/styles";
 
 const LoginScreen = ({ navigation }) => {
-<<<<<<< HEAD
-=======
 	//initial states
->>>>>>> fc55f5cd625bb8826830242f9e488b9af06b776c
 	const [userEmail, setUserEmail] = useState("");
 	const [userPassword, setUserPassword] = useState("");
 	const [loading, setLoading] = useState(false);
@@ -27,10 +24,7 @@ const LoginScreen = ({ navigation }) => {
 
 	const passwordInputRef = createRef();
 
-<<<<<<< HEAD
-=======
 	//on submit method
->>>>>>> fc55f5cd625bb8826830242f9e488b9af06b776c
 	const handleSubmitPress = async () => {
 		try {
 			setErrortext("");
@@ -57,10 +51,7 @@ const LoginScreen = ({ navigation }) => {
 		}
 	};
 
-<<<<<<< HEAD
-=======
 	//render screen
->>>>>>> fc55f5cd625bb8826830242f9e488b9af06b776c
 	return (
 		<View style={authstyles.mainBody}>
 			<Loader loading={loading} />
