@@ -7,6 +7,10 @@ const productSchema = mongoose.Schema(
 			required: true,
 			ref: "Supplier",
 		},
+		companyName: {
+			type: String,
+			required: true,
+		},
 		productName: {
 			type: String,
 			required: true,
