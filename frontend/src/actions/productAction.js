@@ -21,6 +21,12 @@ import {
 import axios from "axios";
 import swal from "sweetalert";
 
+/**
+ * This action is implemented to
+ * to get supplier products
+ * by supplier
+ */
+
 export const listProductAction = () => async (dispatch, getState) => {
 	try {
 		dispatch({
@@ -51,6 +57,12 @@ export const listProductAction = () => async (dispatch, getState) => {
 		});
 	}
 };
+
+/**
+ * This action is implemented to
+ * to create supplier products
+ * by supplier
+ */
 
 export const createProductAction =
 	(supplier, productName, productPrice, productDescription) => async (dispatch, getState) => {
@@ -98,6 +110,12 @@ export const createProductAction =
 		}
 	};
 
+/**
+ * This action is implemented to
+ * to update supplier products
+ * by supplier
+ */
+
 export const updateProductAction =
 	(id, supplier, productName, productPrice, productDescription) => async (dispatch, getState) => {
 		try {
@@ -143,6 +161,12 @@ export const updateProductAction =
 		}
 	};
 
+/**
+ * This action is implemented to
+ * to delete supplier products
+ * by supplier
+ */
+
 export const productDeleteAction = (id) => async (dispatch, getState) => {
 	try {
 		dispatch({
@@ -174,6 +198,11 @@ export const productDeleteAction = (id) => async (dispatch, getState) => {
 	}
 };
 
+/**
+ * This action is implemented to
+ * to view all supplier products
+ * for site manager
+ */
 export const viewProductForSiteManagerAction = () => async (dispatch, getState) => {
 	try {
 		dispatch({
@@ -204,6 +233,12 @@ export const viewProductForSiteManagerAction = () => async (dispatch, getState) 
 		});
 	}
 };
+
+/**
+ * This action is implemented to
+ * to view all supplier products
+ * for staff
+ */
 
 export const viewProductForStaffAction = () => async (dispatch, getState) => {
 	try {
