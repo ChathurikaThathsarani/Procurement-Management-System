@@ -10,8 +10,8 @@ import { useState } from "react";
 import MainScreen from "../../../components/MainScreen";
 
 export default function OrderList() {
+	// get the site manager login state
 	const dispatch = useDispatch();
-
 	const siteManager_Login = useSelector((state) => state.siteManager_Login);
 	const { siteManagerInfo } = siteManager_Login;
 
@@ -19,16 +19,19 @@ export default function OrderList() {
 	const orderList = useSelector((state) => state.orderList);
 	const { loading, orders, error } = orderList;
 
+	// search handler
 	const [search, setSearch] = useState("");
 	let inputHandler = (e) => {
 		var lowerCase = e.target.value.toLowerCase();
 		setSearch(lowerCase);
 	};
 
+	// render the order list
 	const history = useHistory();
 	useEffect(() => {
 		dispatch(listOrders());
 	}, [dispatch, history, siteManagerInfo]);
+
 	if (siteManagerInfo) {
 		return (
 			<div style={{ minHeight: 700, backgroundColor: "#f0f0f0" }} className="orders">

@@ -10,15 +10,18 @@ import MainScreen from "../../components/MainScreen";
 import "./goodReceipt.css";
 
 export default function CreateGoodReceipt({ match, history }) {
+	// set the states to values
 	const [orderNo, setOrderNo] = useState("");
 	const [productName, setProductName] = useState("");
 	const [productQuantity, setProductQuantity] = useState("");
 	const [deliveryDate, setDeliveryDate] = useState("");
 
+	// get staff login state
 	const dispatch = useDispatch();
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
+	// state for good receipt create
 	const goodReceiptCreate = useSelector((state) => state.goodReceiptCreate);
 	const { loading, error } = goodReceiptCreate;
 
@@ -42,6 +45,7 @@ export default function CreateGoodReceipt({ match, history }) {
 		dispatch(createGoodReceiptAction(orderNo, productName, productQuantity, deliveryDate));
 		if (!orderNo || !productName || !productQuantity || !deliveryDate) return;
 	};
+
 	if (staffInfo) {
 		return (
 			<div className="createGoodReceipt">

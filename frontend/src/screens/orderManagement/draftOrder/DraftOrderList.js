@@ -10,8 +10,8 @@ import swal from "sweetalert";
 import { useState } from "react";
 import MainScreen from "../../../components/MainScreen";
 export default function DraftOrderList() {
+	// get the site manager login state
 	const dispatch = useDispatch();
-
 	const siteManager_Login = useSelector((state) => state.siteManager_Login);
 	const { siteManagerInfo } = siteManager_Login;
 
@@ -19,15 +19,18 @@ export default function DraftOrderList() {
 	const draftOrderList = useSelector((state) => state.draftOrderList);
 	const { loading, draftOrders, error } = draftOrderList;
 
+	// state for draft order delete
 	const draftOrderDelete = useSelector((state) => state.draftOrderDelete);
 	const { loading: loadingDelete, error: errorDelete, success: successDelete } = draftOrderDelete;
 
+	// search handler
 	const [search, setSearch] = useState("");
 	let inputHandler = (e) => {
 		var lowerCase = e.target.value.toLowerCase();
 		setSearch(lowerCase);
 	};
 
+	// delete handler
 	const deleteHandler = (id) => {
 		swal({
 			title: "Are you sure?",
@@ -58,10 +61,12 @@ export default function DraftOrderList() {
 			});
 	};
 
+	// render draft order list
 	const history = useHistory();
 	useEffect(() => {
 		dispatch(listDraftOrders());
 	}, [dispatch, history, siteManagerInfo, successDelete]);
+
 	if (siteManagerInfo) {
 		return (
 			<div style={{ backgroundColor: "#f0f0f0" }}>

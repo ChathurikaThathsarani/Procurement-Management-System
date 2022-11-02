@@ -10,6 +10,7 @@ import MainScreen from "../../../components/MainScreen";
 import "./order.css";
 
 export default function OrderToApprove({ match, history }) {
+	// set the states to values
 	const [orderNo, setOrderNo] = useState("");
 	const [siteName, setSiteName] = useState("");
 	const [placedDate, setPlacedDate] = useState("");
@@ -20,10 +21,12 @@ export default function OrderToApprove({ match, history }) {
 	const [totalCost, setTotalCost] = useState("");
 	const [status, setStatus] = useState([]);
 
+	// get the site manager login state
 	const dispatch = useDispatch();
 	const siteManager_Login = useSelector((state) => state.siteManager_Login);
 	const { siteManagerInfo } = siteManager_Login;
 
+	// state for approve order
 	const orderToApprove = useSelector((state) => state.orderToApprove);
 	const { loading, error } = orderToApprove;
 
