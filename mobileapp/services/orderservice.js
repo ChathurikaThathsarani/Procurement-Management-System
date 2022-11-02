@@ -2,6 +2,7 @@ import axios from "axios";
 
 import { autheader, api_base_url, getLoginUser } from "./utils";
 
+//get orders function
 const getOrders = async () => {
   try {
     let userdata = await getLoginUser();
@@ -19,6 +20,7 @@ const getOrders = async () => {
   }
 };
 
+//get draft orders function
 const getDraftOrders = async () => {
   try {
     let userdata = await getLoginUser();
@@ -35,6 +37,8 @@ const getDraftOrders = async () => {
     throw new Error("Orders retrival failed");
   }
 };
+
+//delete draft order
 const deleteDraftOrder = async (id) => {
   try {
     let header = await autheader();
@@ -50,6 +54,8 @@ const deleteDraftOrder = async (id) => {
     throw new Error("Order deletion failed");
   }
 };
+
+//get a single order
 const getOrder = async (id) => {
   try {
     let header = await autheader();
@@ -62,6 +68,7 @@ const getOrder = async (id) => {
     throw new Error("Order retrival failed");
   }
 };
+//get products from backend
 const getProductForOrder = async (id) => {
   try {
     let header = await autheader();
@@ -78,6 +85,7 @@ const getProductForOrder = async (id) => {
   }
 };
 
+//approve order
 const approveOrder = async (id, status) => {
   try {
     let header = await autheader();
@@ -87,7 +95,6 @@ const approveOrder = async (id, status) => {
       { status },
       header
     );
-    console.log("her");
     console.log(data);
     return data;
   } catch (error) {
@@ -95,6 +102,8 @@ const approveOrder = async (id, status) => {
     throw new Error("Order approval failed");
   }
 };
+
+//draft order to pending state
 const draftOrderToPending = async (orderid, productName, productQty) => {
   try {
     let header = await autheader();
@@ -104,7 +113,6 @@ const draftOrderToPending = async (orderid, productName, productQty) => {
       { productName, productQty },
       header
     );
-    console.log("her");
     console.log(data);
     return data;
   } catch (error) {

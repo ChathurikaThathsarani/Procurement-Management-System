@@ -1,6 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+//pass the auth for functions
 export async function autheader() {
+  //get user logiin data from async storage
   let siteManager = JSON.parse(await AsyncStorage.getItem("@userdata"));
 
   if (siteManager && siteManager.token) {
@@ -19,6 +21,7 @@ export async function autheader() {
   }
 }
 
+//base url to call backend
 export const api_base_url = "http://192.168.1.144:5000/user/manager/";
 
 export async function getLoginUser() {
