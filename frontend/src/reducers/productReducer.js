@@ -19,6 +19,12 @@ import {
 	VIEW_PRODUCT_FOR_STAFF_LIST_SUCCESS,
 } from "../constants/productConstant";
 
+/**
+ * This reducer is implemented to
+ * to get all draft products
+ * by supplier
+ */
+
 export const productListReducer = (state = { product: [] }, action) => {
 	switch (action.type) {
 		case PRODUCT_LIST_REQUEST:
@@ -32,6 +38,12 @@ export const productListReducer = (state = { product: [] }, action) => {
 			return state;
 	}
 };
+
+/**
+ * This reducer is implemented to
+ * to create draft create by
+ * supplier
+ */
 
 export const productCreateReducer = (state = {}, action) => {
 	switch (action.type) {
@@ -47,6 +59,12 @@ export const productCreateReducer = (state = {}, action) => {
 	}
 };
 
+/**
+ * This reducer is implemented to
+ * to delete products by
+ * supplier
+ */
+
 export const productDeleteReducer = (state = {}, action) => {
 	switch (action.type) {
 		case PRODUCT_DELETE_REQUEST:
@@ -60,6 +78,13 @@ export const productDeleteReducer = (state = {}, action) => {
 			return state;
 	}
 };
+
+/**
+ * This reducer is implemented to
+ * to update products by
+ * supplier
+ */
+
 
 export const productUpdateReducer = (state = {}, action) => {
 	switch (action.type) {
@@ -75,6 +100,13 @@ export const productUpdateReducer = (state = {}, action) => {
 	}
 };
 
+/**
+ * This reducer is implemented to
+ * to view all products for
+ * site manager
+ */
+
+
 export const viewProductListForSiteManagerReducer = (state = { product: [] }, action) => {
 	switch (action.type) {
 		case VIEW_PRODUCT_FOR_SITE_MANAGER_LIST_REQUEST:
@@ -88,6 +120,14 @@ export const viewProductListForSiteManagerReducer = (state = { product: [] }, ac
 			return state;
 	}
 };
+
+/**
+ * This reducer is implemented to
+ * to view all products for
+ * staff
+ */
+
+
 
 export const viewProductListForStaffReducer = (state = { product: [] }, action) => {
 	switch (action.type) {

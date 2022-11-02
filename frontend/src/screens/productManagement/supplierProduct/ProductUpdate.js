@@ -19,6 +19,7 @@ export default function ProductUpdate({ match }) {
 	const supplier_Login = useSelector((state) => state.supplier_Login);
 	const { supplierInfo } = supplier_Login;
 
+	//update supplier material
 	const productUpdate = useSelector((state) => state.productUpdate);
 	const { loading, error } = productUpdate;
 
@@ -37,6 +38,7 @@ export default function ProductUpdate({ match }) {
 		fetching();
 	}, [match.params.id]);
 
+	//call the action to update material
 	const updateHandler = (e) => {
 		e.preventDefault();
 		dispatch(updateProductAction(match.params.id, supplierInfo._id, productName, productPrice, productDescription));

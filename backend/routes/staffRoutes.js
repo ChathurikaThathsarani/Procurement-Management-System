@@ -31,6 +31,8 @@ router.route("/site-managers/get").get(protect, getSiteManagers);
 router.route("/product-staff/get").get(protect, getStaffOrders);
 router.route("/product-staff/get/:id").get(protect, getStaffOneOrder);
 router.route("/product-staff/approve/:id").put(protect, StaffOrderToApproved);
+router.route("/supplier_product").get(protect, getSupplierProductToStaff);
+
 
 // good receipt management routes
 router.route("/good-receipt/create").post(protect, createGoodReceipt);
@@ -43,6 +45,7 @@ router.route("/invoices").get(protect, getInvoices);
 // order management routes
 router.route("/placed-orders").get(protect, receiptForOrders);
 router.route("/order/:id").get(protect, getOneOrder);
-router.route("/supplier_product").get(protect, getSupplierProductToStaff);
+
+
 
 module.exports = router;

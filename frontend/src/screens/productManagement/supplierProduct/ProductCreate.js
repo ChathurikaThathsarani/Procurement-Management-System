@@ -16,6 +16,7 @@ export default function ProductCreate({ history }) {
 	const [productPrice, setProductPrice] = useState("");
 	const [productDescription, setProductDescription] = useState([]);
 
+	//create supplier new material
 	useEffect(() => {
 		const fetching = async () => {
 			const { data } = await axios.get(`user/supplier/product/create`, {
@@ -32,6 +33,7 @@ export default function ProductCreate({ history }) {
 	const productCreate = useSelector((state) => state.productCreate);
 	const { loading, error } = productCreate;
 
+	// call the action to create new material
 	const submitHandler = (e) => {
 		e.preventDefault();
 

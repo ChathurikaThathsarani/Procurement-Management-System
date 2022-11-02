@@ -1,5 +1,9 @@
-const mongoose = require("mongoose");
+/**
+ * This model is implemented for
+ * the product management
+ */
 
+const mongoose = require("mongoose");
 const productSchema = mongoose.Schema(
 	{
 		supplier: {

@@ -39,6 +39,8 @@ router.route("/orders/draft/products/:id").get(protect, getProductListOfSupplier
 router.route("/order/pending/:id").put(protect, draftOrderToPending);
 router.route("/orders/:id").get(protect, getOrders);
 router.route("/order/approved/:id").put(protect, pendingOrderToApproved);
+
+// product management routes
 router.route("/supplier/supplier_product").get(protect, getSupplierProduct);
 
 module.exports = router;
