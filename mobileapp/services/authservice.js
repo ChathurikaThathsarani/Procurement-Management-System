@@ -2,6 +2,7 @@ import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { api_base_url, autheader } from "./utils";
 
+//login function
 const login = async (nic, password) => {
   try {
     const config = {
@@ -25,6 +26,7 @@ const login = async (nic, password) => {
   }
 };
 
+//register function
 const register = async (
   name,
   dob,
@@ -71,6 +73,7 @@ const register = async (
   }
 };
 
+//auth function
 const authenticationservice = {
   login,
   register,

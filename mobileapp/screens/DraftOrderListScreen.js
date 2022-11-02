@@ -4,8 +4,10 @@ import { ListItem, Icon, Button } from "@rneui/themed";
 import orderservice from "../services/orderservice";
 
 const DraftOrderListScreen = ({ navigation }) => {
+  //set initial states
   const [orderList, setOrderList] = useState([]);
 
+  //react use effect hook
   useEffect(() => {
     setOrderList([]);
 
@@ -18,6 +20,7 @@ const DraftOrderListScreen = ({ navigation }) => {
       .catch((e) => console.log(e));
   }, []);
 
+  //delete function call
   async function onDelete(id) {
     Alert.alert(
       "Delete",
@@ -32,6 +35,7 @@ const DraftOrderListScreen = ({ navigation }) => {
         {
           text: "Confirm",
           onPress: async () => {
+            //call backend function delete order
             await orderservice.deleteDraftOrder(id);
             setOrderList(orderList.filter((item) => item._id != id));
           },
@@ -41,6 +45,7 @@ const DraftOrderListScreen = ({ navigation }) => {
     );
   }
 
+  //render mobile view
   return (
     <>
       <ScrollView style={styles.con}>
@@ -105,6 +110,7 @@ const DraftOrderListScreen = ({ navigation }) => {
 };
 
 export default DraftOrderListScreen;
+//adeed styles
 const styles = StyleSheet.create({
   con: {
     padding: 10,
