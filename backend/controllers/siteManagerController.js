@@ -1,9 +1,17 @@
+/**
+ * This controller is implemented for
+ * the site manager user management
+ */
 const asyncHandler = require("express-async-handler");
 const SiteManager = require("../models/siteManagerModel");
 const {} = require("../routes/siteManagerRoutes");
 const generateToken = require("../utils/generateToken");
 const bcrypt = require("bcryptjs");
 
+/**
+ * This method is implemented to
+ * register a site manager to the system
+ */
 const registerSiteManager = asyncHandler(async (req, res) => {
 	const { siteManagerId, name, dob, nic, gender, telephone, address, email, password, pic, experience } = req.body;
 
@@ -54,6 +62,10 @@ const registerSiteManager = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * login site manager to the system
+ */
 const authSiteManager = asyncHandler(async (req, res) => {
 	const { nic, password } = req.body;
 
@@ -87,11 +99,19 @@ const authSiteManager = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * get all site managers
+ */
 const getSiteManagers = asyncHandler(async (req, res) => {
 	const siteManagers = await SiteManager.find();
 	res.json(siteManagers);
 });
 
+/**
+ * This method is implemented to
+ * view the site manager account by the site manager
+ */
 const getSiteManagerProfile = asyncHandler(async (req, res) => {
 	const siteManager = await SiteManager.findById(req.siteManager._id);
 
@@ -103,6 +123,10 @@ const getSiteManagerProfile = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * view the site manager account by staff
+ */
 const getSiteManagerProfileById = asyncHandler(async (req, res) => {
 	const siteManager = await SiteManager.findById(req.params._id);
 
@@ -114,6 +138,10 @@ const getSiteManagerProfileById = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * update site manager account
+ */
 const updateSiteManagerProfile = asyncHandler(async (req, res) => {
 	const siteManager = await SiteManager.findById(req.siteManager._id);
 
@@ -154,6 +182,10 @@ const updateSiteManagerProfile = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * update site manager account by the staff
+ */
 const updateSiteManagerProfileById = asyncHandler(async (req, res) => {
 	const siteManager = await SiteManager.findById(req.params._id);
 
@@ -194,6 +226,10 @@ const updateSiteManagerProfileById = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * delete site manager account
+ */
 const deleteSiteManagerProfile = asyncHandler(async (req, res) => {
 	const siteManager = await SiteManager.findById(req.siteManager._id);
 
@@ -206,6 +242,10 @@ const deleteSiteManagerProfile = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * delete a site manager account by staff
+ */
 const deleteSiteManagerProfileById = asyncHandler(async (req, res) => {
 	const siteManager = await SiteManager.findById(req.params._id);
 

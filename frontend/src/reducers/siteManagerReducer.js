@@ -1,3 +1,7 @@
+/**
+*These are the reducers of site manager 
+*which keeps states of the site manager actions
+ */
 import {
 	SITE_MANGER_LOGIN_FAIL,
 	SITE_MANGER_LOGIN_REQUEST,
@@ -8,6 +12,10 @@ import {
 	SITE_MANAGER_REGISTER_SUCCESS,
 } from "../constants/siteManagerConstant";
 
+/**
+ * This reducer is implemented to
+ * login a site manager
+ */
 export const siteMangerLoginReducer = (state = {}, action) => {
 	switch (action.type) {
 		case SITE_MANGER_LOGIN_REQUEST:
@@ -24,6 +32,10 @@ export const siteMangerLoginReducer = (state = {}, action) => {
 	}
 };
 
+/**
+ * This reducer is implemented to
+ * register a site manager
+ */
 export const siteManagerRegisterReducer = (state = {}, action) => {
 	switch (action.type) {
 		case SITE_MANAGER_REGISTER_REQUEST:

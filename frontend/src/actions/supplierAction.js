@@ -1,3 +1,8 @@
+/*
+*These are the front end actions to 
+*manage a supplier account these frontend actions calls the backend routes and then these 
+*actions connect frontend and backend
+*/
 import {
 	SUPPLIER_LOGIN_FAIL,
 	SUPPLIER_LOGIN_REQUEST,
@@ -10,6 +15,10 @@ import {
 import axios from "axios";
 import swal from "sweetalert";
 
+/**
+ * This action is implemented to
+ * to login a supplier to their account
+ */
 export const supplierLogin = (nic, password) => async (dispatch) => {
 	try {
 		dispatch({ type: SUPPLIER_LOGIN_REQUEST });
@@ -42,6 +51,10 @@ export const supplierLogin = (nic, password) => async (dispatch) => {
 	}
 };
 
+/**
+ * This action is implemented to
+ * to pass the access permission to the do the other functionalities 
+ */
 export function authHeader() {
 	let supplier = JSON.parse(localStorage.getItem("supplierInfo"));
 
@@ -52,11 +65,19 @@ export function authHeader() {
 	}
 }
 
+/**
+ * This action is implemented to
+ * to log out a supplier from the account
+ */
 export const supplierLogout = () => async (dispatch) => {
 	localStorage.removeItem("supplierInfo");
 	dispatch({ type: SUPPLIER_LOGOUT });
 };
 
+/**
+*This action is implemented to
+*create a new supplier account
+*/
 export const supplierRegister =
 	(
 		supplierId,

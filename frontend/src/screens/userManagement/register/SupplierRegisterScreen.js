@@ -7,6 +7,8 @@ import { supplierRegister } from "../../../actions/supplierAction";
 import MainScreen from "../../../components/MainScreen";
 
 const SupplierRegisterScreen = () => {
+
+	//set initial states
 	const [supplierId, setSupplierId] = useState("");
 	const [ownerName, setOwnerName] = useState("");
 	const [dob, setDob] = useState("");
@@ -23,13 +25,16 @@ const SupplierRegisterScreen = () => {
 	const [message, setMessage] = useState("");
 	const [picMessage, setPicMessage] = useState(null);
 
+	//use redux dispatch hook to access redux state store
 	const dispatch = useDispatch();
 	const supplierRegistration = useSelector((state) => state.supplierRegistration);
 	const { loading, error } = supplierRegistration;
 
+	//get staff login details from store
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
+	//submit details
 	const submitHandler = async (e) => {
 		e.preventDefault();
 
@@ -55,6 +60,7 @@ const SupplierRegisterScreen = () => {
 		}
 	};
 
+	//add demo data
 	const demoHandler = async (e) => {
 		e.preventDefault();
 
@@ -70,6 +76,7 @@ const SupplierRegisterScreen = () => {
 		setSuppliyingMaterials("Sand");
 	};
 
+	//reset data added
 	const resetHandler = async (e) => {
 		e.preventDefault();
 
@@ -84,6 +91,8 @@ const SupplierRegisterScreen = () => {
 		setEmail("");
 		setSuppliyingMaterials("");
 	};
+
+	//post picture details
 	const postDetails = (pics) => {
 		if (pics === "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg") {
 			return setPicMessage("Please Select an Image");
@@ -110,7 +119,9 @@ const SupplierRegisterScreen = () => {
 		}
 	};
 
+	//check staff access permission
 	if (staffInfo) {
+		//render screen
 		return (
 			<div className="registerBg">
 				<br></br>

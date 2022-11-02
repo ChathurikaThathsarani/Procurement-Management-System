@@ -1,3 +1,7 @@
+/**
+*These are the reducers of supplier
+*which keeps states of the supplier actions
+*/
 import {
 	SUPPLIER_LOGIN_FAIL,
 	SUPPLIER_LOGIN_REQUEST,
@@ -8,6 +12,10 @@ import {
 	SUPPLIER_REGISTER_SUCCESS,
 } from "../constants/supplierConstant";
 
+/**
+ * This reducer is implemented to
+ * login a supplier
+ */
 export const supplierLoginReducer = (state = {}, action) => {
 	switch (action.type) {
 		case SUPPLIER_LOGIN_REQUEST:
@@ -24,6 +32,10 @@ export const supplierLoginReducer = (state = {}, action) => {
 	}
 };
 
+/**
+ * This reducer is implemented to
+ * register a site manager
+ */
 export const supplierRegisterReducer = (state = {}, action) => {
 	switch (action.type) {
 		case SUPPLIER_REGISTER_REQUEST:

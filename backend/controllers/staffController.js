@@ -1,3 +1,7 @@
+/**
+ * This controller is implemented for
+ * the staff user management
+ */
 const asyncHandler = require("express-async-handler");
 const Staff = require("../models/staffModel");
 const {} = require("../routes/staffRoutes");
@@ -6,6 +10,10 @@ const {} = require("../routes/siteManagerRoutes");
 const generateToken = require("../utils/generateToken");
 const bcrypt = require("bcryptjs");
 
+/**
+ * This method is implemented to
+ * create a staff account
+ */
 const registerStaff = asyncHandler(async (req, res) => {
 	const { staffId, name, dob, nic, telephone, address, email, password, pic, qualifications, experience } = req.body;
 
@@ -57,6 +65,10 @@ const registerStaff = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * login to a staff account
+ */
 const authStaff = asyncHandler(async (req, res) => {
 	const { nic, password } = req.body;
 
@@ -91,6 +103,10 @@ const authStaff = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * get own staff account
+ */
 const getStaffProfile = asyncHandler(async (req, res) => {
 	const staff = await Staff.findById(req.staff._id);
 
@@ -102,6 +118,10 @@ const getStaffProfile = asyncHandler(async (req, res) => {
 	}
 });
 
+/**
+ * This method is implemented to
+ * update a staff account
+ */
 const updateStaffProfile = asyncHandler(async (req, res) => {
 	const staff = await Staff.findById(req.staff._id);
 

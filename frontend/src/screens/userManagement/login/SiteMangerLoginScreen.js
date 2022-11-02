@@ -8,19 +8,24 @@ import { siteManagerLogin } from "../../../actions/siteManagerAction";
 import "./LoginScreen.css";
 
 const SiteManagerLoginScreen = () => {
+	//set initial states
 	const [nic, setNic] = useState("");
 	const [password, setPassword] = useState("");
 
+	//A hook to access the redux dispatch function.
 	const dispatch = useDispatch();
 
+	//get site manager login state from store
 	const siteManager_Login = useSelector((state) => state.siteManager_Login);
 	const { loading, error } = siteManager_Login;
 
+	//submit login details
 	const submitHandler = (e) => {
 		e.preventDefault();
 		dispatch(siteManagerLogin(nic, password));
 	};
 
+	//render screen of site manager login
 	return (
 		<div className="siteManagerLoginBg">
 			<br></br>
