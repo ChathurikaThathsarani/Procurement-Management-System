@@ -15,6 +15,7 @@ export default function OrderList() {
 	const siteManager_Login = useSelector((state) => state.siteManager_Login);
 	const { siteManagerInfo } = siteManager_Login;
 
+	// get the order list
 	const orderList = useSelector((state) => state.orderList);
 	const { loading, orders, error } = orderList;
 

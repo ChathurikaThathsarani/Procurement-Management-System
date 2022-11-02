@@ -7,6 +7,12 @@ import {
 	INVOICE_CREATE_FAIL,
 } from "../constants/invoiceConstant";
 
+/**
+ * This reducer is implemented to
+ * to get all invoices by
+ * staff
+ */
+
 export const invoiceListReducer = (state = { invoices: [] }, action) => {
 	switch (action.type) {
 		case INVOICE_LIST_REQUEST:
@@ -20,6 +26,12 @@ export const invoiceListReducer = (state = { invoices: [] }, action) => {
 			return state;
 	}
 };
+
+/**
+ * This reducer is implemented to
+ * to create invoice by
+ * staff
+ */
 
 export const invoiceCreateReducer = (state = {}, action) => {
 	switch (action.type) {

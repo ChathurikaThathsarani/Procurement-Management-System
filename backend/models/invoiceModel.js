@@ -1,5 +1,9 @@
-const mongoose = require("mongoose");
+/**
+ * This model is implemented for
+ * the invoice receipt management
+ */
 
+const mongoose = require("mongoose");
 const invoiceSchema = mongoose.Schema(
 	{
 		orderNo: {

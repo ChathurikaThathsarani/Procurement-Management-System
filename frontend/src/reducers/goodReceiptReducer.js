@@ -7,6 +7,12 @@ import {
 	GOOD_RECEIPT_CREATE_FAIL,
 } from "../constants/goodReceiptConstant";
 
+/**
+ * This reducer is implemented to
+ * to get all good receipts by
+ * staff
+ */
+
 export const goodReceiptListReducer = (state = { goodReceipts: [] }, action) => {
 	switch (action.type) {
 		case GOOD_RECEIPT_LIST_REQUEST:
@@ -20,6 +26,12 @@ export const goodReceiptListReducer = (state = { goodReceipts: [] }, action) => 
 			return state;
 	}
 };
+
+/**
+ * This reducer is implemented to
+ * to create good receipt by
+ * staff
+ */
 
 export const goodReceiptCreateReducer = (state = {}, action) => {
 	switch (action.type) {

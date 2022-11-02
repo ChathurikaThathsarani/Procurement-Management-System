@@ -9,6 +9,12 @@ import {
 import axios from "axios";
 import swal from "sweetalert";
 
+/**
+ * This action is implemented to
+ * to get all good receipts by
+ * staff
+ */
+
 export const listGoodReceipts = () => async (dispatch, getState) => {
 	try {
 		dispatch({
@@ -38,6 +44,12 @@ export const listGoodReceipts = () => async (dispatch, getState) => {
 		});
 	}
 };
+
+/**
+ * This action is implemented to
+ * to create good receipt by
+ * staff
+ */
 
 export const createGoodReceiptAction =
 	(orderNo, productName, productQuantity, deliveryDate) => async (dispatch, getState) => {

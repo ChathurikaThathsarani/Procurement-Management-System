@@ -37,6 +37,11 @@ import {
 import axios from "axios";
 import swal from "sweetalert";
 
+/**
+ * This action is implemented to
+ * to create draft order by
+ * site manager
+ */
 export const createDraftOrderAction =
 	(siteManagerId, placedDate, requiredDate, supplierName) => async (dispatch, getState) => {
 		try {
@@ -87,6 +92,11 @@ export const createDraftOrderAction =
 		}
 	};
 
+/**
+ * This action is implemented to
+ * to get all draft orders
+ * by site manager
+ */
 export const listDraftOrders = () => async (dispatch, getState) => {
 	try {
 		dispatch({
@@ -118,6 +128,11 @@ export const listDraftOrders = () => async (dispatch, getState) => {
 	}
 };
 
+/**
+ * This action is implemented to
+ * to delete draft order by
+ * site manager
+ */
 export const deleteDraftOrderAction = (id) => async (dispatch, getState) => {
 	try {
 		dispatch({
@@ -148,6 +163,13 @@ export const deleteDraftOrderAction = (id) => async (dispatch, getState) => {
 		});
 	}
 };
+
+/**
+ * This action is implemented to
+ * to convert draft order to pending
+ * order by
+ * site manager
+ */
 
 export const draftOrderToPendingOrderAction = (id, productName, productQty) => async (dispatch, getState) => {
 	try {
@@ -198,6 +220,12 @@ export const draftOrderToPendingOrderAction = (id, productName, productQty) => a
 	}
 };
 
+/**
+ * This action is implemented to
+ * to get all orders by
+ * site manager
+ */
+
 export const listOrders = () => async (dispatch, getState) => {
 	try {
 		dispatch({
@@ -228,6 +256,13 @@ export const listOrders = () => async (dispatch, getState) => {
 		});
 	}
 };
+
+/**
+ * This action is implemented to
+ * to convert pending order to
+ * pending order by
+ * site manager
+ */
 
 export const orderToApproveOrderAction = (id, status) => async (dispatch, getState) => {
 	try {
@@ -277,6 +312,12 @@ export const orderToApproveOrderAction = (id, status) => async (dispatch, getSta
 	}
 };
 
+/**
+ * This action is implemented to
+ * to get all order for
+ * selected supplier
+ */
+
 export const supplierlistOrders = () => async (dispatch, getState) => {
 	try {
 		dispatch({
@@ -307,6 +348,13 @@ export const supplierlistOrders = () => async (dispatch, getState) => {
 		});
 	}
 };
+
+/**
+ * This action is implemented to
+ * to convert approved order to
+ * placed order by
+ * supplier
+ */
 
 export const orderToPlacedOrderAction = (id, status, deleiveryDate, supplierComment) => async (dispatch, getState) => {
 	try {
@@ -357,6 +405,12 @@ export const orderToPlacedOrderAction = (id, status, deleiveryDate, supplierComm
 		});
 	}
 };
+
+/**
+ * This action is implemented to
+ * to get all placed orders by
+ * staff
+ */
 
 export const placedlistOrders = () => async (dispatch, getState) => {
 	try {

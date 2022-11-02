@@ -1,7 +1,11 @@
 const jwt = require("jsonwebtoken");
 const SiteManager = require("../models/siteManagerModel.js");
 const asyncHandler = require("express-async-handler");
-
+/**
+ * This method is implemented to
+ * to authorize the routes for
+ * site manager
+ */
 const protect = asyncHandler(async (req, res, next) => {
 	let token;
 

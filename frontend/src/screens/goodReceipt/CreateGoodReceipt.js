@@ -22,6 +22,7 @@ export default function CreateGoodReceipt({ match, history }) {
 	const goodReceiptCreate = useSelector((state) => state.goodReceiptCreate);
 	const { loading, error } = goodReceiptCreate;
 
+	// get the order id
 	useEffect(() => {
 		const fetching = async () => {
 			const { data } = await axios.get(`/user/staff/order/${match.params.id}`, {
@@ -35,6 +36,7 @@ export default function CreateGoodReceipt({ match, history }) {
 		fetching();
 	}, [match.params.id]);
 
+	// call the action to create good receipt
 	const submitHandler = (e) => {
 		e.preventDefault();
 		dispatch(createGoodReceiptAction(orderNo, productName, productQuantity, deliveryDate));

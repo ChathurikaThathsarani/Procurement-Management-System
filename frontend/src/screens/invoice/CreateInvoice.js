@@ -24,6 +24,7 @@ export default function CreateInvoice({ match, history }) {
 	const invoiceCreate = useSelector((state) => state.invoiceCreate);
 	const { loading, error } = invoiceCreate;
 
+	// get one order by id
 	useEffect(() => {
 		const fetching = async () => {
 			const { data } = await axios.get(`/user/staff/order/${match.params.id}`, {
@@ -36,6 +37,7 @@ export default function CreateInvoice({ match, history }) {
 		fetching();
 	}, [match.params.id]);
 
+	// call the action create invoice
 	const submitHandler = (e) => {
 		e.preventDefault();
 		dispatch(createInvoiceAction(orderNo, bank, branch, accountNumber, depositAmount, depositDate));

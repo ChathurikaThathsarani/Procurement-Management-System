@@ -15,6 +15,7 @@ export default function GoodReceiptList() {
 	const staff_Login = useSelector((state) => state.staff_Login);
 	const { staffInfo } = staff_Login;
 
+	// get the good receipt list
 	const goodReceiptList = useSelector((state) => state.goodReceiptList);
 	const { loading, goodReceipts, error } = goodReceiptList;
 

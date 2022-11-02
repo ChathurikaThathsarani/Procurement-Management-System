@@ -15,6 +15,7 @@ export default function DraftOrderList() {
 	const siteManager_Login = useSelector((state) => state.siteManager_Login);
 	const { siteManagerInfo } = siteManager_Login;
 
+	// get the draft order list
 	const draftOrderList = useSelector((state) => state.draftOrderList);
 	const { loading, draftOrders, error } = draftOrderList;
 
